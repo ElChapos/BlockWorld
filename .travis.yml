@@ -1,0 +1,40 @@
+language: cpp
+compiler:
+- gcc
+- clang
+- g++
+before_install:
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-add-repository ppa:zoogie/sdl2-snapshots -y; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update -qq; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -y gcc-4.8 g++-4.8 libsdl-* libglm-dev libglew-dev libboost-all-dev libsdl2-dev ; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90 ; fi
+
+
+
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then  brew update ; fi
+
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then  brew install sdl glm glew sdl2 ; fi
+- if [ "$TRAVIS_OS_NAME" == "osx" ]; then  brew install homebrew/x11/gle ; fi
+
+
+
+script:
+- autoreconf -i
+- ./configure
+- make
+
+branches:
+only:
+- master
+
+os:
+- linux
+- osx
+
+
+matrix:
+  allow_failures:
+    - os: osx
+
+sudo: true
