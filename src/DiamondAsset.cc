@@ -1,6 +1,6 @@
-#include "CubeAsset.h"
+#include "DiamondAsset.h"
 
-CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c)
+DiamondAsset::DiamondAsset(glm::vec3 p, glm::vec3 c)
 {
 	// Position of the cube
 	position = p;
@@ -16,14 +16,16 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c)
 
 	// model coordinates, origin at centre.
 	GLfloat vertex_buffer [] {
-		-0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
-		-0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
-		 0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
-		 0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
-		 0.5f + position.x, -0.5f + position.y,  0.5f + position.z,
-		 0.5f + position.x,  0.5f + position.y,  0.5f + position.z,
-		-0.5f + position.x, -0.5f + position.y,  0.5f + position.z,
-		-0.5f + position.x,  0.5f + position.y,  0.5f + position.z
+		-0.5f + position.x,  0.0f + position.y,  0.5f + position.z, //0
+		 0.0f + position.x, -0.5f + position.y,  0.0f + position.z, //1
+		 0.5f + position.x,  0.0f + position.y,  0.5f + position.z, //2
+		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z, //3
+		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z, //4
+		 0.5f + position.x,  0.0f + position.y, -0.5f + position.z, //5
+		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z, //6
+		-0.5f + position.x,  0.0f + position.y, -0.5f + position.z, //7
+		 0.5f + position.x,  0.0f + position.y, -0.5f + position.z, //8
+		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z //9
 	};
 	vertex_buffer_length = sizeof(vertex_buffer);
 
@@ -41,19 +43,15 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c)
 
 	color_buffer_length = sizeof(color_buffer);
 
-	GLuint element_buffer []  {
-		0, 1, 2,
-		1, 3, 2,
-		2, 3, 4,
-		3, 5, 4,
-		0, 2, 4,
-		6, 0, 4,
-		6, 7, 0,
-		1, 0, 7,
-		1, 7, 3,
-		7, 5, 3,
-		5, 6, 4,
-		5, 7, 6
+	GLuint element_buffer [] {
+		0,2,1,
+		3,2,0,
+		2,4,5,
+		2,5,1,
+		0,1,7,
+		6,0,7,
+		7,1,8,
+		7,8,9
 	};
 	element_buffer_length = sizeof(element_buffer);
 
@@ -81,7 +79,7 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c)
 
 }
 
-CubeAsset::~CubeAsset() {
+DiamondAsset::~DiamondAsset() {
 }
 
 #ifdef DEBUG
@@ -91,22 +89,12 @@ CubeAsset::~CubeAsset() {
 	#define checkGLError()
 #endif
 
-void checkError(std::string file, int line)
-{
-	GLenum gl_error = glGetError();
-	if(GL_NO_ERROR != gl_error)
-	{
-		std::cerr << "GL error in " << file << " at line " << line << " error: " << gl_error << std::endl;
-		exit(-1);
-	}
-}
-
-float CubeAsset::rf(){
+float DiamondAsset::rf(){
 	float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 	return r;
 }
 
-void CubeAsset::Draw(GLuint program_token)
+void DiamondAsset::Draw(GLuint program_token)
 {
 	if(!glIsProgram(program_token))
 	{
@@ -182,7 +170,7 @@ void CubeAsset::Draw(GLuint program_token)
 /**
  * Returns the vec3 of the cube
  */
-glm::vec3 CubeAsset::GetVec3()
+glm::vec3 DiamondAsset::GetVec3()
 {
 	return position;
 }

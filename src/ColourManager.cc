@@ -9,7 +9,7 @@ void ColourManager::AddColour(std::string colour, glm::vec3 rgb)
 
 glm::vec3 ColourManager::GetColour(std::string colour)
 {
-	if(m.find(colour) == m.end())
+	if(colour_list.find(colour) == colour_list.end())
 	{
 		return glm::vec3(0.0, 0.0, 0.0);
 	}

@@ -2,17 +2,13 @@
 
 GameWorld::GameWorld (ApplicationMode mode)
 {
+	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
+	
 	asset_manager = std::make_shared<GameAssetManager>(mode);
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(1000.0, 0.0, 0.0), colour_manager.COLOUR_NONE));
-	asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0, 3.0, 0.0), colour_manager.COLOUR_RED));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(1000.0, 0.0, 0.0), colour_manager.GetColour("random")));
+	asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0, 3.0, 0.0), colour_manager.GetColour("random")));
 
 	CreateShape("ground", 20);
-
-	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
-	colour_manager.AddColour("red", glm::vec3(255, 0, 0));
-	colour_manager.AddColour("green", glm::vec3(0, 255, 0));
-	colour_manager.AddColour("blue", glm::vec3(0, 0, 255));
-	colour_manager.AddColour("black", glm::vec3(0, 0, 0));
 }
 
 /**
@@ -25,13 +21,9 @@ void GameWorld::Draw()
 
 	// Resetting camera position X
 	if(camera_x >= 6.280)
-	{
 		camera_x = 0.1;
-	}
 	if(camera_x <= 0)
-	{
 		camera_x = 6.280;
-	}
 
 	// Resetting camera position Y
 	if(camera_y >= 1.5f)
@@ -90,11 +82,11 @@ void GameWorld::DoAction(int a)
 
 		if(block_type == 1)
 		{
-			asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0f + int(round(position.x)) + offset_pos.x, 0.0f + int(round(position.y)) + offset_pos.y, 0.0f + int(round(position.z)) + offset_pos.z), colour_manager.COLOUR_RANDOM));
+			asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0f + int(round(position.x)) + offset_pos.x, 0.0f + int(round(position.y)) + offset_pos.y, 0.0f + int(round(position.z)) + offset_pos.z), colour_manager.GetColour("random")));
 		}
 		else if(block_type == 2)
 		{
-			asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0f + int(round(position.x)) + offset_pos.x, 0.0f + int(round(position.y)) + offset_pos.y, 0.0f + int(round(position.z)) + offset_pos.z), colour_manager.COLOUR_RANDOM));
+			asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0f + int(round(position.x)) + offset_pos.x, 0.0f + int(round(position.y)) + offset_pos.y, 0.0f + int(round(position.z)) + offset_pos.z), colour_manager.GetColour("random")));
 		}
 
 	}
@@ -133,21 +125,13 @@ void GameWorld::CameraController(int k)
 
 	// For W A S D
 	if(k == 1) // W
-	{
 		position += z_direction * camera_speed;
-	}
 	if(k == 2) // A
-	{
 		position -= x_direction * camera_speed;
-	}
 	if(k == 3) // S
-	{
 		position -= z_direction * camera_speed;
-	}
 	if(k == 4) // D
-	{
 		position += x_direction * camera_speed;
-	}
 
 	// For Space/Control
 	if(k == 9) // Space
@@ -230,13 +214,9 @@ glm::vec3 GameWorld::GetOffset()
 	if(f_pos == "N")
 	{
 		if(camera_x < 1)
-		{
 			p = camera_x;
-		}
 		else
-		{
 			p = camera_x - point*16;
-		}
 
 		s = int(floor(p * 10));
 		z += block_dist;
@@ -294,30 +274,18 @@ glm::vec3 GameWorld::GetOffset()
 	y += s;
 
 	if(x > block_dist)
-	{
 		x = block_dist;
-	}
 	if(y > block_dist)
-	{
 		y = block_dist;
-	}
 	if(z > block_dist)
-	{
 		z = block_dist;
-	}
 
 	if(x < 0 - block_dist)
-	{
 		x = 0 - block_dist;
-	}
 	if(y < 0 - block_dist)
-	{
 		y = 0 - block_dist;
-	}
 	if(z < 0 - block_dist)
-	{
 		z = 0 - block_dist;
-	}
 
 	return glm::vec3(x, y, z);
 }
@@ -339,11 +307,11 @@ void GameWorld::CreateShape(std::string shape, int size)
 					{
 						if(block_type == 1)
 						{
-							asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.COLOUR_RANDOM));
+							asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random")));
 						}
 						else
 						{
-							asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.COLOUR_RANDOM));
+							asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random")));
 						}
 					}
 				}
@@ -362,11 +330,11 @@ void GameWorld::CreateShape(std::string shape, int size)
 				{
 					if(block_type == 1)
 					{
-						asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.COLOUR_RANDOM));
+						asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random")));
 					}
 					else
 					{
-						asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.COLOUR_RANDOM));
+						asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random")));
 					}
 				}
 			}
@@ -382,11 +350,11 @@ void GameWorld::CreateShape(std::string shape, int size)
 			{
 				if(block_type == 1)
 				{
-					asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-10.0+x, -1.0f, -10.0+z), colour_manager.COLOUR_GREEN));
+					asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-10.0+x, -1.0f, -10.0+z), colour_manager.GetColour("random")));
 				}
 				else
 				{
-					asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(-10.0+x, -1.0f, -10.0+z), colour_manager.COLOUR_GREEN));
+					asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(-10.0+x, -1.0f, -10.0+z), colour_manager.GetColour("random")));
 				}
 			}
 		}
@@ -475,7 +443,7 @@ void GameWorld::LoadMap(std::string filename)
 		{
 			for(int x = 0; x < MAP_WIDTH; x++)
 			{
-				asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(x, cube_y[i], z), colour_manager.COLOUR_GREEN));
+				asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(x, cube_y[i], z), colour_manager.GetColour("random")));
 				i++;
 
 				std::cout << "[" << i << " / " << TOTAL_BLOCKS << "]\r";

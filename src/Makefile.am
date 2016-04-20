@@ -1,10 +1,7 @@
-EXTRA_DIST = BlockColours.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h
+EXTRA_DIST = ColourManager.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h
 
-bin_PROGRAMS = BlockWorld
-BlockWorld_SOURCES = main.cc
-BlockWorld_LDADD = libblockengine.la
-
-libblockengine_la_SOURCES = BlockColours.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc
+bin_PROGRAMS = shaderexample
+shaderexample_SOURCES = main.cc ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc DiamondAsset.cc
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11

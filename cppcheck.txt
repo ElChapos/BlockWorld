@@ -1,0 +1,5 @@
+[src/GameWorld.cc:456]: (style) Unused variable: PERCENTAGE
+[src/main.cc:53]: (performance) Function parameter 'game_world' should be passed by reference.
+[src/main.cc:103]: (performance) Function parameter 'window' should be passed by reference.
+[src/main.cc:103]: (performance) Function parameter 'game_world' should be passed by reference.
+[src/GameWorld.cc:408]: (style) The function 'CheckCollision' is never used.
