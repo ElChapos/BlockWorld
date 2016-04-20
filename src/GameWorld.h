@@ -18,8 +18,7 @@
 
 #include "CubeAsset.h"
 #include "DiamondAsset.h"
-
-#include "BlockColours.h"
+#include "ColourManager.h"
 
 /**
  * GameWorld allows us to separate the management of the game world from the
@@ -49,7 +48,7 @@ class GameWorld {
 
 		glm::vec3 GetOffset();
 		
-		BlockColours colour_manager;
+		ColourManager colour_manager;
 		
 	private:
 		std::shared_ptr<GameAssetManager> asset_manager;

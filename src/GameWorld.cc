@@ -7,6 +7,12 @@ GameWorld::GameWorld (ApplicationMode mode)
 	asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0, 3.0, 0.0), colour_manager.COLOUR_RED));
 
 	CreateShape("ground", 20);
+
+	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
+	colour_manager.AddColour("red", glm::vec3(255, 0, 0));
+	colour_manager.AddColour("green", glm::vec3(0, 255, 0));
+	colour_manager.AddColour("blue", glm::vec3(0, 0, 255));
+	colour_manager.AddColour("black", glm::vec3(0, 0, 0));
 }
 
 /**
@@ -19,9 +25,13 @@ void GameWorld::Draw()
 
 	// Resetting camera position X
 	if(camera_x >= 6.280)
+	{
 		camera_x = 0.1;
+	}
 	if(camera_x <= 0)
+	{
 		camera_x = 6.280;
+	}
 
 	// Resetting camera position Y
 	if(camera_y >= 1.5f)
@@ -123,13 +133,21 @@ void GameWorld::CameraController(int k)
 
 	// For W A S D
 	if(k == 1) // W
+	{
 		position += z_direction * camera_speed;
+	}
 	if(k == 2) // A
+	{
 		position -= x_direction * camera_speed;
+	}
 	if(k == 3) // S
+	{
 		position -= z_direction * camera_speed;
+	}
 	if(k == 4) // D
+	{
 		position += x_direction * camera_speed;
+	}
 
 	// For Space/Control
 	if(k == 9) // Space
@@ -212,9 +230,13 @@ glm::vec3 GameWorld::GetOffset()
 	if(f_pos == "N")
 	{
 		if(camera_x < 1)
+		{
 			p = camera_x;
+		}
 		else
+		{
 			p = camera_x - point*16;
+		}
 
 		s = int(floor(p * 10));
 		z += block_dist;
@@ -272,18 +294,30 @@ glm::vec3 GameWorld::GetOffset()
 	y += s;
 
 	if(x > block_dist)
+	{
 		x = block_dist;
+	}
 	if(y > block_dist)
+	{
 		y = block_dist;
+	}
 	if(z > block_dist)
+	{
 		z = block_dist;
+	}
 
 	if(x < 0 - block_dist)
+	{
 		x = 0 - block_dist;
+	}
 	if(y < 0 - block_dist)
+	{
 		y = 0 - block_dist;
+	}
 	if(z < 0 - block_dist)
+	{
 		z = 0 - block_dist;
+	}
 
 	return glm::vec3(x, y, z);
 }

@@ -81,8 +81,7 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c)
 
 }
 
-CubeAsset::~CubeAsset() {
-}
+CubeAsset::~CubeAsset() { }
 
 #ifdef DEBUG
 	#define checkGLError() checkError(__FILE__, __LINE__)
