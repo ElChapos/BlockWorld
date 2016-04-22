@@ -1,4 +1,4 @@
-/*#include "PyBind.h"
+#include <boost/python.hpp>
 
 const char* HelloWorld()
 {
@@ -7,5 +7,6 @@ const char* HelloWorld()
 
 BOOST_PYTHON_MODULE(hello_world)
 {
+	using namespace boost::python;
 	def("print", HelloWorld)
-}*/
+}

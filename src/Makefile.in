@@ -257,8 +257,7 @@ LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@ $(gl_LIBS) $(glew_LIBS) $(sdl2_LIBS) \
-	$(BOOST_THREAD_LIBS) $(BOOST_PROGRAM_OPTIONS_LIBS) \
-	$(BOOST_PYTHON_LIBS)
+	$(BOOST_THREAD_LIBS) $(BOOST_PROGRAM_OPTIONS_LIBS)
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
@@ -349,6 +348,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 EXTRA_DIST = ColourManager.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h PyBind.h BoundingBox.h
+PYTHON_INCLUDE = /usr/include/python2.7
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libengine.la
 lib_LTLIBRARIES = libengine.la
