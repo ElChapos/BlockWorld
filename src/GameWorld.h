@@ -34,8 +34,6 @@ class GameWorld {
 		GameWorld(ApplicationMode);
 
 		void Draw();
-		void CameraController(int);
-		void MoveCamera(glm::vec2, glm::vec2);
 		void DoAction(int);
 		void UpdateFacingDirection();
 		void CreateShape(std::string, int);
@@ -46,30 +44,18 @@ class GameWorld {
 		bool CheckCollision(glm::vec3);
 
 		glm::vec3 GetOffset();
-		
+
 		ColourManager colour_manager;
-		
+
+		void UpdateCameraPosition(Input, int mouseX, int mouseY);
+
+
 	private:
 		std::shared_ptr<GameAssetManager> asset_manager;
 
 		int block_dist = 3;
-
-		GLfloat camera_speed = 0.1;
-		GLfloat camera_x = 0.0;
-		GLfloat camera_y = 0.0;
-
 		double point = 0.39375;
-
 		std::string f_pos = "N";
-
-		glm::vec3 offset_pos;
-		glm::vec3 position = glm::vec3(0, 0, -3);
-		glm::vec3 z_direction;
-		glm::vec3 x_direction;
-		
-		glm::mat4 cam_proj;
-		glm::mat4 cam_view;
-
 		int block_type = 1;
 };
 
