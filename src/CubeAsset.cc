@@ -6,7 +6,7 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c)
 	position = p;
 
 	// Setup the bounding box
-	BoundingBox bounding_box(p);
+	bounding_box.SetBounds(p);
 
 	if(glm::to_string(c) == glm::to_string(glm::vec3(-0.1, -0.1, -0.1)))
 	{
@@ -188,4 +188,9 @@ void CubeAsset::Draw(GLuint program_token)
 glm::vec3 CubeAsset::GetVec3()
 {
 	return position;
+}
+
+bool CubeAsset::CollidesWith(glm::vec3 pos)
+{
+	return bounding_box.CollidesWith(pos);
 }

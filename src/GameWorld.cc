@@ -5,10 +5,9 @@ GameWorld::GameWorld (ApplicationMode mode)
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 	
 	asset_manager = std::make_shared<GameAssetManager>(mode);
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(1000.0, 0.0, 0.0), colour_manager.GetColour("random")));
-	asset_manager->AddAssetDiamond(std::make_shared<DiamondAsset>(glm::vec3(0.0, 3.0, 0.0), colour_manager.GetColour("random")));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random")));
 
-	CreateShape("ground", 20);
+	//CreateShape("ground", 20);
 }
 
 /**
@@ -112,32 +111,39 @@ void GameWorld::DoAction(int a)
 */
 void GameWorld::CameraController(int k)
 {
+	bool is_colliding = false;
+
 	std::vector<std::shared_ptr<CubeAsset>> asset_list = asset_manager->GetAssets();
 	for(int i = 0; i < asset_list.size(); i++)
 	{
 		CubeAsset c = *asset_list[i];
-		if(CheckCollision(c.GetVec3()))
+		if(c.CollidesWith(position))
 		{
 			std::cout << "[P]Detected collision with cube at: (X: " << position.x << ", Y: " << position.y << ", Z: " << position.z << ")" << std::endl;
 			std::cout << "[C]Detected collision with cube at: (X: " << c.GetVec3().x << ", Y: " << c.GetVec3().y << ", Z: " << c.GetVec3().z << ")" << std::endl;
+
+			is_colliding = true;
 		}
 	}
 
-	// For W A S D
-	if(k == 1) // W
-		position += z_direction * camera_speed;
-	if(k == 2) // A
-		position -= x_direction * camera_speed;
-	if(k == 3) // S
-		position -= z_direction * camera_speed;
-	if(k == 4) // D
-		position += x_direction * camera_speed;
+	if(!is_colliding)
+	{
+		// For W A S D
+		if(k == 1) // W
+			position += z_direction * camera_speed;
+		if(k == 2) // A
+			position -= x_direction * camera_speed;
+		if(k == 3) // S
+			position -= z_direction * camera_speed;
+		if(k == 4) // D
+			position += x_direction * camera_speed;
 
-	// For Space/Control
-	if(k == 9) // Space
-		position.y += 0.5f * camera_speed;
-	if(k == 10) // Control
-		position.y -= 0.5f * camera_speed;
+		// For Space/Control
+		if(k == 9) // Space
+			position.y += 0.5f * camera_speed;
+		if(k == 10) // Control
+			position.y -= 0.5f * camera_speed;
+	}
 
 }
 
