@@ -7,6 +7,7 @@
 #include <glm/ext.hpp>
 
 #include "GameAsset.h"
+#include "BoundingBox.h"
 
 class CubeAsset : public GameAsset
 {
