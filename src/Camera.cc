@@ -22,8 +22,10 @@ Camera::Camera(){
 	  cameraMovementSpeed = 0.25;
 }
 
-
-
+glm::vec3 Camera::getCameraPosition(){
+std::cout <<  "returning camera" << std::endl;
+return cameraPosition;
+}
 
 // Updates the cameras position based on user input, if a change is detected the view matrix is updated and returned to be used by the translate shader
 glm::mat4 Camera::UpdateCameraPosition(Input input_Direction, int mouseX, int mouseY){

@@ -19,7 +19,8 @@ void BoundingBox::SetBounds(glm::vec3 pos)
 **/
 bool BoundingBox::CollidesWith(glm::vec3 pos)
 {
-	glm::vec3 player_pos = glm::vec3(round(pos.x), round(pos.y),round(pos.z));
+	glm::vec3 player_pos = camera.getCameraPosition();
+	//glm::vec3(round(pos.x), round(pos.y),round(pos.z));
 	glm::vec3 box_pos = glm::vec3(round(GetVec3().x), round(GetVec3().y), round(GetVec3().z));
 
 	std::cout << "PP: " << glm::to_string(player_pos) << " - BP: " << glm::to_string(box_pos) << std::endl;

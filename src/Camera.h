@@ -8,9 +8,9 @@ class Camera{
 public:
 	Camera();
 	glm::mat4 UpdateCameraPosition(Input input_Direction, int mouseX, int mouseY);
+    glm::vec3 getCameraPosition();
 
 private:
-
 
 	glm::vec3 cameraPosition;
 
@@ -20,13 +20,11 @@ private:
 
  	float horizontalAngle;
  	float verticalAngle;
- 
+
 	float mouseDeltaX;
 	float mouseDeltaY;
 
 	float cameraMovementSpeed;
-
-
 };
 
 
