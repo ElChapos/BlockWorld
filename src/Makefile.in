@@ -135,7 +135,8 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libengine_la_LIBADD =
 am_libengine_la_OBJECTS = ColourManager.lo GameWorld.lo \
-	GameAssetManager.lo CubeAsset.lo BoundingBox.lo Camera.lo
+	GameAssetManager.lo CubeAsset.lo GameAsset.lo BoundingBox.lo \
+	Camera.lo
 libengine_la_OBJECTS = $(am_libengine_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -350,7 +351,7 @@ EXTRA_DIST = ColourManager.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsse
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libengine.la
 lib_LTLIBRARIES = libengine.la
-libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc BoundingBox.cc Camera.cc
+libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc GameAsset.cc BoundingBox.cc Camera.cc
 libengine_la_LDFLAGS = -version-info 0:1
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -489,6 +490,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Camera.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ColourManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CubeAsset.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAssetManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameWorld.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@

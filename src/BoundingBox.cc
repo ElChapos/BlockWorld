@@ -1,22 +1,32 @@
 #include "BoundingBox.h"
 
-BoundingBox::BoundingBox()
+BoundingBox::BoundingBox(glm::vec3 position)
 {
+	this->position = position;
+
+		std::cout << "Setup BoundingBox at [" << glm::to_string(position) << "]" << std::endl;
 }
+
+
 
 /**
 * Sets up the bounding box for an asset by storing it in bounding_box
 **/
+
+/*
 void BoundingBox::SetBounds(glm::vec3 pos)
 {
 
 	bounding_box = pos;
 	std::cout << "Setup BoundingBox at [" << glm::to_string(bounding_box) << "]" << std::endl;
 }
+*/
 
 /**
 * Checks BoundingBox collisions
 **/
+
+/*
 bool BoundingBox::CollidesWith(glm::vec3 pos)
 {
 	glm::vec3 player_pos = glm::vec3(round(pos.x), round(pos.y),round(pos.z));
@@ -35,4 +45,4 @@ bool BoundingBox::CollidesWith(glm::vec3 pos)
 glm::vec3 BoundingBox::GetVec3()
 {
 	return bounding_box;
-}
+}*/

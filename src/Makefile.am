@@ -5,7 +5,7 @@ shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libengine.la
 
 lib_LTLIBRARIES = libengine.la
-libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc BoundingBox.cc Camera.cc
+libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc GameAsset.cc BoundingBox.cc Camera.cc
 libengine_la_LDFLAGS = -version-info 0:1
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
