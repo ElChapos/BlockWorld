@@ -4,9 +4,6 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c) : GameAsset(p) {
 	// Position of the cube
 	position = p;
 
-	// Setup the bounding box
-	//bounding_box.SetBounds(p);
-
 	if(glm::to_string(c) == glm::to_string(glm::vec3(-0.1, -0.1, -0.1)))
 	{
 		c = glm::vec3(rf(),rf(),rf());
@@ -188,10 +185,3 @@ glm::vec3 CubeAsset::GetVec3()
 {
 	return position;
 }
-
-/*
-bool CubeAsset::CollidesWith(glm::vec3 pos)
-{
-	return bounding_box.CollidesWith(pos);
-}
-*/
