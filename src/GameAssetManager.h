@@ -11,10 +11,7 @@
 
 #include "common.h"
 #include "GameAsset.h"
-
 #include "CubeAsset.h"
-#include "DiamondAsset.h"
-#include "Camera.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
@@ -34,8 +31,7 @@ class GameAssetManager {
 		void AddAssetDiamond(std::shared_ptr<GameAsset>);
 		void RemoveAsset(glm::vec3, glm::vec3);
 		void RemoveAll();
-		void Draw();
-        void UpdateCameraPosition(Input, int mouseX, int mouseY);
+		void Draw(glm::mat4, glm::mat4);
 
 		std::vector<std::shared_ptr<CubeAsset>> GetAssets();
 
@@ -50,19 +46,6 @@ class GameAssetManager {
 		std::vector<std::shared_ptr<GameAsset>> draw_list;
 		std::vector<std::shared_ptr<CubeAsset>> asset_list;
 		GLuint program_token;
-		Camera camera;
-
-        GLuint translateMatrix_link;
-        GLuint viewMatrix_link;
-        GLuint projectionMatrix_link;
-
-        glm::mat4 translateMatrix;
-        glm::mat4 viewMatrix;
-        glm::mat4 projectionMatrix;
-
-        GLuint cameraPositionX;
-
-        GLuint cameraPositionZ;
 };
 
 #endif // GAMEASSETMANAGER_H

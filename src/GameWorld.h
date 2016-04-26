@@ -13,10 +13,10 @@
 #include <glm/ext.hpp>
 
 #include "common.h"
+#include "Camera.h"
 #include "GameAssetManager.h"
 #include "GameAsset.h"
 #include "CubeAsset.h"
-#include "DiamondAsset.h"
 #include "ColourManager.h"
 
 /**
@@ -34,29 +34,21 @@ class GameWorld {
 		GameWorld(ApplicationMode);
 
 		void Draw();
-		void DoAction(int);
-		void UpdateFacingDirection();
 		void CreateShape(std::string, int);
-		void ChangeBlockDist(int);
+		void HandleInput(std::string, int);
+        void MoveCamera(glm::vec2, glm::vec2);
 		void LoadMap(std::string);
-		void SetBlockType(int);
-
-		bool CheckCollision(glm::vec3);
-
-		glm::vec3 GetOffset();
-
-		ColourManager colour_manager;
-
-		void UpdateCameraPosition(Input, int mouseX, int mouseY);
-
-
+		
 	private:
 		std::shared_ptr<GameAssetManager> asset_manager;
 
-		int block_dist = 3;
-		double point = 0.39375;
-		std::string f_pos = "N";
 		int block_type = 1;
+		
+		glm::vec3 offset_pos;
+
+		ColourManager colour_manager;
+		
+		Camera camera_controller;
 };
 
 #endif // GAMEWORLD_H

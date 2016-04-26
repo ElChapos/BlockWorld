@@ -135,8 +135,7 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libengine_la_LIBADD =
 am_libengine_la_OBJECTS = ColourManager.lo GameWorld.lo \
-	GameAssetManager.lo Camera.lo CubeAsset.lo DiamondAsset.lo \
-	BoundingBox.lo
+	GameAssetManager.lo CubeAsset.lo BoundingBox.lo Camera.lo
 libengine_la_OBJECTS = $(am_libengine_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -262,6 +261,7 @@ LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
+LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
@@ -337,6 +337,7 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
+runstatedir = @runstatedir@
 sbindir = @sbindir@
 sdl2_CFLAGS = @sdl2_CFLAGS@
 sdl2_LIBS = @sdl2_LIBS@
@@ -347,11 +348,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = ColourManager.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h DiamondAsset.h Camera.h BoundingBox.h
+EXTRA_DIST = ColourManager.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h BoundingBox.h Camera.h
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libengine.la
 lib_LTLIBRARIES = libengine.la
-libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc Camera.cc CubeAsset.cc DiamondAsset.cc BoundingBox.cc
+libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc BoundingBox.cc Camera.cc
 libengine_la_LDFLAGS = -version-info 0:1
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -490,7 +491,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Camera.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ColourManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CubeAsset.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DiamondAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAssetManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameWorld.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
