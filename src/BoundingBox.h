@@ -10,7 +10,8 @@ class BoundingBox {
 	public:
 		BoundingBox(glm::vec3);
 
+		glm::vec3 GetVec3();
+
 	private:
 		glm::vec3 position;
-
 };
