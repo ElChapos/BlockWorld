@@ -47,8 +47,9 @@ class GameWorld {
 		glm::vec3 offset_pos;
 
 		ColourManager colour_manager;
-		
 		Camera camera_controller;
+		
+		std::shared_ptr<CubeAsset> test_asset;
 };
 
 #endif // GAMEWORLD_H

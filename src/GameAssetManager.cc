@@ -92,14 +92,6 @@ void GameAssetManager::AddAsset(std::shared_ptr<CubeAsset> cube_asset)
 		draw_list.push_back(the_asset);
 	}
 }
-/**
- * Adds a GameAsset to the scene graph.
- * THIS ADDS A DIAMOND ASSET, BUT DOES NOT GIVE IT THE SAME FUNCTIONALITY AS CUBEASSET
- */
-void GameAssetManager::AddAssetDiamond(std::shared_ptr<GameAsset> diamond_asset)
-{
-	draw_list.push_back(diamond_asset);
-}
 
 /**
  * Removes all of the assets from the world

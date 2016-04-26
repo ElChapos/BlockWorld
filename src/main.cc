@@ -75,22 +75,28 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
 		game_world->HandleInput("camera_code", 9); // player: +y ("fly" up)
 	if(KEYBOARD_INPUT[SDL_SCANCODE_LCTRL])
 		game_world->HandleInput("camera_code", 10); // player: -y ("fly" down)
-
+		
+	// Block placement handler
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
 		game_world->HandleInput("asset_management", 1); 
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_RIGHT))
-		game_world->HandleInput("asset_management", 2); 
+		game_world->HandleInput("asset_management", 2);
+		 
+	// Fun handler
 	if(KEYBOARD_INPUT[SDL_SCANCODE_G])
 		game_world->HandleInput("asset_management", 3);
 	if(KEYBOARD_INPUT[SDL_SCANCODE_H])
 		game_world->HandleInput("asset_management", 4);
-
-	if(KEYBOARD_INPUT[SDL_SCANCODE_1])
-		game_world->HandleInput("block_type", 1);
-	
+	if(KEYBOARD_INPUT[SDL_SCANCODE_I])
+		game_world->HandleInput("test_translation", 0);
 	if(KEYBOARD_INPUT[SDL_SCANCODE_J])
 		game_world->LoadMap("heightmap.ppm");
 
+	// Toggle blocktypes
+	if(KEYBOARD_INPUT[SDL_SCANCODE_1])
+		game_world->HandleInput("block_type", 1);
+
+	// Change block place distance
 	if(KEYBOARD_INPUT[SDL_SCANCODE_E])
 		game_world->HandleInput("block_distance", 1);
 	if(KEYBOARD_INPUT[SDL_SCANCODE_Q])

@@ -7,7 +7,6 @@
 #include <glm/ext.hpp>
 
 #include "GameAsset.h"
-//#include "BoundingBox.h"
 
 class CubeAsset : public GameAsset
 {
@@ -19,13 +18,14 @@ class CubeAsset : public GameAsset
 
 		float rf();
 		glm::vec3 GetVec3();
-		//bool CollidesWith(glm::vec3 pos); 
+		
+		void Translate(glm::vec3); 
 
 	private:
 		glm::vec3 position;
 		GLuint element_buffer_length, vertex_buffer_length, color_buffer_length;
 		GLuint vertex_buffer_token, element_buffer_token, color_buffer_token;
-		//BoundingBox bounding_box;
+		
 };
 
 #endif // CUBEASSET_H

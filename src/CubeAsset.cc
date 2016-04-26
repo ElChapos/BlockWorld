@@ -179,6 +179,45 @@ void CubeAsset::Draw(GLuint program_token)
 }
 
 /**
+ * This will be used to translate the CubeAsset to a new position
+ */
+void CubeAsset::Translate(glm::vec3 position)
+{
+	// model coordinates, origin at centre.
+	GLfloat vertex_buffer [] {
+		-0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
+		-0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
+		 0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
+		 0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
+		 0.5f + position.x, -0.5f + position.y,  0.5f + position.z,
+		 0.5f + position.x,  0.5f + position.y,  0.5f + position.z,
+		-0.5f + position.x, -0.5f + position.y,  0.5f + position.z,
+		-0.5f + position.x,  0.5f + position.y,  0.5f + position.z
+	};
+	vertex_buffer_length = sizeof(vertex_buffer);
+	
+	// Send over GLfloats for the triangles
+	glGenBuffers(1, &vertex_buffer_token);
+	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
+	glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer, GL_STATIC_DRAW);
+	
+	// use the previously transferred buffer as the vertex array.  This way
+	// we transfer the buffer once -- at construction -- not on every frame.
+	glEnableVertexAttribArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
+	glVertexAttribPointer(
+		0,				/* attribute */
+		3,				/* size */
+		GL_FLOAT,		/* type */
+		GL_FALSE,		/* normalized? */
+		0,				/* stride */
+		(void*)0		/* array buffer offset */
+	);
+	glEnableVertexAttribArray(1);
+	checkGLError();
+}
+
+/**
  * Returns the vec3 of the cube
  */
 glm::vec3 CubeAsset::GetVec3()
