@@ -73,10 +73,11 @@ void GameWorld::HandleInput(std::string action, int code)
 	}
 	else if(action == "test_translation")
 	{	
-		float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-		auto translate_position = glm::vec3(r, r, r);
+		float x = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		float y = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		float z = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		
-		std::cout << "Generating some fun: " << glm::to_string(translate_position) << std::endl;
+		auto translate_position = glm::vec3(x, y, z);
 		
 		test_asset->Translate(translate_position);
 	}
