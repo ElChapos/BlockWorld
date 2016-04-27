@@ -20,21 +20,21 @@ glm::mat4 BoundingBox::GetModelTransformation()
         //this->Rotate();
 	}
     else if(this->type == 3){
-        this->Scale();
+       // this->Scale();
         }
 
 
-   // glm::mat4 scale_matrix = glm::scale(glm::vec3(scale, scale, scale));
+    glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
 
-	glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(position));
+	glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->position));
 
-	//model_matrix = translate_matrix * scale_matrix;
+	model_matrix = translate_matrix * scale_matrix;
 
-    //model_matrix = glm::rotate(model_matrix, rotation.x, glm::vec3(1, 0, 0));
-	//model_matrix = glm::rotate(model_matrix, rotation.y, glm::vec3(0, 1, 0));
-	//model_matrix = glm::rotate(model_matrix, rotation.z, glm::vec3(0, 0, 1));
+    model_matrix = glm::rotate(model_matrix, this->rotation.x, glm::vec3(1, 0, 0));
+	model_matrix = glm::rotate(model_matrix, this->rotation.y, glm::vec3(0, 1, 0));
+    model_matrix = glm::rotate(model_matrix, this->rotation.z, glm::vec3(0, 0, 1));
 
-	return translate_matrix;
+	return model_matrix;
 }
 
 /**
