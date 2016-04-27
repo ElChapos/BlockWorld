@@ -162,8 +162,6 @@ void GameAssetManager::Draw(glm::mat4 cam_proj, glm::mat4 cam_view)
 
 		glUniformMatrix4fv(cam_proj_loc, 1, GL_FALSE, &cam_proj[0][0]);
 		glUniformMatrix4fv(cam_view_loc, 1, GL_FALSE, &cam_view[0][0]);
-
-		cam_mod = ga->GetModelTransformation();
 		glUniformMatrix4fv(cam_mod_loc, 1, GL_FALSE, &cam_mod[0][0]);
 
 		ga->Draw(program_token);

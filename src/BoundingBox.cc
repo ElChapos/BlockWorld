@@ -7,12 +7,37 @@ BoundingBox::BoundingBox(glm::vec3 position)
 
 glm::mat4 BoundingBox::GetModelTransformation()
 {
-	this->position += 1;
 	glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(position));
-
 	return translate_matrix;
 }
 
+/**
+ * Used to translate
+ */
+void BoundingBox::Translate(glm::vec3 position)
+{
+	std::cout << "To-do: Add Code in BoundingBox::Translate()" << std::endl;
+}
+
+/**
+ * Used to scale
+ */
+void BoundingBox::Scale(int code)
+{
+	std::cout << "To-do: Add Code in BoundingBox::Scale()" << std::endl;
+}
+
+/**
+ * Used to rotate
+ */
+void BoundingBox::Rotate()
+{
+	std::cout << "To-do: Add Code in BoundingBox::Rotate()" << std::endl;
+}
+
+/**
+ * Get vec3 for bbox
+ */
 glm::vec3 BoundingBox::GetVec3()
 {
 	return position;

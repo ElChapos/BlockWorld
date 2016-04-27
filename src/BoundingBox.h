@@ -12,6 +12,10 @@ class BoundingBox {
 
 		glm::vec3 GetVec3();
 		glm::mat4 GetModelTransformation();
+		
+		void Translate(glm::vec3);
+		void Scale(int);
+		void Rotate();
 
 	private:
 		glm::vec3 position;
