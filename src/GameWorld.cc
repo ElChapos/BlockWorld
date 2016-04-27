@@ -4,9 +4,9 @@ GameWorld::GameWorld (ApplicationMode mode)
 {
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
-    auto test_asset_scale = std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0), colour_manager.GetColour("random"), 3);
-	auto test_asset_rotate = std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random"), 2);
-	auto test_asset_translate = std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0), colour_manager.GetColour("random"), 1);
+    auto test_asset_scale = std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0), colour_manager.GetColour("random"), 3 , 0, glm::vec3(0.0,0.0,0.0));
+	auto test_asset_rotate = std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random"), 2, 0, glm::vec3(0.0,0.0,0.0));
+	auto test_asset_translate = std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0), colour_manager.GetColour("random"), 1, 0, glm::vec3(0.0,0.0,0.0));
 
 	asset_manager = std::make_shared<GameAssetManager>(mode);
 	asset_manager->AddAsset(test_asset_scale);
@@ -44,7 +44,7 @@ void GameWorld::HandleInput(std::string action, int code)
 		if(code == 1)
 		{
 			offset_pos = camera_controller.GetOffset();
-			asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0f + int(round(camera_controller.GetPosition().x)) + offset_pos.x, 0.0f + int(round(camera_controller.GetPosition().y)) + offset_pos.y, 0.0f + int(round(camera_controller.GetPosition().z)) + offset_pos.z), colour_manager.GetColour("random"),1));
+			asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0f + int(round(camera_controller.GetPosition().x)) + offset_pos.x, 0.0f + int(round(camera_controller.GetPosition().y)) + offset_pos.y, 0.0f + int(round(camera_controller.GetPosition().z)) + offset_pos.z), colour_manager.GetColour("random"),1, 0, glm::vec3(0.0,0.0,0.0)));
 		}
 		if(code == 2)
 		{
@@ -92,7 +92,7 @@ void GameWorld::CreateShape(std::string shape, int size)
 				{
 					if (sqrt((float) (x-size/2)*(x-size/2) + (y-size/2)*(y-size/2) + (z-size/2)*(z-size/2)) <= size/2)
 					{
-						asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random"), 1));
+						asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random"), 1, 0, glm::vec3(0.0,0.0,0.0)));
 					}
 				}
 			}
@@ -107,7 +107,7 @@ void GameWorld::CreateShape(std::string shape, int size)
 			{
 				for (int x = 0; x < size; x++)
 				{
-					asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random"), 1));
+					asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0+x, 0.0+y, 0.0+z), colour_manager.GetColour("random"), 1, 0, glm::vec3(0.0,0.0,0.0)));
 				}
 			}
 		}
@@ -119,7 +119,7 @@ void GameWorld::CreateShape(std::string shape, int size)
 		{
 			for(int x = 0; x < size; x++)
 			{
-				asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-10.0+x, -1.0f, -10.0+z), colour_manager.GetColour("random"), 1));
+				asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-10.0+x, -1.0f, -10.0+z), colour_manager.GetColour("random"), 1, 0, glm::vec3(0.0,0.0,0.0)));
 			}
 		}
 		return;
@@ -174,7 +174,7 @@ void GameWorld::LoadMap(std::string filename)
 		{
 			for(int x = 0; x < MAP_WIDTH; x++)
 			{
-				asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(x, cube_y[i], z), colour_manager.GetColour("random"), 1));
+				asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(x, cube_y[i], z), colour_manager.GetColour("random"), 1, 0, glm::vec3(0.0,0.0,0.0)));
 				i++;
 
 				std::cout << "[" << i << " / " << TOTAL_BLOCKS << "]\r";
