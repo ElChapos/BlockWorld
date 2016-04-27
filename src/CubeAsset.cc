@@ -76,8 +76,6 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c) : GameAsset(p) {
 	glGenBuffers(1, &element_buffer_token);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, element_buffer_length, element_buffer, GL_STATIC_DRAW);
-
-
 }
 
 CubeAsset::~CubeAsset() {

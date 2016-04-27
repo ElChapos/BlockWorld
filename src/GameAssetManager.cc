@@ -71,14 +71,11 @@ void GameAssetManager::AddAsset(std::shared_ptr<CubeAsset> cube_asset)
 	// Loop setup
 	bool flag = false;
 	CubeAsset cc = *cube_asset;
-	CubeAsset nc = CubeAsset(glm::vec3(0.0,0.0,0.0), glm::vec3(0,0,0));
-
-	glm::vec3 cube_pos = cc.GetVec3();
 
 	// Loop through the assetlist to check if there is already a cube in the position
 	for(int i = 0; i < asset_list.size(); i++)
 	{
-		nc = *asset_list[i];
+		auto nc = *asset_list[i];
 		if(glm::to_string(cc.GetVec3()) == glm::to_string(nc.GetVec3()))
 		{
 			flag = true;
@@ -90,6 +87,10 @@ void GameAssetManager::AddAsset(std::shared_ptr<CubeAsset> cube_asset)
 	{
 		asset_list.push_back(cube_asset);
 		draw_list.push_back(the_asset);
+	}
+	else
+	{
+		std::cout << "Did not create cube, one already exists in that position" << std::endl;
 	}
 }
 
@@ -145,6 +146,15 @@ void GameAssetManager::RemoveAsset(glm::vec3 position, glm::vec3 offset_pos)
 std::vector<std::shared_ptr<CubeAsset>> GameAssetManager::GetAssets()
 {
 	return asset_list;
+}
+
+/**
+ * Gets a specified GameAsset from the list
+ */
+std::shared_ptr<GameAsset> GameAssetManager::GetGameAsset(int code)
+{
+	// TODO: use find rather than return to make sure it actually exists
+	return draw_list[code];
 }
 
 /**

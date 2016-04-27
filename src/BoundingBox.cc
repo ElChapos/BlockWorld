@@ -3,6 +3,8 @@
 BoundingBox::BoundingBox(glm::vec3 position)
 {
 	this->position = position;
+	
+	std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
 glm::mat4 BoundingBox::GetModelTransformation()
@@ -16,6 +18,7 @@ glm::mat4 BoundingBox::GetModelTransformation()
  */
 void BoundingBox::Translate(glm::vec3 position)
 {
+	std::cout << "[BoundingBox::Translate()]: vec3 position" << std::endl;
 	std::cout << "To-do: Add Code in BoundingBox::Translate()" << std::endl;
 }
 

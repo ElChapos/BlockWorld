@@ -33,6 +33,7 @@ class GameAssetManager {
 		void Draw(glm::mat4, glm::mat4);
 
 		std::vector<std::shared_ptr<CubeAsset>> GetAssets();
+		std::shared_ptr<GameAsset> GetGameAsset(int);
 
 	private:
 		GLuint CreateGLProgram(std::string &, std::string &);
