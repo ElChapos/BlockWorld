@@ -20,7 +20,7 @@ glm::mat4 BoundingBox::GetModelTransformation()
         this->Rotate(glm::vec3(0.01f, 0.1f, 0.1f));
 	}
     else if(this->type == 3){
-       // this->Scale();
+       this->Scale(0.01f);
         }
 
 
@@ -64,9 +64,25 @@ void BoundingBox::Translate(glm::vec3 position_to)
 /**
  * Used to scale
  */
-void BoundingBox::Scale()
+void BoundingBox::Scale(float scale_to)
 {
-	std::cout << "To-do: Add Code in BoundingBox::Scale()" << std::endl;
+    std::cout << "[BoundingBox::Scale()]: float scale_to" << std::endl;
+
+	float new_scale;
+
+	// This will make it move left on the X
+	if(this->scale > 5.0f)
+	{
+		new_scale = 1.0f;
+	}
+	else
+	{
+		new_scale = this->scale + scale_to;
+	}
+
+	//std::cout << glm::to_string(new_scale) << std::endl;
+
+	this->scale = new_scale;
 }
 
 /**
@@ -74,7 +90,7 @@ void BoundingBox::Scale()
  */
 void BoundingBox::Rotate(glm::vec3 rotate_to)
 {
-		std::cout << "[BoundingBox::Translate()]: vec3 position_to" << std::endl;
+		std::cout << "[BoundingBox::Rotate()]: vec3 rotate_to" << std::endl;
 
 	glm::vec3 new_rotation;
 

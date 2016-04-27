@@ -14,7 +14,7 @@ class BoundingBox {
 		glm::mat4 GetModelTransformation();
 
 		void Translate(glm::vec3);
-		void Scale();
+		void Scale(float);
 		void Rotate(glm::vec3);
 
 	private:
