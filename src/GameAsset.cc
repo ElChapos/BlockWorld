@@ -1,8 +1,8 @@
 #include "GameAsset.h"
 
-GameAsset::GameAsset(glm::vec3 position)
+GameAsset::GameAsset(glm::vec3 position, int type)
 {
-	bounding_box = std::make_shared<BoundingBox>(position);
+	bounding_box = std::make_shared<BoundingBox>(position, type);
 }
 
 glm::mat4 GameAsset::GetModelTransformation()

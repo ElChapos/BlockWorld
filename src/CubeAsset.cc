@@ -1,6 +1,6 @@
 #include "CubeAsset.h"
 
-CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c) : GameAsset(p) {
+CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c, int type) : GameAsset(p , type) {
 	// Position of the cube
 	position = p;
 
