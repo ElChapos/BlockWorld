@@ -68,5 +68,3 @@ src/Makefile.in
 
 src/.deps/*
 .vscode/
-src/.libs/shaderexample
-src/.libs/
