@@ -15,6 +15,6 @@ class BoundingBox {
 
 	private:
 		glm::vec3 position;
-
 		glm::mat4 translate_matrix;
+		
 };
