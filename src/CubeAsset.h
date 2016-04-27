@@ -19,12 +19,17 @@ class CubeAsset : public GameAsset
 		float rf();
 		glm::vec3 GetVec3();
 		
-		void Translate(glm::vec3); 
+		void Translate(glm::vec3);
+		void Scale(int);
+		void Rotate();
 
 	private:
 		glm::vec3 position;
 		GLuint element_buffer_length, vertex_buffer_length, color_buffer_length;
 		GLuint vertex_buffer_token, element_buffer_token, color_buffer_token;
+		
+		// Must be private, only called within CubeAsset ONLY
+		void UpdateBuffer(GLfloat);
 		
 };
 

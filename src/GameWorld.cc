@@ -20,6 +20,12 @@ void GameWorld::Draw()
 	
 	// Draw camera
 	camera_controller.Draw();
+	
+	/* THIS WAS A TEST ONLY
+		auto offset_pos = camera_controller.GetOffset();
+		auto translate_pos = glm::vec3(0.0f + int(round(camera_controller.GetPosition().x)) + offset_pos.x, 0.0f + int(round(camera_controller.GetPosition().y)) + offset_pos.y, 0.0f + int(round(camera_controller.GetPosition().z)) + offset_pos.z);
+		test_asset->Translate(translate_pos);
+	*/
 }
 
 /**
@@ -80,6 +86,11 @@ void GameWorld::HandleInput(std::string action, int code)
 		auto translate_position = glm::vec3(x, y, z);
 		
 		test_asset->Translate(translate_position);
+	}
+	else if(action == "test_scale")
+	{	
+		// Scale parameter is how many units to scale by. -1 (smaller) 1 (bigger)
+		test_asset->Scale(1);
 	}
 }
 

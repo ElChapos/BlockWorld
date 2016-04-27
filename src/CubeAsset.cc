@@ -183,6 +183,8 @@ void CubeAsset::Draw(GLuint program_token)
  */
 void CubeAsset::Translate(glm::vec3 position)
 {
+	std::cout << "[DEBUG] CubeAsset::Translate() called" << std::endl;
+	
 	// model coordinates, origin at centre.
 	GLfloat vertex_buffer [] {
 		-0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
@@ -195,7 +197,9 @@ void CubeAsset::Translate(glm::vec3 position)
 		-0.5f + position.x,  0.5f + position.y,  0.5f + position.z
 	};
 	vertex_buffer_length = sizeof(vertex_buffer);
-	
+
+	// UPDATE BUFFER
+
 	// Send over GLfloats for the triangles
 	glGenBuffers(1, &vertex_buffer_token);
 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
@@ -214,7 +218,23 @@ void CubeAsset::Translate(glm::vec3 position)
 		(void*)0		/* array buffer offset */
 	);
 	glEnableVertexAttribArray(1);
-	checkGLError();
+	checkGLError();	
+}
+
+/**
+ * Used to scale the cube size
+ */
+void CubeAsset::Scale(int code)
+{
+	std::cout << "To-do: Add Code in CubeAsset::Scale()" << std::endl;
+}
+
+/**
+ * Used to rotate the cube size
+ */
+void CubeAsset::Rotate()
+{
+	std::cout << "To-do: Add Code in CubeAsset::Rotate()" << std::endl;
 }
 
 /**
