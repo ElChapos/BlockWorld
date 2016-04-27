@@ -16,10 +16,13 @@ glm::mat4 BoundingBox::GetModelTransformation()
 /**
  * Used to translate
  */
-void BoundingBox::Translate(glm::vec3 position)
+void BoundingBox::Translate(glm::vec3 position_to)
 {
-	std::cout << "[BoundingBox::Translate()]: vec3 position" << std::endl;
-	std::cout << "To-do: Add Code in BoundingBox::Translate()" << std::endl;
+	std::cout << "[BoundingBox::Translate()]: vec3 position_to" << std::endl;
+	
+	glm::vec3 new_position = this->position + position_to;
+	
+	this->position = new_position;
 }
 
 /**

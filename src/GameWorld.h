@@ -49,7 +49,7 @@ class GameWorld {
 		ColourManager colour_manager;
 		Camera camera_controller;
 		
-		std::shared_ptr<GameAsset> test_gasset;
+		std::shared_ptr<CubeAsset> test_asset;
 };
 
 #endif // GAMEWORLD_H

@@ -7,8 +7,6 @@ GameWorld::GameWorld (ApplicationMode mode)
 	auto test_asset = std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random"));
 	asset_manager = std::make_shared<GameAssetManager>(mode);
 	asset_manager->AddAsset(test_asset);
-	
-	auto test_gasset = asset_manager->GetGameAsset(0); // Fetch the first GameAsset
 }
 
 /**
@@ -71,11 +69,6 @@ void GameWorld::HandleInput(std::string action, int code)
 	{
 		// Simply forward the camera controls, can also use multiple camera instances (if done correctly)
 		camera_controller.CameraController(code);
-	}
-	else if(action == "test_translation")
-	{
-		std::cout << "[GameWorld::HandleInput()]: action: test_translation" << std::endl;
-		test_gasset->Translate(glm::vec3(1.0f, 1.0f, 1.0f));
 	}
 }
 

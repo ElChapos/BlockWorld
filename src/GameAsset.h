@@ -13,10 +13,8 @@ class GameAsset{
 
 		virtual void Draw(GLuint) = 0;
 		glm::mat4 GetModelTransformation();
-
+		
 		void Translate(glm::vec3);
-		void Scale(int);
-		void Rotate();
 		
 	private:
 		std::shared_ptr<BoundingBox> bounding_box;

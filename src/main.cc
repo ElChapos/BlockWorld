@@ -285,7 +285,6 @@ int main(int argc, char ** argv) {
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_i:
-						game_world->HandleInput("test_translation", 0);
 						break;
 				}
 				break;
