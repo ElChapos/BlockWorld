@@ -87,8 +87,6 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
 		game_world->HandleInput("asset_management", 3);
 	if(KEYBOARD_INPUT[SDL_SCANCODE_H])
 		game_world->HandleInput("asset_management", 4);
-	if(KEYBOARD_INPUT[SDL_SCANCODE_I])
-		game_world->HandleInput("test_translation", 0);
 	if(KEYBOARD_INPUT[SDL_SCANCODE_J])
 		game_world->LoadMap("heightmap.ppm");
 
@@ -282,6 +280,14 @@ int main(int argc, char ** argv) {
 			case SDL_USEREVENT:
 				Draw(window, game_world);
 				HandleInput(game_world);
+				break;
+			case SDL_KEYDOWN:
+				switch (event.key.keysym.sym)
+				{
+					case SDLK_i:
+						game_world->HandleInput("test_translation", 0);
+						break;
+				}
 				break;
 			default:
 			  break;
