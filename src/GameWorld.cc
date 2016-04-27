@@ -72,10 +72,13 @@ void GameWorld::HandleInput(std::string action, int code)
 		camera_controller.CameraController(code);
 	}
 	else if(action == "test_translation")
-	{
-		std::cout << "Testing translation!" << std::endl;
+	{	
+		float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+		auto translate_position = glm::vec3(r, r, r);
 		
-		test_asset->Translate(glm::vec3(1.0f, 1.0f, 1.0f));
+		std::cout << "Generating some fun: " << glm::to_string(translate_position) << std::endl;
+		
+		test_asset->Translate(translate_position);
 	}
 }
 
