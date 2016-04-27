@@ -3,9 +3,9 @@
 GameWorld::GameWorld (ApplicationMode mode)
 {
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
-	
+
 	test_asset = std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random"));
-	
+
 	asset_manager = std::make_shared<GameAssetManager>(mode);
 	asset_manager->AddAsset(test_asset);
 }
@@ -17,10 +17,10 @@ void GameWorld::Draw()
 {
 	// Calls draw from the asset manager
 	asset_manager->Draw(camera_controller.GetProjection(), camera_controller.GetView());
-	
+
 	// Draw camera
 	camera_controller.Draw();
-	
+
 	/* THIS WAS A TEST ONLY
 		auto offset_pos = camera_controller.GetOffset();
 		auto translate_pos = glm::vec3(0.0f + int(round(camera_controller.GetPosition().x)) + offset_pos.x, 0.0f + int(round(camera_controller.GetPosition().y)) + offset_pos.y, 0.0f + int(round(camera_controller.GetPosition().z)) + offset_pos.z);
@@ -78,17 +78,17 @@ void GameWorld::HandleInput(std::string action, int code)
 		camera_controller.CameraController(code);
 	}
 	else if(action == "test_translation")
-	{	
+	{
 		float x = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		float y = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
 		float z = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-		
+
 		auto translate_position = glm::vec3(x, y, z);
-		
+
 		test_asset->Translate(translate_position);
 	}
 	else if(action == "test_scale")
-	{	
+	{
 		// Scale parameter is how many units to scale by. -1 (smaller) 1 (bigger)
 		test_asset->Scale(1);
 	}
@@ -152,7 +152,7 @@ void GameWorld::LoadMap(std::string filename)
 {
 	std::cout << "Reading file: " << filename << "..." << std::endl;
 	std::ifstream infile(filename);
-	
+
 	if(infile.is_open())
 	{
 		// Stores the cube Y cordinates from the PPM file
@@ -162,7 +162,7 @@ void GameWorld::LoadMap(std::string filename)
 		int push_i = 0, push_s = 0, i = 0;
 
 		// For the headers
-		std::string MAP_TYPE; 
+		std::string MAP_TYPE;
 		int MAP_WIDTH, MAP_HEIGHT, MAP_COLOURS, TOTAL_BLOCKS;
 
 		// Read in headers
@@ -186,7 +186,7 @@ void GameWorld::LoadMap(std::string filename)
 			else
 				push_i++;
 		}
-	
+
 		for(int z = 0; z < MAP_HEIGHT; z++)
 		{
 			for(int x = 0; x < MAP_WIDTH; x++)
@@ -197,7 +197,7 @@ void GameWorld::LoadMap(std::string filename)
 				std::cout << "[" << i << " / " << TOTAL_BLOCKS << "]\r";
 				std::cout.flush();
 			}
-		} 	
+		}
 	}
 	return;
 }

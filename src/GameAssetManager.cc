@@ -28,7 +28,7 @@ GameAssetManager::GameAssetManager(ApplicationMode mode)
  * Deletes a GameAssetManager, in particular it will clean up any modifications
  * to the OpenGL state.
  */
-GameAssetManager::~GameAssetManager() 
+GameAssetManager::~GameAssetManager()
 {
 	glDeleteProgram(program_token);
 }
@@ -37,7 +37,7 @@ GameAssetManager::~GameAssetManager()
  * Unimplemented copy constructor -- this means that the GameAssetManager
  * may not work as you'd expect when being copied.
  */
-GameAssetManager::GameAssetManager(GameAssetManager const& the_manager) 
+GameAssetManager::GameAssetManager(GameAssetManager const& the_manager)
 {
 	// TODO: implement this
 }
@@ -113,7 +113,7 @@ void GameAssetManager::RemoveAll()
  * Removes an asset from the gameworld
  */
 void GameAssetManager::RemoveAsset(glm::vec3 position, glm::vec3 offset_pos)
-{		
+{
 	// Loops setup
 	int r = 0;
 	bool flag = false;
@@ -154,18 +154,24 @@ void GameAssetManager::Draw(glm::mat4 cam_proj, glm::mat4 cam_view)
 {
 	for(auto ga: draw_list)
 	{
-		ga->Draw(program_token);
-	}
 
-	glm::mat4 cam_mod(1.0f);
+		glm::mat4 cam_mod(1.0f);
 
 	GLuint cam_proj_loc = glGetUniformLocation(program_token, "cam_proj");
 	GLuint cam_view_loc = glGetUniformLocation(program_token, "cam_view");
 	GLuint cam_mod_loc = glGetUniformLocation(program_token, "cam_mod");
 
+
+
 	glUniformMatrix4fv(cam_proj_loc, 1, GL_FALSE, &cam_proj[0][0]);
 	glUniformMatrix4fv(cam_view_loc, 1, GL_FALSE, &cam_view[0][0]);
+
+	cam_mod = ga->GetModelTransformation();
 	glUniformMatrix4fv(cam_mod_loc, 1, GL_FALSE, &cam_mod[0][0]);
+
+		ga->Draw(program_token);
+	}
+
 }
 
 /**
