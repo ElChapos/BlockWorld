@@ -174,8 +174,8 @@ void GameAssetManager::Draw(glm::mat4 cam_proj, glm::mat4 cam_view)
 
 		if(i == 0)
 		{
-			ga->Translate(glm::vec3(0.01f, 0.01f, 0.01f)); // TEST
-			cam_mod = ga->GetModelTransformation(); // Then get the transformation
+			ga->Translate(glm::vec3(0.01f, 0.0f, 0.0f));
+			cam_mod = ga->GetModelTransformation();
 		}
 
 		glUniformMatrix4fv(cam_proj_loc, 1, GL_FALSE, &cam_proj[0][0]);
