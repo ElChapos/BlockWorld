@@ -12,24 +12,24 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
 
 glm::mat4 BoundingBox::GetModelTransformation()
 {
-
-    if (this->type == 1){
-        this->Translate(glm::vec3(0.01f, 0.0f, 0.0f));
+    if (this->type == 1)
+	{
+		this->Translate(glm::vec3(0.01f, 0.0f, 0.0f));
 	}
-    else if (this->type == 2){
-        this->Rotate(glm::vec3(0.01f, 0.1f, 0.1f));
+    else if (this->type == 2)
+	{
+		this->Rotate(glm::vec3(0.01f, 0.1f, 0.1f));
 	}
-    else if(this->type == 3){
-       this->Scale(0.01f);
-        }
+    else if(this->type == 3)
+	{
+		this->Scale(0.01f);
+	}
 
 
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
-
 	glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->position));
 
 	model_matrix = translate_matrix * scale_matrix;
-
     model_matrix = glm::rotate(model_matrix, this->rotation.x, glm::vec3(1, 0, 0));
 	model_matrix = glm::rotate(model_matrix, this->rotation.y, glm::vec3(0, 1, 0));
     model_matrix = glm::rotate(model_matrix, this->rotation.z, glm::vec3(0, 0, 1));
@@ -45,8 +45,6 @@ void BoundingBox::Translate(glm::vec3 position_to)
 	std::cout << "[BoundingBox::Translate()]: vec3 position_to" << std::endl;
 
 	glm::vec3 new_position;
-
-	// This will make it move left on the X
 	if(this->position.x > 2.0f)
 	{
 		new_position = glm::vec3(0,0,0);
@@ -55,8 +53,6 @@ void BoundingBox::Translate(glm::vec3 position_to)
 	{
 		new_position = this->position + position_to;
 	}
-
-	std::cout << glm::to_string(new_position) << std::endl;
 
 	this->position = new_position;
 }
@@ -69,8 +65,6 @@ void BoundingBox::Scale(float scale_to)
     std::cout << "[BoundingBox::Scale()]: float scale_to" << std::endl;
 
 	float new_scale;
-
-	// This will make it move left on the X
 	if(this->scale > 5.0f)
 	{
 		new_scale = 1.0f;
@@ -79,8 +73,6 @@ void BoundingBox::Scale(float scale_to)
 	{
 		new_scale = this->scale + scale_to;
 	}
-
-	//std::cout << glm::to_string(new_scale) << std::endl;
 
 	this->scale = new_scale;
 }
@@ -93,8 +85,6 @@ void BoundingBox::Rotate(glm::vec3 rotate_to)
 		std::cout << "[BoundingBox::Rotate()]: vec3 rotate_to" << std::endl;
 
 	glm::vec3 new_rotation;
-
-	// This will make it move left on the X
 	if(this->rotation.x > 2.0f && this->rotation.y > 2.0f && this->rotation.z > 2.0f)
 	{
 		new_rotation = glm::vec3(0,0,0);
@@ -103,8 +93,6 @@ void BoundingBox::Rotate(glm::vec3 rotate_to)
 	{
 		new_rotation = this->rotation + rotate_to;
 	}
-
-	std::cout << glm::to_string(new_rotation) << std::endl;
 
 	this->rotation = new_rotation;
 }
