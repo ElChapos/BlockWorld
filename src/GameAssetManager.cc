@@ -162,8 +162,6 @@ std::shared_ptr<GameAsset> GameAssetManager::GetGameAsset(int code)
  */
 void GameAssetManager::Draw(glm::mat4 cam_proj, glm::mat4 cam_view)
 {
-	// We only want to move one cube
-	//int i = 0;
 	for(auto ga: draw_list)
 	{
 		glm::mat4 cam_mod(1.0f);
@@ -172,20 +170,24 @@ void GameAssetManager::Draw(glm::mat4 cam_proj, glm::mat4 cam_view)
 		GLuint cam_view_loc = glGetUniformLocation(program_token, "cam_view");
 		GLuint cam_mod_loc = glGetUniformLocation(program_token, "cam_mod");
 
-		//if(i == 0)
-		//{
-		//	ga->Translate(glm::vec3(0.01f, 0.0f, 0.0f));
-		//}
-
 		glUniformMatrix4fv(cam_proj_loc, 1, GL_FALSE, &cam_proj[0][0]);
 		glUniformMatrix4fv(cam_view_loc, 1, GL_FALSE, &cam_view[0][0]);
 
         cam_mod = ga->GetModelTransformation();
 		glUniformMatrix4fv(cam_mod_loc, 1, GL_FALSE, &cam_mod[0][0]);
 
-		ga->Draw(program_token);
 
-		//i++;
+		bounding_box1_max = ga->GetMaxAndMin(1);
+		bounding_box1_min = ga->GetMaxAndMin(2);
+
+		for(auto ga2: draw_list)
+		{
+            bounding_box2_max = ga2->GetMaxAndMin(1);
+            bounding_box2_min = ga2->GetMaxAndMin(2);
+            ga -> CheckCollision(bounding_box1_max, bounding_box1_min, bounding_box2_max, bounding_box2_min);
+		}
+
+		ga->Draw(program_token);
 	}
 }
 

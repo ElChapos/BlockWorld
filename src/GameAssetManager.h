@@ -32,6 +32,12 @@ class GameAssetManager {
 		void RemoveAll();
 		void Draw(glm::mat4, glm::mat4);
 
+		glm::vec3 bounding_box1_max;
+		glm::vec3 bounding_box1_min;
+		glm::vec3 bounding_box2_max;
+		glm::vec3 bounding_box2_min;
+
+
 		std::vector<std::shared_ptr<CubeAsset>> GetAssets();
 		std::shared_ptr<GameAsset> GetGameAsset(int);
 

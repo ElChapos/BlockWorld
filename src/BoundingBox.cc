@@ -104,3 +104,38 @@ glm::vec3 BoundingBox::GetVec3()
 {
 	return position;
 }
+
+/**
+ * Return the max and minimum bounds
+ */
+glm::vec3 BoundingBox::GetMaxAndMin(int type)
+{
+    glm::vec3 bounds;
+
+    if (type == 1)
+    {
+    // return max bounds
+    bounds = this->position += glm::vec3(0.5f,0.5f,0.5f);
+    }
+    else if (type == 2)
+    {
+    // return minimum bounds
+     bounds = this->position -= glm::vec3(0.5f,0.5f,0.5f);
+    }
+	return bounds;
+}
+
+void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
+{
+
+    //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max
+    if (bounding_box1_max.x > bounding_box2_min.x && bounding_box1_min.x < bounding_box2_max.x &&
+        bounding_box1_max.y > bounding_box2_min.y && bounding_box1_min.y < bounding_box2_max.y &&
+        bounding_box1_max.z > bounding_box2_min.z && bounding_box1_min.z < bounding_box2_max.z)
+        {
+        std::cout << "Collision!!" << std::endl;
+        }
+    else
+        {
+        }
+}
