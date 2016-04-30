@@ -118,7 +118,7 @@ void GameAssetManager::RemoveAsset(glm::vec3 position, glm::vec3 offset_pos)
 	// Loops setup
 	int r = 0;
 	bool flag = false;
-	CubeAsset cc = CubeAsset(glm::vec3(0.0,0.0,0.0), glm::vec3(0,0,0), 0, 0, glm::vec3(0.0,0.0,0.0));
+	CubeAsset cc = CubeAsset(glm::vec3(0.0,0.0,0.0), glm::vec3(0,0,0), 0, 0, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0));
 
 	// Loop through the assetlist to check if there is a cube in the position we want to remove from
 	for(int i = 0; i < asset_list.size(); i++)

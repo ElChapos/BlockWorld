@@ -9,7 +9,7 @@
 
 class GameAsset{
 	public:
-		GameAsset(glm::vec3, int, float, glm::vec3);
+		GameAsset(glm::vec3, int, float, glm::vec3, glm::vec3);
 
 		virtual void Draw(GLuint) = 0;
 		glm::mat4 GetModelTransformation();

@@ -1,12 +1,12 @@
 #include "BoundingBox.h"
 
-BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 rotation)
+BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
 	this->position = position;
 	this->type = type;
 	this->scale = scale;
 	this->rotation = rotation;
-
+	this->speed = speed;
 	std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
@@ -23,6 +23,10 @@ glm::mat4 BoundingBox::GetModelTransformation()
     else if(this->type == 3)
 	{
 		this->Scale(0.01f);
+	}
+	    else if(this->type == 4)
+	{
+		this->Translate(glm::vec3(this->speed.x,this->speed.y,this->speed.z));
 	}
 
 
@@ -127,7 +131,6 @@ glm::vec3 BoundingBox::GetMaxAndMin(int type)
 
 void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
 {
-
     //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max
     if (bounding_box1_max.x > bounding_box2_min.x && bounding_box1_min.x < bounding_box2_max.x &&
         bounding_box1_max.y > bounding_box2_min.y && bounding_box1_min.y < bounding_box2_max.y &&
