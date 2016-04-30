@@ -4,23 +4,36 @@ GameWorld::GameWorld (ApplicationMode mode)
 {
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
-    auto test_asset_scale = std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0), colour_manager.GetColour("random"), 3 , 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0));
-	auto test_asset_rotate = std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random"), 2, 1, glm::vec3(0.2,0.2,0.2), glm::vec3(0.0,0.0,0.0));
-	auto test_asset_translate = std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0), colour_manager.GetColour("random"), 1, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0));
+    //auto test_asset_scale = std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0), colour_manager.GetColour("random"), 3 , 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0));
+	//auto test_asset_rotate = std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0), colour_manager.GetColour("random"), 2, 1, glm::vec3(0.2,0.2,0.2), glm::vec3(0.0,0.0,0.0));
+	//auto test_asset_translate = std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0), colour_manager.GetColour("random"), 1, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0));
 
 
-	auto test_asset_speedx = std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0));
-	auto test_asset_speedy = std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.01,0.0));
-	auto test_asset_speedz = std::make_shared<CubeAsset>(glm::vec3(-12.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.01));
+	//auto test_asset_speedx = std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0));
+	//auto test_asset_speedy = std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.01,0.0));
+	//auto test_asset_speedz = std::make_shared<CubeAsset>(glm::vec3(-12.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.01));
+
+
+
+	auto test_collision1 = std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.01,0.0,0.0));
+    auto test_collision2 = std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0));
+    auto test_collision3 = std::make_shared<CubeAsset>(glm::vec3(6.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.01,0.0,0.0));
+    auto test_collision4 = std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 0.0), colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0));
 
 	asset_manager = std::make_shared<GameAssetManager>(mode);
-	asset_manager->AddAsset(test_asset_scale);
-    asset_manager->AddAsset(test_asset_rotate);
-    asset_manager->AddAsset(test_asset_translate);
+	//asset_manager->AddAsset(test_asset_scale);
+    //asset_manager->AddAsset(test_asset_rotate);
+    //asset_manager->AddAsset(test_asset_translate);
 
-    asset_manager->AddAsset(test_asset_speedx);
-    asset_manager->AddAsset(test_asset_speedy);
-    asset_manager->AddAsset(test_asset_speedz);
+    //asset_manager->AddAsset(test_asset_speedx);
+    //asset_manager->AddAsset(test_asset_speedy);
+    //asset_manager->AddAsset(test_asset_speedz);
+
+    asset_manager->AddAsset(test_collision1);
+    asset_manager->AddAsset(test_collision2);
+    asset_manager->AddAsset(test_collision3);
+    asset_manager->AddAsset(test_collision4);
+
 }
 
 /**

@@ -46,17 +46,17 @@ glm::mat4 BoundingBox::GetModelTransformation()
  */
 void BoundingBox::Translate(glm::vec3 position_to)
 {
-	std::cout << "[BoundingBox::Translate()]: vec3 position_to" << std::endl;
+	//std::cout << "[BoundingBox::Translate()]: vec3 position_to" << std::endl;
 
 	glm::vec3 new_position;
-	if(this->position.x > 2.0f)
-	{
-		new_position = glm::vec3(0,0,0);
-	}
-	else
-	{
+	//if(this->position.x > 10.0f)
+	//{
+	//	new_position = glm::vec3(0,0,0);
+	//}
+	//else
+	//{
 		new_position = this->position + position_to;
-	}
+	//}
 
 	this->position = new_position;
 }
@@ -66,7 +66,7 @@ void BoundingBox::Translate(glm::vec3 position_to)
  */
 void BoundingBox::Scale(float scale_to)
 {
-    std::cout << "[BoundingBox::Scale()]: float scale_to" << std::endl;
+    //std::cout << "[BoundingBox::Scale()]: float scale_to" << std::endl;
 
 	float new_scale;
 	if(this->scale > 5.0f)
@@ -86,7 +86,7 @@ void BoundingBox::Scale(float scale_to)
  */
 void BoundingBox::Rotate(glm::vec3 rotate_to)
 {
-		std::cout << "[BoundingBox::Rotate()]: vec3 rotate_to" << std::endl;
+		//std::cout << "[BoundingBox::Rotate()]: vec3 rotate_to" << std::endl;
 
 	glm::vec3 new_rotation;
 	if(this->rotation.x > 2.0f && this->rotation.y > 2.0f && this->rotation.z > 2.0f)
@@ -124,7 +124,7 @@ glm::vec3 BoundingBox::GetMaxAndMin(int type)
     else if (type == 2)
     {
     // return minimum bounds
-     bounds = this->position -= glm::vec3(0.5f,0.5f,0.5f);
+     bounds = this->position += glm::vec3(-0.5f,-0.5f,-0.5f);
     }
 	return bounds;
 }
@@ -136,7 +136,10 @@ void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding
         bounding_box1_max.y > bounding_box2_min.y && bounding_box1_min.y < bounding_box2_max.y &&
         bounding_box1_max.z > bounding_box2_min.z && bounding_box1_min.z < bounding_box2_max.z)
         {
-        std::cout << "Collision!!" << std::endl;
+            std::cout << "Collision!!" << std::endl;
+            glm::vec3 reverse_speed = this->speed;
+            reverse_speed = reverse_speed + reverse_speed;
+            this->speed -= reverse_speed;
         }
     else
         {
