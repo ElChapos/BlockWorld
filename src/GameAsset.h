@@ -15,6 +15,7 @@ class GameAsset{
 		glm::mat4 GetModelTransformation();
 		glm::vec3 GetMaxAndMin(int);
 		void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
+		glm::vec3 GetVec3();
 
 	private:
 		std::shared_ptr<BoundingBox> bounding_box;

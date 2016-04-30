@@ -22,8 +22,11 @@ glm::vec3 GameAsset::GetMaxAndMin(int type){
     }
 }
 
-
 void GameAsset::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
 {
     bounding_box->CheckCollision(bounding_box1_max, bounding_box1_min, bounding_box2_max, bounding_box2_min);
+}
+
+glm::vec3 GameAsset::GetVec3(){
+    return bounding_box->GetVec3();
 }
