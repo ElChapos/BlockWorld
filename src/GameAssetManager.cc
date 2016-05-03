@@ -67,7 +67,7 @@ void GameAssetManager::Draw()
     {
         // Get the translate matrix from our game asset
         translate_matrix= ga->GetModelTransformation();
-        
+
         // before drawing an asset , update the matrix values in the translate shader
         glUniformMatrix4fv(projection_matrix_link, 1, GL_FALSE, &projection_matrix[0][0]);
         glUniformMatrix4fv(view_matrix_link, 1, GL_FALSE, &view_matrix[0][0]);
@@ -76,6 +76,9 @@ void GameAssetManager::Draw()
         bounding_box1_max = ga->GetMaxAndMin(1);
         bounding_box1_min = ga->GetMaxAndMin(2);
         bounding_box1_position = ga->GetVec3();
+
+        camera.CheckCollision(bounding_box1_max, bounding_box1_min);
+
 
         for(auto ga2: draw_list)
         {
@@ -113,7 +116,7 @@ GLuint GameAssetManager::CreateGLProgram(std::string & vertex_shader, std::strin
     glAttachShader(program, f_shader_token);
     glLinkProgram(program);
     glGetProgramiv(program, GL_LINK_STATUS, &program_ok);
-    
+
     if (!program_ok)
     {
         std::cerr << "Failed to link shader program:" << std::endl;
@@ -146,7 +149,7 @@ GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader)
     glCompileShader(shader_token);
     delete(source.first);
     glGetShaderiv(shader_token, GL_COMPILE_STATUS, &shader_ok);
-    
+
     if (!shader_ok)
     {
         GLint maxLength = 0;

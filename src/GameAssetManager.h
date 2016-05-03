@@ -35,9 +35,9 @@ class GameAssetManager
   private:
     GLuint CreateGLProgram(std::string &, std::string &);
     GLuint CreateGLESShader(GLenum, std::string &);
-    
+
     GLuint program_token;
-    
+
     std::pair<GLchar *, GLint>  ReadShader(std::string &);
     std::vector<std::shared_ptr<GameAsset>> draw_list;
     Camera camera;

@@ -28,7 +28,7 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
     mouse_delta_x = -mouse_x;
     mouse_delta_y = -mouse_y;
     camera_horizontal_angle += 0.01 * mouse_delta_x;
-    
+
     // restrict the mouse view from going too far up or down
     if((camera_vertical_angle + (0.01 * mouse_delta_y)) < 1 && (camera_vertical_angle + (0.01 * mouse_delta_y)) > -1 )
     {
@@ -61,3 +61,20 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
     // return the view matrix
     return glm::lookAt(camera_position, camera_position + camera_direction,camera_up);
  }
+
+ /**
+ * Detects a collision
+ */
+ void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_min)
+{
+    glm::vec3 camera_bounding_box_max = camera_position += glm::vec3(1.0,1.0,1.0);
+    glm::vec3 camera_bounding_box_min = camera_position += glm::vec3(-1.0,-1.0,-1.0);
+
+    //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max
+    if (bounding_box_max.x > camera_bounding_box_min.x && bounding_box_min.x < camera_bounding_box_max.x &&
+        bounding_box_max.y > camera_bounding_box_min.y && bounding_box_min.y < camera_bounding_box_max.y &&
+        bounding_box_max.z > camera_bounding_box_min.z && bounding_box_min.z < camera_bounding_box_max.z)
+    {
+        std::cout << "Collision detected with camera" << std::endl;
+    }
+}
