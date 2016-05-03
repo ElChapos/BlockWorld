@@ -6,7 +6,7 @@
  */
 Camera::Camera()
 {
-    camera_position = glm::vec3(0.0, 0.0, 0.0);
+    camera_position = glm::vec3(0.0, 0.0, -30.0);
     camera_direction = glm::vec3(0,0,0);
     camera_right = glm::vec3(0,0,0);
     camera_up = glm::vec3(0,0,0);
@@ -37,33 +37,43 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
 
     // calculate the camera_direction to look at, the angle to the right of horiontal angle and the angle up and between the forward and right angles
     camera_direction = glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle),sin(camera_vertical_angle),cos(camera_vertical_angle) * cos(camera_horizontal_angle));
-    camera_right = glm::vec3(sin(camera_horizontal_angle - 3.14/2.0f),0,cos(camera_horizontal_angle - 3.14/2.0f));
+    camera_right = glm::vec3(sin(camera_horizontal_angle - 3.14/2.0f), 0, cos(camera_horizontal_angle - 3.14/2.0f));
     camera_up = glm::cross(camera_right, camera_direction);
 
     // update the position of the camera/player  based on user input
-     if(input_direction == UP)
-     {
-        camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
-                last_direction = "UP";
-    }
-    else if(input_direction == DOWN)
+    if(input_direction == UP)
     {
-        camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle),0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
-                last_direction = "DOWN";
+        camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0, cos(camera_vertical_angle) * cos(camera_horizontal_angle)) * camera_movement_speed;
+        last_direction = "UP";
     }
-    else if(input_direction == LEFT)
+    if(input_direction == DOWN)
+    {
+        camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0, cos(camera_vertical_angle) * cos(camera_horizontal_angle)) * camera_movement_speed;
+        last_direction = "DOWN";
+    }
+    if(input_direction == LEFT)
     {
         camera_position -= camera_right * camera_movement_speed;
-                last_direction = "LEFT";
+        last_direction = "LEFT";
     }
-    else if(input_direction == RIGHT)
+    if(input_direction == RIGHT)
     {
         camera_position += camera_right * camera_movement_speed;
-                last_direction = "RIGHT";
+        last_direction = "RIGHT";
+    }
+    if(input_direction == SPACE)
+    {
+        camera_position += glm::vec3(0.0f, 0.2f, 0.0f);
+        last_direction = "SPACE";
+    }
+    if(input_direction == CTRL)
+    {
+        camera_position -= glm::vec3(0.0f, 0.2f, 0);
+        last_direction = "CTRL";
     }
 
     // return the view matrix
-    return glm::lookAt(camera_position, camera_position + camera_direction,camera_up);
+    return glm::lookAt(camera_position, camera_position + camera_direction, camera_up);
  }
 
  /**

@@ -36,6 +36,69 @@ struct SDLWindowDeleter
     }
 };
 
+/*
+ * Handles input
+ */
+void HandleInput(const std::shared_ptr<GameWorld> &game_world)
+{
+    int mouse_x;
+    int mouse_y;
+    const Uint8 * keyboard_state;
+    Input input_direction = NILL;
+    
+    // For camera pitch/yaw
+    SDL_GetRelativeMouseState(&mouse_x, &mouse_y);
+    game_world->UpdateCameraPosition(input_direction, mouse_x, mouse_y);
+    
+    // For keyboard presses
+    keyboard_state = SDL_GetKeyboardState(NULL);
+    if(keyboard_state[SDL_SCANCODE_W])
+    {
+        game_world->UpdateCameraPosition(UP, mouse_x, mouse_y);
+    }
+    if(keyboard_state[SDL_SCANCODE_A])
+    {
+        game_world->UpdateCameraPosition(LEFT, mouse_x, mouse_y);
+    }
+    if(keyboard_state[SDL_SCANCODE_S])
+    {
+        game_world->UpdateCameraPosition(DOWN, mouse_x, mouse_y);
+    }
+    if(keyboard_state[SDL_SCANCODE_D])
+    {
+        game_world->UpdateCameraPosition(RIGHT, mouse_x, mouse_y);
+    }
+	if(keyboard_state[SDL_SCANCODE_SPACE])
+    {
+        game_world->UpdateCameraPosition(SPACE, mouse_x, mouse_y);
+    }
+	if(keyboard_state[SDL_SCANCODE_LCTRL])
+    {
+        game_world->UpdateCameraPosition(CTRL, mouse_x, mouse_y);
+    }
+    
+	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+    {
+        // Todo: FIXME
+    }
+	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_RIGHT))
+    {
+        // Todo: FIXME
+    }
+        
+    if(keyboard_state[SDL_SCANCODE_ESCAPE])
+    {
+        SDL_Quit();
+    }
+    
+    /* Maybe later
+        if(KEYBOARD_INPUT[SDL_SCANCODE_1])
+            game_world->SetBlockType(1);
+        if(KEYBOARD_INPUT[SDL_SCANCODE_2])
+            game_world->SetBlockType(2);
+	*/
+}
+
 void Draw(const std::shared_ptr<SDL_Window> &window, const std::shared_ptr<GameWorld> &game_world)
 {
     // Background
@@ -159,11 +222,6 @@ int main(int argc, char ** argv)
     auto window = InitWorld();
     auto game_world = std::make_shared<GameWorld>(mode);
 
-    int mouse_x;
-    int mouse_y;
-    const Uint8 * keyboard_state;
-    Input input_direction = NILL;
-
     if(!window)
     {
         SDL_Quit();
@@ -187,36 +245,7 @@ int main(int argc, char ** argv)
             }
             case SDL_USEREVENT:
             {
-                SDL_GetRelativeMouseState(&mouse_x, &mouse_y);
-                
-                // TODO: CHANGE THIS SO MULTIPLE KEYS CAN BE PRESSED
-                keyboard_state = SDL_GetKeyboardState(NULL);
-                if(keyboard_state[SDL_SCANCODE_A])
-                {
-                    input_direction = LEFT;
-                }
-                else if(keyboard_state[SDL_SCANCODE_S])
-                {
-                    input_direction = DOWN;
-                }
-                else if(keyboard_state[SDL_SCANCODE_D])
-                {
-                    input_direction = RIGHT;
-                }
-                else if(keyboard_state[SDL_SCANCODE_W])
-                {
-                    input_direction = UP;
-                }
-                else if(keyboard_state[SDL_SCANCODE_ESCAPE])
-                {
-                    SDL_Quit();
-                }
-                else
-                {
-                    input_direction = NILL;
-                }
-                
-                game_world->UpdateCameraPosition(input_direction, mouse_x, mouse_y);
+                HandleInput(game_world);
                 Draw(window, game_world);
                 break;
             }
