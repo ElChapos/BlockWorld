@@ -90,13 +90,6 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     {
         SDL_Quit();
     }
-    
-    /* Maybe later
-        if(KEYBOARD_INPUT[SDL_SCANCODE_1])
-            game_world->SetBlockType(1);
-        if(KEYBOARD_INPUT[SDL_SCANCODE_2])
-            game_world->SetBlockType(2);
-	*/
 }
 
 void Draw(const std::shared_ptr<SDL_Window> &window, const std::shared_ptr<GameWorld> &game_world)
@@ -113,8 +106,8 @@ void Draw(const std::shared_ptr<SDL_Window> &window, const std::shared_ptr<GameW
 
 std::shared_ptr<SDL_Window> InitWorld()
 {
-    Uint32 width = 640;
-    Uint32 height = 480;
+    Uint32 width = 1027;
+    Uint32 height = 768;
     SDL_Window * _window;
     std::shared_ptr<SDL_Window> window;
 
@@ -140,12 +133,12 @@ std::shared_ptr<SDL_Window> InitWorld()
     SDL_ShowCursor(0);
 
     // Create a new window with an OpenGL surface
-    _window = SDL_CreateWindow("BlockWorld"
-        , SDL_WINDOWPOS_CENTERED
-        , SDL_WINDOWPOS_CENTERED
-        , width
-        , height
-        , SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
+    _window = SDL_CreateWindow("BlockWorld",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        width,
+        height,
+        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
     );
     
     if (!_window)
