@@ -1,9 +1,0 @@
-<map id="src/common.h" name="src/common.h">
-<area shape="rect" id="node2" href="$Camera_8h.html" title="src/Camera.h" alt="" coords="161,80,262,107"/>
-<area shape="rect" id="node4" href="$GameAssetManager_8h.html" title="src/GameAssetManager.h" alt="" coords="137,155,312,181"/>
-<area shape="rect" id="node6" href="$GameWorld_8h.html" title="src/GameWorld.h" alt="" coords="264,229,388,256"/>
-<area shape="rect" id="node8" href="$main_8cc.html" title="src/main.cc" alt="" coords="381,304,471,331"/>
-<area shape="rect" id="node3" href="$Camera_8cc.html" title="src/Camera.cc" alt="" coords="5,155,113,181"/>
-<area shape="rect" id="node5" href="$GameAssetManager_8cc.html" title="src/GameAssetManager.cc" alt="" coords="58,229,239,256"/>
-<area shape="rect" id="node7" href="$GameWorld_8cc.html" title="src/GameWorld.cc" alt="" coords="226,304,357,331"/>
-</map>

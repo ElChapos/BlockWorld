@@ -1,5 +1,0 @@
-<map id="GameAsset" name="GameAsset">
-<area shape="rect" id="node2" href="$classCubeAsset.html" title="CubeAsset" alt="" coords="5,80,92,107"/>
-<area shape="rect" id="node3" href="$classGroundAsset.html" title="GroundAsset" alt="" coords="117,80,215,107"/>
-<area shape="rect" id="node4" href="$classStarAsset.html" title="StarAsset" alt="" coords="239,80,319,107"/>
-</map>
