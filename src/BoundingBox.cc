@@ -8,7 +8,7 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
     this->rotation = rotation;
     this->speed = speed;
 
-    std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
+    //std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
 /**
@@ -124,7 +124,7 @@ void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding
         bounding_box1_max.y > bounding_box2_min.y && bounding_box1_min.y < bounding_box2_max.y &&
         bounding_box1_max.z > bounding_box2_min.z && bounding_box1_min.z < bounding_box2_max.z)
     {
-        std::cout << "Collision detected [" << glm::to_string(bounding_box1_max) << ","<< glm::to_string(bounding_box1_min) << "," << glm::to_string(bounding_box2_max) << "," << glm::to_string(bounding_box2_min) << "]" << std::endl;
+        //std::cout << "Collision detected [" << glm::to_string(bounding_box1_max) << ","<< glm::to_string(bounding_box1_min) << "," << glm::to_string(bounding_box2_max) << "," << glm::to_string(bounding_box2_min) << "]" << std::endl;
         glm::vec3 reverse_speed = this->speed;
         reverse_speed = reverse_speed + reverse_speed;
         this->speed -= reverse_speed;

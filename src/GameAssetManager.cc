@@ -63,7 +63,27 @@ GameAssetManager::~GameAssetManager()
  */
 void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset)
 {
-    draw_list.push_back(the_asset);
+    // Assume we create the block
+    bool create = true;
+    
+    // Check each asset`
+    for(auto item: draw_list)
+    {
+        // if the asset exists
+        if(glm::to_string(item->GetVec3()) == glm::to_string(the_asset->GetVec3()))
+        {
+            // Change create to false so we do not make one
+            std::cout << "Block was not added to draw_list, one already exists on that position" << std::endl;
+            create = false;
+            break;
+        }
+    }
+    
+    // Check if we can create a block
+    if(create)
+    {
+        draw_list.push_back(the_asset);
+    }
 }
 
 /**
