@@ -5,12 +5,13 @@
 #include <glm/ext.hpp>
 
 class ColourManager {
-	public:
-		ColourManager();
+    public:
+        ColourManager();
 
-		void AddColour(std::string, glm::vec3);
-		glm::vec3 GetColour(std::string);
+        void AddColour(std::string, glm::vec3);
+        glm::vec3 GetColour(std::string);
 
-	private:
-		std::map<std::string, glm::vec3> colour_list;
+    private:
+        std::map<std::string, glm::vec3> colour_list;
+        
 };

@@ -19,6 +19,7 @@ class GameAsset{
 
 	private:
 		std::shared_ptr<BoundingBox> bounding_box;
+		
 };
 
 #endif

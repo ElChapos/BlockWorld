@@ -5,7 +5,7 @@
 */
 GameAsset::GameAsset(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
-	bounding_box = std::make_shared<BoundingBox>(position, type, scale, rotation, speed);
+    bounding_box = std::make_shared<BoundingBox>(position, type, scale, rotation, speed);
 }
 
 /**
@@ -13,7 +13,7 @@ GameAsset::GameAsset(glm::vec3 position, int type, float scale , glm::vec3 rotat
 */
 glm::mat4 GameAsset::GetModelTransformation()
 {
-	return bounding_box->GetModelTransformation();
+    return bounding_box->GetModelTransformation();
 }
 
 /**
@@ -21,11 +21,11 @@ glm::mat4 GameAsset::GetModelTransformation()
 */
 glm::vec3 GameAsset::GetMaxAndMin(int type){
 
-    if (type == 1)
+    if(type == 1)
     {
         return bounding_box->GetMaxAndMin(1);
     }
-    else if (type == 2)
+    else if(type == 2)
     {
         return bounding_box->GetMaxAndMin(2);
     }
@@ -42,6 +42,7 @@ void GameAsset::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_b
 /**
 *  Return the position of a boundingbox
 */
-glm::vec3 GameAsset::GetVec3(){
+glm::vec3 GameAsset::GetVec3()
+{
     return bounding_box->GetVec3();
 }
