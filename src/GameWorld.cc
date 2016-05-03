@@ -48,8 +48,8 @@ void GameWorld::BlockAction(bool type)
 {
 	if(type)
 	{
-		// TODO: Add block at point
-		std::cout << "TODO: Add block at point" << std::endl;
+		//glm::vec3 _temp_cam_pos = asset_manager->GetCameraPosition();
+		//asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0f, 0.0f, 0.0f),colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 	}
 	else
 	{

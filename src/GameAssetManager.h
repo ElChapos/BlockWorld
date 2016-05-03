@@ -30,7 +30,9 @@ class GameAssetManager
     void operator=(GameAssetManager const&); // assignment
     void AddAsset(std::shared_ptr<GameAsset>);
     void Draw();
-    void UpdateCameraPosition(Input, int mouseX, int mouseY);
+    void UpdateCameraPosition(Input, int, int);
+    
+    glm::vec3 GetCameraPosition();
 
   private:
     GLuint CreateGLProgram(std::string &, std::string &);
@@ -40,7 +42,7 @@ class GameAssetManager
 
     std::pair<GLchar *, GLint>  ReadShader(std::string &);
     std::vector<std::shared_ptr<GameAsset>> draw_list;
-    Camera camera;
+    std::shared_ptr<Camera> camera = std::make_shared<Camera>();
 
     // variables to gather the bounds of two bounding boxes to check collisions
     glm::vec3 bounding_box1_max, bounding_box1_min, bounding_box2_max, bounding_box2_min;

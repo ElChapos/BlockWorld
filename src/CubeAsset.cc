@@ -103,10 +103,11 @@ float CubeAsset::rf()
 /**
  * 
  */
-void CubeAsset::Draw(GLuint program_token) {
+void CubeAsset::Draw(GLuint program_token)
+{
     if(!glIsProgram(program_token))
     {
-        std::cerr << "Drawing Cube with invalid program" << std::endl;
+        std::cerr << "Drawing Cube with invalid program [Token: " << program_token << "]" << std::endl;
         return;
     }
     

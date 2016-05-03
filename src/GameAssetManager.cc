@@ -38,7 +38,15 @@ GameAssetManager::GameAssetManager(ApplicationMode mode)
  */
 void GameAssetManager::UpdateCameraPosition(Input input_direction,  int mouse_x, int mouse_y)
 {
-    view_matrix = camera.UpdateCameraPosition(input_direction, mouse_x, mouse_y);
+    view_matrix = camera->UpdateCameraPosition(input_direction, mouse_x, mouse_y);
+}
+
+/**
+ * Fetches and returns the camera position
+ */
+glm::vec3 GameAssetManager::GetCameraPosition()
+{
+    return camera->GetCameraPosition();
 }
 
 /**
@@ -77,7 +85,7 @@ void GameAssetManager::Draw()
         bounding_box1_min = ga->GetMaxAndMin(2);
         bounding_box1_position = ga->GetVec3();
 
-        camera.CheckCollision(bounding_box1_max, bounding_box1_min);
+        camera->CheckCollision(bounding_box1_max, bounding_box1_min);
 
 
         for(auto ga2: draw_list)

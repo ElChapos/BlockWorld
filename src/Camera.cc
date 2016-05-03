@@ -79,7 +79,7 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
  /**
  * Detects a collision
  */
- void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_min)
+void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_min)
 {
     glm::vec3 camera_bounding_box_max = camera_position += glm::vec3(1.0,1.0,1.0);
     glm::vec3 camera_bounding_box_min = camera_position += glm::vec3(-1.0,-1.0,-1.0);
@@ -107,4 +107,12 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
             camera_position -= camera_right * camera_movement_speed;
         }
     }
+}
+
+/**
+ * Fetches and returns the camera position
+ */
+glm::vec3 Camera::GetCameraPosition()
+{
+    return camera_position;
 }
