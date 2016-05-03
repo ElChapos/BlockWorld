@@ -44,18 +44,22 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
      if(input_direction == UP)
      {
         camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
+                last_direction = "UP";
     }
     else if(input_direction == DOWN)
     {
         camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle),0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
+                last_direction = "DOWN";
     }
     else if(input_direction == LEFT)
     {
         camera_position -= camera_right * camera_movement_speed;
+                last_direction = "LEFT";
     }
     else if(input_direction == RIGHT)
     {
         camera_position += camera_right * camera_movement_speed;
+                last_direction = "RIGHT";
     }
 
     // return the view matrix
@@ -76,5 +80,21 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
         bounding_box_max.z > camera_bounding_box_min.z && bounding_box_min.z < camera_bounding_box_max.z)
     {
         std::cout << "Collision detected with camera" << std::endl;
+        if(last_direction == "UP")
+        {
+            camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle),0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
+        }
+        else if(last_direction == "DOWN")
+        {
+            camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
+        }
+        else if(last_direction == "LEFT")
+        {
+            camera_position += camera_right * camera_movement_speed;
+        }
+        else if(last_direction == "RIGHT")
+        {
+            camera_position -= camera_right * camera_movement_speed;
+        }
     }
 }

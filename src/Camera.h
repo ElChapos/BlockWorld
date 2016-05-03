@@ -1,6 +1,7 @@
 #include <glm/ext.hpp>
 #include "common.h"
 #include <iostream>
+#include <string>
 
 #ifndef SRC_CAMERA_H_
 #define SRC_CAMERA_H_
@@ -23,6 +24,7 @@ class Camera {
 
         float camera_movement_speed;
 
+        std::string last_direction;
 };
 
 #endif
