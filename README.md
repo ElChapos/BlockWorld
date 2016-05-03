@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ElChapos/BlockWorld.svg?branch=master)](https://travis-ci.org/ElChapos/BlockWorld)
+
 # Prerequisites #
 
 * GNU Autotools
