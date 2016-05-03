@@ -48,8 +48,12 @@ void GameWorld::BlockAction(bool type)
 {
 	if(type)
 	{
-		//glm::vec3 _temp_cam_pos = asset_manager->GetCameraPosition();
-		//asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0f, 0.0f, 0.0f),colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+		// Quickly calculate a new position
+		glm::vec3 _temp_cam_pos = asset_manager->GetCameraPosition();
+		glm::vec3 _new_pos = glm::vec3(round(_temp_cam_pos.x), round(_temp_cam_pos.y), round(_temp_cam_pos.z));
+		
+		// Place new block at camera position
+		asset_manager->AddAsset(std::make_shared<CubeAsset>(_new_pos, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 	}
 	else
 	{
