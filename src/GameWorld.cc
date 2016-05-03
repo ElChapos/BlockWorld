@@ -40,3 +40,20 @@ void GameWorld::UpdateCameraPosition(Input input_direction, int mouse_x, int mou
 {
 	asset_manager->UpdateCameraPosition(input_direction, mouse_x, mouse_y);
 }
+
+/**
+ *
+ */
+void GameWorld::BlockAction(bool type)
+{
+	if(type)
+	{
+		// TODO: Add block at point
+		std::cout << "TODO: Add block at point" << std::endl;
+	}
+	else
+	{
+		// TODO: Delete block at point
+		std::cout << "TODO: Delete block at point" << std::endl;
+	}
+}

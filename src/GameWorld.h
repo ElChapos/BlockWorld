@@ -27,7 +27,8 @@ class GameWorld {
         * Calling Draw() will draw the entire world.
         */
         void Draw();
-        void UpdateCameraPosition(Input, int mouse_x, int mouse_y);
+        void UpdateCameraPosition(Input, int, int);
+        void BlockAction(bool);
 
     private:
         ColourManager colour_manager;

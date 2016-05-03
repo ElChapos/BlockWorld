@@ -48,6 +48,11 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     
     // For camera pitch/yaw
     SDL_GetRelativeMouseState(&mouse_x, &mouse_y);
+    
+    // Slow down the mouse_x and mouse_y
+    mouse_x = mouse_x*0.2;
+    mouse_y = mouse_y*0.2;
+    
     game_world->UpdateCameraPosition(input_direction, mouse_x, mouse_y);
     
     // For keyboard presses
@@ -79,11 +84,11 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
     {
-        // Todo: FIXME
+        game_world->BlockAction(true);
     }
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_RIGHT))
     {
-        // Todo: FIXME
+        game_world->BlockAction(false);
     }
         
     if(keyboard_state[SDL_SCANCODE_ESCAPE])
