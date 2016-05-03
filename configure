@@ -637,8 +637,6 @@ sdl2_LIBS
 sdl2_CFLAGS
 glew_LIBS
 glew_CFLAGS
-gl_LIBS
-gl_CFLAGS
 PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
@@ -803,8 +801,6 @@ BOOST_ROOT
 PKG_CONFIG
 PKG_CONFIG_PATH
 PKG_CONFIG_LIBDIR
-gl_CFLAGS
-gl_LIBS
 glew_CFLAGS
 glew_LIBS
 sdl2_CFLAGS
@@ -1474,8 +1470,6 @@ Some influential environment variables:
               directories to add to pkg-config's search path
   PKG_CONFIG_LIBDIR
               path overriding pkg-config's built-in search path
-  gl_CFLAGS   C compiler flags for gl, overriding pkg-config
-  gl_LIBS     linker flags for gl, overriding pkg-config
   glew_CFLAGS C compiler flags for glew, overriding pkg-config
   glew_LIBS   linker flags for glew, overriding pkg-config
   sdl2_CFLAGS C compiler flags for sdl2, overriding pkg-config
@@ -16496,6 +16490,7 @@ fi
 
 
 # Find the following libraries on the system
+#PKG_CHECK_MODULES([gl], [gl])
 
 
 
@@ -16615,97 +16610,6 @@ $as_echo "yes" >&6; }
 $as_echo "no" >&6; }
 		PKG_CONFIG=""
 	fi
-fi
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gl" >&5
-$as_echo_n "checking for gl... " >&6; }
-
-if test -n "$gl_CFLAGS"; then
-    pkg_cv_gl_CFLAGS="$gl_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gl\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gl") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_gl_CFLAGS=`$PKG_CONFIG --cflags "gl" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$gl_LIBS"; then
-    pkg_cv_gl_LIBS="$gl_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gl\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gl") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_gl_LIBS=`$PKG_CONFIG --libs "gl" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        gl_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gl" 2>&1`
-        else
-	        gl_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gl" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$gl_PKG_ERRORS" >&5
-
-	as_fn_error $? "Package requirements (gl) were not met:
-
-$gl_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables gl_CFLAGS
-and gl_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables gl_CFLAGS
-and gl_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }
-else
-	gl_CFLAGS=$pkg_cv_gl_CFLAGS
-	gl_LIBS=$pkg_cv_gl_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-
 fi
 
 pkg_failed=no
@@ -19443,4 +19347,3 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
-
