@@ -63,12 +63,12 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
     }
     if(input_direction == SPACE)
     {
-        camera_position += glm::vec3(0.0f, 0.2f, 0.0f);
+        camera_position += glm::vec3(0.0f, camera_movement_speed, 0.0f);
         last_direction = "SPACE";
     }
     if(input_direction == CTRL)
     {
-        camera_position -= glm::vec3(0.0f, 0.2f, 0);
+        camera_position -= glm::vec3(0.0f, camera_movement_speed, 0);
         last_direction = "CTRL";
     }
 
