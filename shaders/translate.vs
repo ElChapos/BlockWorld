@@ -7,15 +7,16 @@ in vec3 colour;
 out vec3 frag_colour;
 
 
-uniform mat4 cam_mod;
-uniform mat4 cam_view;
-uniform mat4 cam_proj;
+uniform mat4 translate_matrix;
+uniform mat4 view_matrix;
+uniform mat4 projection_matrix;
 
 void main() {
-      gl_Position = cam_proj
-		     * cam_view
-                     * cam_mod
+      gl_Position = projection_matrix
+		     * view_matrix
+                     * translate_matrix
                      * vec4(position, 1.0);
  			frag_colour = colour;
 }
+
 

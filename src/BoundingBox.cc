@@ -2,11 +2,12 @@
 
 BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
-	this->position = position;
+	this->position = position -= glm::vec3(0.5f,0.5f,0.5f);
 	this->type = type;
 	this->scale = scale;
 	this->rotation = rotation;
 	this->speed = speed;
+
 	std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
@@ -18,33 +19,35 @@ glm::mat4 BoundingBox::GetModelTransformation()
 	}
     else if (this->type == 2)
 	{
-		this->Rotate(glm::vec3(0.01f, 0.1f, 0.1f));
+		this->Rotate(glm::vec3(0.01f, 0.01f, 0.01f));
 	}
     else if(this->type == 3)
 	{
 		this->Scale(0.01f);
 	}
-	    else if(this->type == 4)
+    else if(this->type == 4)
 	{
 		this->Translate(glm::vec3(this->speed.x,this->speed.y,this->speed.z));
 	}
 
 
+    //Scale rotate and translate a bounding box and return the updated matrix.
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
-	glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->position));
+	glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->position.x, this->position.y, this->position.z));
 
 	model_matrix = translate_matrix * scale_matrix;
-    model_matrix = glm::rotate(model_matrix, this->rotation.x, glm::vec3(1, 0, 0));
-	model_matrix = glm::rotate(model_matrix, this->rotation.y, glm::vec3(0, 1, 0));
-    model_matrix = glm::rotate(model_matrix, this->rotation.z, glm::vec3(0, 0, 1));
+    model_matrix = glm::rotate(model_matrix, rotation.x, glm::vec3(1, 0, 0));
+	model_matrix = glm::rotate(model_matrix, rotation.y, glm::vec3(0, 1, 0));
+    model_matrix = glm::rotate(model_matrix, rotation.z, glm::vec3(0, 0, 1));
 
 	return model_matrix;
 }
 
+
 /**
- * Used to translate
+ * Used to translate by a certain speed
  */
-void BoundingBox::Translate(glm::vec3 position_to)
+void BoundingBox::Translate(glm::vec3 translate_speed)
 {
 	//std::cout << "[BoundingBox::Translate()]: vec3 position_to" << std::endl;
 
@@ -55,16 +58,17 @@ void BoundingBox::Translate(glm::vec3 position_to)
 	//}
 	//else
 	//{
-		new_position = this->position + position_to;
+		new_position = this->position + translate_speed;
 	//}
 
 	this->position = new_position;
 }
 
+
 /**
- * Used to scale
+ * Used to scale by a certain speed
  */
-void BoundingBox::Scale(float scale_to)
+void BoundingBox::Scale(float scale_speed)
 {
     //std::cout << "[BoundingBox::Scale()]: float scale_to" << std::endl;
 
@@ -75,31 +79,33 @@ void BoundingBox::Scale(float scale_to)
 	}
 	else
 	{
-		new_scale = this->scale + scale_to;
+		new_scale = this->scale + scale_speed;
 	}
 
 	this->scale = new_scale;
 }
 
+
 /**
- * Used to rotate
+ * Used to rotate by a certain speed
  */
-void BoundingBox::Rotate(glm::vec3 rotate_to)
+void BoundingBox::Rotate(glm::vec3 rotate_speed)
 {
 		//std::cout << "[BoundingBox::Rotate()]: vec3 rotate_to" << std::endl;
 
 	glm::vec3 new_rotation;
-	if(this->rotation.x > 2.0f && this->rotation.y > 2.0f && this->rotation.z > 2.0f)
-	{
-		new_rotation = glm::vec3(0,0,0);
-	}
-	else
-	{
-		new_rotation = this->rotation + rotate_to;
-	}
+	//if(this->rotation.x > 2.0f && this->rotation.y > 2.0f && this->rotation.z > 2.0f)
+	//{
+	//	new_rotation = glm::vec3(0,0,0);
+	//}
+	//else
+	//{
+		new_rotation = this->rotation + rotate_speed;
+	//}
 
 	this->rotation = new_rotation;
 }
+
 
 /**
  * Get vec3 for bbox
@@ -108,6 +114,7 @@ glm::vec3 BoundingBox::GetVec3()
 {
 	return position;
 }
+
 
 /**
  * Return the max and minimum bounds
@@ -119,16 +126,21 @@ glm::vec3 BoundingBox::GetMaxAndMin(int type)
     if (type == 1)
     {
     // return max bounds
-    bounds = this->position += glm::vec3(0.5f,0.5f,0.5f);
+    bounds = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
+
     }
     else if (type == 2)
     {
     // return minimum bounds
-     bounds = this->position += glm::vec3(-0.5f,-0.5f,-0.5f);
+     bounds = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
     }
 	return bounds;
 }
 
+
+/**
+* Check if a bounding box has collided with another
+*/
 void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
 {
     //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max

@@ -1,0 +1,111 @@
+\hypertarget{classCamera}{}\section{Camera Class Reference}
+\label{classCamera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCamera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\item 
+glm\+::mat4 \hyperlink{classCamera_ac0f7e4d6a41e3b425eed9cfa392a9508}{Update\+Camera\+Position} (\hyperlink{common_8h_a080a822f0093973313bd644e517a5090}{Input} input\+\_\+\+Direction, int mouse\+X, int mouse\+Y)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCamera_a01f94c3543f56ede7af49dc778f19331}{}\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{Camera()}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCamera_a01f94c3543f56ede7af49dc778f19331}
+
+\begin{DoxyCode}
+8               \{
+9 
+10 
+11       cameraPosition = glm::vec3(-20.0f, 10.0f, -40.0f);
+12       direction = glm::vec3(0,0,0);
+13       right = glm::vec3(0,0,0);
+14       up = glm::vec3(0,0,0);
+15 
+16       horizontalAngle = 0;
+17       verticalAngle = 0;
+18 
+19           mouseDeltaX = 1;
+20       mouseDeltaY = 1;
+21 
+22       cameraMovementSpeed = 0.25;
+23 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCamera_ac0f7e4d6a41e3b425eed9cfa392a9508}{}\index{Camera@{Camera}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Camera@{Camera}}
+\subsubsection[{Update\+Camera\+Position(\+Input input\+\_\+\+Direction, int mouse\+X, int mouse\+Y)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Camera\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Input}}]{input\+\_\+\+Direction, }
+\item[{int}]{mouse\+X, }
+\item[{int}]{mouse\+Y}
+\end{DoxyParamCaption}
+)}\label{classCamera_ac0f7e4d6a41e3b425eed9cfa392a9508}
+
+\begin{DoxyCode}
+29                                                                                  \{
+30 
+31  \textcolor{comment}{// mouse delta position inverted}
+32     mouseDeltaX = -mouseX;
+33     mouseDeltaY = -mouseY;
+34 
+35     horizontalAngle += 0.01 * mouseDeltaX;
+36 \textcolor{comment}{// restrict the mouse view from going too far up or down}
+37 \textcolor{keywordflow}{if}((verticalAngle + (0.01 * mouseDeltaY)) < 1 && (verticalAngle + (0.01 * mouseDeltaY)) > -1 )\{
+38     verticalAngle += 0.01 * mouseDeltaY;
+39 \}
+40 
+41 
+42 \textcolor{comment}{// calculate the direction to look at, the angle to the right of horiontal angle and the angle up and
+       between the forward and right angles}
+43     direction = glm::vec3(cos(verticalAngle) * sin(horizontalAngle),sin(verticalAngle),cos(verticalAngle) *
+       cos(horizontalAngle));
+44 
+45     right = glm::vec3(sin(horizontalAngle - 3.14/2.0f),0,cos(horizontalAngle - 3.14/2.0f));
+46 
+47     up = glm::cross(right, direction);
+48 
+49 
+50 
+51 
+52 \textcolor{comment}{// update the position of the camera/player  based on user input}
+53     \textcolor{keywordflow}{if}(input\_Direction == \hyperlink{common_8h_a080a822f0093973313bd644e517a5090aba595d8bca8bc5e67c37c0a9d89becfa}{UP})\{
+54 
+55         cameraPosition += glm::vec3(cos(verticalAngle) * sin(horizontalAngle), 0,cos(verticalAngle) * cos(
+      horizontalAngle))* cameraMovementSpeed;
+56 
+57     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(input\_Direction == \hyperlink{common_8h_a080a822f0093973313bd644e517a5090a9b0b4a95b99523966e0e34ffdadac9da}{DOWN})\{
+58 
+59         cameraPosition -= glm::vec3(cos(verticalAngle) * sin(horizontalAngle),0,cos(verticalAngle) * cos(
+      horizontalAngle))* cameraMovementSpeed;
+60 
+61     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(input\_Direction == \hyperlink{common_8h_a080a822f0093973313bd644e517a5090adb45120aafd37a973140edee24708065}{LEFT})\{
+62 
+63         cameraPosition -= right * cameraMovementSpeed;
+64 
+65     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(input\_Direction == \hyperlink{common_8h_a080a822f0093973313bd644e517a5090aec8379af7490bb9eaaf579cf17876f38}{RIGHT})\{
+66 
+67         cameraPosition += right * cameraMovementSpeed;
+68     \}
+69 
+70 \textcolor{comment}{//  return the view matrix}
+71       \textcolor{keywordflow}{return} glm::lookAt(cameraPosition, cameraPosition + direction,up);
+72  \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{Camera_8h}{Camera.\+h}\item 
+src/\hyperlink{Camera_8cc}{Camera.\+cc}\end{DoxyCompactItemize}

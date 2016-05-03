@@ -2,54 +2,43 @@
 #define GAMEWORLD_H
 
 #include <memory>
-#include <iostream>
-#include <fstream>
-#include <string>
 
-#include <math.h>
-#include <GL/glew.h>
 #include <GL/gl.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
 
 #include "common.h"
-#include "Camera.h"
 #include "GameAssetManager.h"
-#include "GameAsset.h"
 #include "CubeAsset.h"
+
 #include "ColourManager.h"
 
+//#include "StarAsset.h"
+//#include "GroundAsset.h"
 /**
  * GameWorld allows us to separate the management of the game world from the
  * nuts and bolts of game loop initialisation.  The GameWorld currently has
  * a very simplified scene graph consisiting of a single GameAssetManager.
  */
 class GameWorld {
-	public:
-		/**
-		* We thread the ApplicationMode through the GameWorld ss we want to read it
-		* in from the user.  Threading the state through the various function calls
-		* is preferable (in this case) to having some kind of global state.
-		*/
-		GameWorld(ApplicationMode);
+ public:
+  /**
+   * We thread the ApplicationMode through the GameWorld ss we want to read it
+   * in from the user.  Threading the state through the various function calls
+   * is preferable (in this case) to having some kind of global state.
+   */
+  GameWorld(ApplicationMode);
 
-		void Draw();
-		void CreateShape(std::string, int);
-		void HandleInput(std::string, int);
-        void MoveCamera(glm::vec2, glm::vec2);
-		void LoadMap(std::string);
-		
-	private:
-		std::shared_ptr<GameAssetManager> asset_manager;
+  /**
+   * Calling Draw() will draw the entire world.
+   */
+  void Draw();
 
-		int block_type = 1;
-		
-		glm::vec3 offset_pos;
 
-		ColourManager colour_manager;
-		Camera camera_controller;
-		
-		std::shared_ptr<CubeAsset> test_asset;
+void UpdateCameraPosition(Input, int mouse_x, int mouse_y);
+
+
+ private:
+  ColourManager colour_manager;
+  std::shared_ptr<GameAssetManager> asset_manager;
+
 };
-
 #endif // GAMEWORLD_H

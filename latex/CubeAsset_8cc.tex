@@ -1,0 +1,52 @@
+\hypertarget{CubeAsset_8cc}{}\section{src/\+Cube\+Asset.cc File Reference}
+\label{CubeAsset_8cc}\index{src/\+Cube\+Asset.\+cc@{src/\+Cube\+Asset.\+cc}}
+{\ttfamily \#include \char`\"{}Cube\+Asset.\+h\char`\"{}}\\*
+Include dependency graph for Cube\+Asset.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{CubeAsset_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{check\+G\+L\+Error}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{CubeAsset_8cc_abe4ebf09b25b6e092e65ce01e73987d7}{check\+Error} (std\+::string file, int line)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}{}\index{Cube\+Asset.\+cc@{Cube\+Asset.\+cc}!check\+G\+L\+Error@{check\+G\+L\+Error}}
+\index{check\+G\+L\+Error@{check\+G\+L\+Error}!Cube\+Asset.\+cc@{Cube\+Asset.\+cc}}
+\subsubsection[{check\+G\+L\+Error}]{\setlength{\rightskip}{0pt plus 5cm}\#define check\+G\+L\+Error(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{CubeAsset_8cc_a75f201b0e53e68726854997957322b8d}
+
+
+\subsection{Function Documentation}
+\hypertarget{CubeAsset_8cc_abe4ebf09b25b6e092e65ce01e73987d7}{}\index{Cube\+Asset.\+cc@{Cube\+Asset.\+cc}!check\+Error@{check\+Error}}
+\index{check\+Error@{check\+Error}!Cube\+Asset.\+cc@{Cube\+Asset.\+cc}}
+\subsubsection[{check\+Error(std\+::string file, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void check\+Error (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{CubeAsset_8cc_abe4ebf09b25b6e092e65ce01e73987d7}
+
+\begin{DoxyCode}
+85                                           \{
+86   GLenum gl\_error = glGetError();
+87   \textcolor{keywordflow}{if}(GL\_NO\_ERROR != gl\_error) \{
+88     std::cerr << \textcolor{stringliteral}{"GL error in "} << file << \textcolor{stringliteral}{" at line "} << line << \textcolor{stringliteral}{" error: "} << gl\_error << std::endl;
+89     exit(-1);
+90   \}
+91 \}
+\end{DoxyCode}

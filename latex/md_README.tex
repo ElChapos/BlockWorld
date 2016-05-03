@@ -1,0 +1,50 @@
+
+\begin{DoxyItemize}
+\item G\+N\+U Autotools
+\item Open\+G\+L 3.\+0
+\item C++11 compiler (tested with G\+C\+C 4.\+8.\+3+)
+\item \href{http://www.boost.org/}{\tt Boost}
+\item \href{http://glew.sourceforge.net/}{\tt G\+L\+E\+W}
+\item \href{https://www.libsdl.org/}{\tt S\+D\+L2}
+\item \href{http://glm.g-truc.net/}{\tt G\+L\+M}
+\end{DoxyItemize}
+
+On Fedora 20 or later you can install these using a single command (as root)\+:
+
+\begin{quote}
+\$ yum install boost-\/$\ast$ glew-\/devel S\+D\+L2\+\_\+$\ast$ glm-\/devel \end{quote}
+
+
+\section*{Building}
+
+After cloning the source code or extracting a distributed archive, change to the directory where the source code is\+:
+
+
+\begin{DoxyCode}
+1 $ autoreconf -i
+2 $ ./configure
+3 $ make
+\end{DoxyCode}
+
+
+Alternatively, if you\textquotesingle{}d like to build the project in debug mode use\+:
+
+\begin{quote}
+\$ make C\+X\+X\+F\+L\+A\+G\+S=-\/\+D\+D\+E\+B\+U\+G \end{quote}
+
+
+\section*{Running}
+
+The build process should create a binary that can be executed as follows\+:
+
+\begin{quote}
+\$ ./src/shaderexample \end{quote}
+
+
+See
+
+\begin{quote}
+\$ ./src/shaderexample --help \end{quote}
+
+
+for usage instructions. 

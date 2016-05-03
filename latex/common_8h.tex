@@ -1,0 +1,75 @@
+\hypertarget{common_8h}{}\section{src/common.h File Reference}
+\label{common_8h}\index{src/common.\+h@{src/common.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0}{Application\+Mode} \{ \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{T\+R\+A\+N\+S\+F\+O\+R\+M}, 
+\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}{R\+O\+T\+A\+T\+E}, 
+\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{S\+C\+A\+L\+E}
+ \}
+\item 
+enum \hyperlink{common_8h_a080a822f0093973313bd644e517a5090}{Input} \{ \\*
+\hyperlink{common_8h_a080a822f0093973313bd644e517a5090ad2625e4f5268d590b842108adccf8ab6}{N\+I\+L\+L}, 
+\hyperlink{common_8h_a080a822f0093973313bd644e517a5090aba595d8bca8bc5e67c37c0a9d89becfa}{U\+P}, 
+\hyperlink{common_8h_a080a822f0093973313bd644e517a5090a9b0b4a95b99523966e0e34ffdadac9da}{D\+O\+W\+N}, 
+\hyperlink{common_8h_a080a822f0093973313bd644e517a5090adb45120aafd37a973140edee24708065}{L\+E\+F\+T}, 
+\\*
+\hyperlink{common_8h_a080a822f0093973313bd644e517a5090aec8379af7490bb9eaaf579cf17876f38}{R\+I\+G\+H\+T}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0}{}\index{common.\+h@{common.\+h}!Application\+Mode@{Application\+Mode}}
+\index{Application\+Mode@{Application\+Mode}!common.\+h@{common.\+h}}
+\subsubsection[{Application\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Application\+Mode}}\label{common_8h_add86e7c88dd109abea3f708b422f31f0}
+Application\+Mode denotes the global state of the application. There are three global states for this application\+:
+\begin{DoxyEnumerate}
+\item Transform -- load the correct shaders to do a transformation of a simple asset.
+\item Rotate -- load the correct shader to rotate a simple asset.
+\item Scale -- load the correct shader to scale a simple asset. 
+\end{DoxyEnumerate}\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{T\+R\+A\+N\+S\+F\+O\+R\+M@{T\+R\+A\+N\+S\+F\+O\+R\+M}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!T\+R\+A\+N\+S\+F\+O\+R\+M@{T\+R\+A\+N\+S\+F\+O\+R\+M}}\item[{\em 
+\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{}T\+R\+A\+N\+S\+F\+O\+R\+M\label{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}
+}]\index{R\+O\+T\+A\+T\+E@{R\+O\+T\+A\+T\+E}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!R\+O\+T\+A\+T\+E@{R\+O\+T\+A\+T\+E}}\item[{\em 
+\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}{}R\+O\+T\+A\+T\+E\label{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}
+}]\index{S\+C\+A\+L\+E@{S\+C\+A\+L\+E}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!S\+C\+A\+L\+E@{S\+C\+A\+L\+E}}\item[{\em 
+\hypertarget{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{}S\+C\+A\+L\+E\label{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}
+}]\end{description}
+\end{Desc}
+
+\begin{DoxyCode}
+12 \{\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{TRANSFORM}, \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}{ROTATE}, \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{SCALE}\};
+\end{DoxyCode}
+\hypertarget{common_8h_a080a822f0093973313bd644e517a5090}{}\index{common.\+h@{common.\+h}!Input@{Input}}
+\index{Input@{Input}!common.\+h@{common.\+h}}
+\subsubsection[{Input}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Input}}\label{common_8h_a080a822f0093973313bd644e517a5090}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{N\+I\+L\+L@{N\+I\+L\+L}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!N\+I\+L\+L@{N\+I\+L\+L}}\item[{\em 
+\hypertarget{common_8h_a080a822f0093973313bd644e517a5090ad2625e4f5268d590b842108adccf8ab6}{}N\+I\+L\+L\label{common_8h_a080a822f0093973313bd644e517a5090ad2625e4f5268d590b842108adccf8ab6}
+}]\index{U\+P@{U\+P}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!U\+P@{U\+P}}\item[{\em 
+\hypertarget{common_8h_a080a822f0093973313bd644e517a5090aba595d8bca8bc5e67c37c0a9d89becfa}{}U\+P\label{common_8h_a080a822f0093973313bd644e517a5090aba595d8bca8bc5e67c37c0a9d89becfa}
+}]\index{D\+O\+W\+N@{D\+O\+W\+N}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!D\+O\+W\+N@{D\+O\+W\+N}}\item[{\em 
+\hypertarget{common_8h_a080a822f0093973313bd644e517a5090a9b0b4a95b99523966e0e34ffdadac9da}{}D\+O\+W\+N\label{common_8h_a080a822f0093973313bd644e517a5090a9b0b4a95b99523966e0e34ffdadac9da}
+}]\index{L\+E\+F\+T@{L\+E\+F\+T}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!L\+E\+F\+T@{L\+E\+F\+T}}\item[{\em 
+\hypertarget{common_8h_a080a822f0093973313bd644e517a5090adb45120aafd37a973140edee24708065}{}L\+E\+F\+T\label{common_8h_a080a822f0093973313bd644e517a5090adb45120aafd37a973140edee24708065}
+}]\index{R\+I\+G\+H\+T@{R\+I\+G\+H\+T}!common.\+h@{common.\+h}}\index{common.\+h@{common.\+h}!R\+I\+G\+H\+T@{R\+I\+G\+H\+T}}\item[{\em 
+\hypertarget{common_8h_a080a822f0093973313bd644e517a5090aec8379af7490bb9eaaf579cf17876f38}{}R\+I\+G\+H\+T\label{common_8h_a080a822f0093973313bd644e517a5090aec8379af7490bb9eaaf579cf17876f38}
+}]\end{description}
+\end{Desc}
+
+\begin{DoxyCode}
+13 \{ \hyperlink{common_8h_a080a822f0093973313bd644e517a5090ad2625e4f5268d590b842108adccf8ab6}{NILL} , \hyperlink{common_8h_a080a822f0093973313bd644e517a5090aba595d8bca8bc5e67c37c0a9d89becfa}{UP}, \hyperlink{common_8h_a080a822f0093973313bd644e517a5090a9b0b4a95b99523966e0e34ffdadac9da}{DOWN}, \hyperlink{common_8h_a080a822f0093973313bd644e517a5090adb45120aafd37a973140edee24708065}{LEFT}, \hyperlink{common_8h_a080a822f0093973313bd644e517a5090aec8379af7490bb9eaaf579cf17876f38}{RIGHT}\};
+\end{DoxyCode}

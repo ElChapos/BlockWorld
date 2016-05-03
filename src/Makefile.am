@@ -1,12 +1,7 @@
-EXTRA_DIST = ColourManager.h GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h BoundingBox.h Camera.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h
 
 bin_PROGRAMS = shaderexample
-shaderexample_SOURCES = main.cc
-shaderexample_LDADD = libengine.la
-
-lib_LTLIBRARIES = libengine.la
-libengine_la_SOURCES = ColourManager.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc GameAsset.cc BoundingBox.cc Camera.cc
-libengine_la_LDFLAGS = -version-info 0:1
+shaderexample_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11

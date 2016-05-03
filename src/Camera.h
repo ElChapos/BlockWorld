@@ -1,42 +1,34 @@
-#include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <GL/glew.h>
-#include <GL/gl.h>
+#include "common.h"
 
+#ifndef SRC_CAMERA_H_
+#define SRC_CAMERA_H_
 class Camera{
-    public:
-        Camera();
-        
-        void Draw();
-        void UpdateFacingDirection();
-        void MoveCamera(glm::vec2, glm::vec2);
-        void CameraController(int);
 
-        glm::vec3 GetOffset();
-        
-        glm::mat4 GetProjection();
-        glm::mat4 GetView();
-        glm::vec3 GetPosition();
-        
-        void SetBlockDistance(int);
-        int GetBlockDistance();
-        
-    private:
-		GLfloat camera_speed = 0.1;
-		GLfloat camera_x = 0.0;
-		GLfloat camera_y = 0.0;
+public:
+	Camera();
+	glm::mat4 UpdateCameraPosition(Input input_direction, int mouse_x, int mouse_y);
 
-		double point = 0.39375;
-		int block_dist = 3;
-        
-		std::string f_pos = "N";
+private:
 
-		glm::vec3 offset_pos;
-		glm::vec3 position = glm::vec3(0, 0, -3);
-		glm::vec3 z_direction;
-		glm::vec3 x_direction;
-		
-		glm::mat4 cam_proj;
-		glm::mat4 cam_view;
-		
+
+	glm::vec3 camera_position;
+
+	glm::vec3 camera_direction;
+	glm::vec3 camera_right;
+	glm::vec3 camera_up;
+
+ 	float camera_horizontal_angle;
+ 	float camera_vertical_angle;
+
+	float mouse_delta_x;
+	float mouse_delta_y;
+
+	float camera_movement_speed;
+
+
 };
+
+
+#endif
+

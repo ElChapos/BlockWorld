@@ -1,0 +1,276 @@
+\hypertarget{main_8cc}{}\section{src/main.cc File Reference}
+\label{main_8cc}\index{src/main.\+cc@{src/main.\+cc}}
+{\ttfamily \#include $<$G\+L/glew.\+h$>$}\\*
+{\ttfamily \#include $<$G\+L/gl.\+h$>$}\\*
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include $<$boost/program\+\_\+options.\+hpp$>$}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Game\+World.\+h\char`\"{}}\\*
+Include dependency graph for main.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structSDLWindowDeleter}{S\+D\+L\+Window\+Deleter}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{main_8cc_abcde84ea0ef5f934384e4620f092c85a}{G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C}
+\item 
+\#define \hyperlink{main_8cc_a6ff0ea1b288e03115f981ba31f96fade}{R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y}~0x00;
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \hyperlink{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}{tick} (Uint32 interval, void $\ast$param)
+\item 
+void \hyperlink{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}{Draw} (const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ \hyperlink{classGameWorld}{Game\+World} $>$ \&game\+\_\+world)
+\item 
+std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \hyperlink{main_8cc_acab7ade71cf38099442ca5df2495223d}{Init\+World} ()
+\item 
+\hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0}{Application\+Mode} \hyperlink{main_8cc_aba227fab3b52f0ce7c5b89d75b88dcdc}{Parse\+Options} (int argc, char $\ast$$\ast$argv)
+\item 
+int \hyperlink{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{main_8cc_abcde84ea0ef5f934384e4620f092c85a}{}\index{main.\+cc@{main.\+cc}!G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C@{G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C}}
+\index{G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C@{G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C}!main.\+cc@{main.\+cc}}
+\subsubsection[{G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+L\+E\+W\+\_\+\+S\+T\+A\+T\+I\+C}\label{main_8cc_abcde84ea0ef5f934384e4620f092c85a}
+\hypertarget{main_8cc_a6ff0ea1b288e03115f981ba31f96fade}{}\index{main.\+cc@{main.\+cc}!R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y@{R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y}}
+\index{R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y@{R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y}!main.\+cc@{main.\+cc}}
+\subsubsection[{R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+U\+N\+\_\+\+G\+R\+A\+P\+H\+I\+C\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y~0x00;}\label{main_8cc_a6ff0ea1b288e03115f981ba31f96fade}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}{}\index{main.\+cc@{main.\+cc}!Draw@{Draw}}
+\index{Draw@{Draw}!main.\+cc@{main.\+cc}}
+\subsubsection[{Draw(const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ Game\+World $>$ \&game\+\_\+world)}]{\setlength{\rightskip}{0pt plus 5cm}void Draw (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&}]{window, }
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Game\+World} $>$ \&}]{game\+\_\+world}
+\end{DoxyParamCaption}
+)}\label{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}
+
+\begin{DoxyCode}
+37                                                                                                \{
+38   glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+39   glClear(GL\_COLOR\_BUFFER\_BIT|GL\_DEPTH\_BUFFER\_BIT);
+40 
+41   game\_world->Draw();
+42 
+43   \textcolor{comment}{// Don't forget to swap the buffers}
+44   SDL\_GL\_SwapWindow(window.get());
+45 \}
+\end{DoxyCode}
+\hypertarget{main_8cc_acab7ade71cf38099442ca5df2495223d}{}\index{main.\+cc@{main.\+cc}!Init\+World@{Init\+World}}
+\index{Init\+World@{Init\+World}!main.\+cc@{main.\+cc}}
+\subsubsection[{Init\+World()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$S\+D\+L\+\_\+\+Window$>$ Init\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{main_8cc_acab7ade71cf38099442ca5df2495223d}
+
+\begin{DoxyCode}
+47                                       \{
+48   Uint32 width = 640;
+49   Uint32 height = 480;
+50   SDL\_Window * \_window;
+51   std::shared\_ptr<SDL\_Window> window;
+52 
+53   \textcolor{comment}{// Glew will later ensure that OpenGL 3 *is* supported}
+54   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_PROFILE\_MASK, SDL\_GL\_CONTEXT\_PROFILE\_CORE);
+55   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_MAJOR\_VERSION, 3);
+56   SDL\_GL\_SetAttribute(SDL\_GL\_CONTEXT\_MINOR\_VERSION, 0);
+57 
+58   \textcolor{comment}{// Do double buffering in GL}
+59   SDL\_GL\_SetAttribute(SDL\_GL\_DOUBLEBUFFER, 1);
+60   SDL\_GL\_SetAttribute(SDL\_GL\_DEPTH\_SIZE, 24);
+61 
+62   \textcolor{comment}{// Initialise SDL - when using C/C++ it's common to have to}
+63   \textcolor{comment}{// initialise libraries by calling a function within them.}
+64   \textcolor{keywordflow}{if} (SDL\_Init(SDL\_INIT\_VIDEO|SDL\_INIT\_AUDIO|SDL\_INIT\_TIMER)<0) \{
+65     std::cout << \textcolor{stringliteral}{"Failed to initialise SDL: "} << SDL\_GetError() << std::endl;
+66     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+67   \}
+68 
+69   \textcolor{comment}{// When we close a window quit the SDL application}
+70   atexit(SDL\_Quit);
+71 
+72   \textcolor{comment}{// Create a new window with an OpenGL surface}
+73   \_window = SDL\_CreateWindow(\textcolor{stringliteral}{"Shader Example"}
+74                              , SDL\_WINDOWPOS\_CENTERED
+75                              , SDL\_WINDOWPOS\_CENTERED
+76                              , width
+77                              , height
+78                              , SDL\_WINDOW\_OPENGL | SDL\_WINDOW\_SHOWN);
+79   \textcolor{keywordflow}{if} (!\_window) \{
+80     std::cout << \textcolor{stringliteral}{"Failed to create SDL window: "} << SDL\_GetError() << std::endl;
+81     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+82   \}
+83 
+84   SDL\_GLContext glContext = SDL\_GL\_CreateContext(\_window);
+85   \textcolor{keywordflow}{if} (!glContext) \{
+86     std::cout << \textcolor{stringliteral}{"Failed to create OpenGL context: "} << SDL\_GetError() << std::endl;
+87     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+88   \}
+89 
+90   \textcolor{comment}{// Initialise GLEW - an easy way to ensure OpenGl 3.0+}
+91   \textcolor{comment}{// The *must* be done after we have set the video mode - otherwise we have no}
+92   \textcolor{comment}{// OpenGL context to test.}
+93   glewInit();
+94   \textcolor{keywordflow}{if} (!glewIsSupported(\textcolor{stringliteral}{"GL\_VERSION\_3\_0"})) \{
+95     std::cerr << \textcolor{stringliteral}{"OpenGL 3.0 not available"} << std::endl;
+96     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+97   \}
+98 
+99   \textcolor{comment}{// OpenGL settings}
+100   glDisable(GL\_CULL\_FACE);
+101   glEnable(GL\_DEPTH\_TEST);
+102   glDepthFunc(GL\_LESS);
+103 
+104   window.reset(\_window, SDL\_DestroyWindow);
+105   \textcolor{keywordflow}{return} window;
+106 \}
+\end{DoxyCode}
+\hypertarget{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{main.\+cc@{main.\+cc}!main@{main}}
+\index{main@{main}!main.\+cc@{main.\+cc}}
+\subsubsection[{main(int argc, char $\ast$$\ast$argv)}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{main_8cc_a3c04138a5bfe5d72780bb7e82a18e627}
+
+\begin{DoxyCode}
+140                                  \{
+141   Uint32 delay = 1000/60; \textcolor{comment}{// in milliseconds}
+142 
+143   \textcolor{keyword}{auto} mode = \hyperlink{main_8cc_aba227fab3b52f0ce7c5b89d75b88dcdc}{ParseOptions}(argc, argv);
+144   \textcolor{keyword}{auto} window = \hyperlink{main_8cc_acab7ade71cf38099442ca5df2495223d}{InitWorld}();
+145   \textcolor{keyword}{auto} game\_world = std::make\_shared<GameWorld>(mode);
+146 
+147     \textcolor{keywordtype}{int} mouseX;
+148     \textcolor{keywordtype}{int} mouseY;
+149     \textcolor{keyword}{const} Uint8 *keyboard\_state;
+150     \hyperlink{common_8h_a080a822f0093973313bd644e517a5090}{Input} input\_direction = \hyperlink{common_8h_a080a822f0093973313bd644e517a5090ad2625e4f5268d590b842108adccf8ab6}{NILL};
+151   \textcolor{keywordflow}{if}(!window) \{
+152     SDL\_Quit();
+153   \}
+154 
+155   \textcolor{comment}{// Call the function "tick" every delay milliseconds}
+156   SDL\_AddTimer(delay, \hyperlink{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}{tick}, NULL);
+157 
+158  SDL\_SetRelativeMouseMode(SDL\_TRUE);
+159 
+160    \textcolor{comment}{// Add the main event loop}
+161    SDL\_Event event;
+162    \textcolor{keywordflow}{while} (SDL\_WaitEvent(&event)) \{
+163 
+164  
+165      \textcolor{keywordflow}{switch} (event.type) \{
+166      \textcolor{keywordflow}{case} SDL\_QUIT:
+167        SDL\_Quit();
+168        \textcolor{keywordflow}{break};
+169      \textcolor{keywordflow}{case} SDL\_USEREVENT:
+170 \{
+171    SDL\_GetRelativeMouseState(&mouseX, &mouseY);
+172 
+173         keyboard\_state = SDL\_GetKeyboardState(NULL);
+174         \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_A])\{
+175             input\_direction = \hyperlink{common_8h_a080a822f0093973313bd644e517a5090adb45120aafd37a973140edee24708065}{LEFT};
+176     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_S])\{
+177         input\_direction = \hyperlink{common_8h_a080a822f0093973313bd644e517a5090a9b0b4a95b99523966e0e34ffdadac9da}{DOWN};
+178         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_D])\{
+179             input\_direction = \hyperlink{common_8h_a080a822f0093973313bd644e517a5090aec8379af7490bb9eaaf579cf17876f38}{RIGHT};
+180         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_W])\{
+181             input\_direction = \hyperlink{common_8h_a080a822f0093973313bd644e517a5090aba595d8bca8bc5e67c37c0a9d89becfa}{UP};
+182         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(keyboard\_state[SDL\_SCANCODE\_ESCAPE])\{
+183             SDL\_Quit();
+184         \}\textcolor{keywordflow}{else}\{
+185             input\_direction = \hyperlink{common_8h_a080a822f0093973313bd644e517a5090ad2625e4f5268d590b842108adccf8ab6}{NILL};
+186         \}
+187 
+188       game\_world->UpdateCameraPosition(input\_direction, mouseX, mouseY);
+189        \hyperlink{main_8cc_ae1fc7acb89acd89e2d93d844387f73a8}{Draw}(window, game\_world);
+190        \textcolor{keywordflow}{break};
+191     \}
+192  
+193      \textcolor{keywordflow}{default}:
+194        \textcolor{keywordflow}{break};
+195      \}
+196    \}
+197  \}
+\end{DoxyCode}
+\hypertarget{main_8cc_aba227fab3b52f0ce7c5b89d75b88dcdc}{}\index{main.\+cc@{main.\+cc}!Parse\+Options@{Parse\+Options}}
+\index{Parse\+Options@{Parse\+Options}!main.\+cc@{main.\+cc}}
+\subsubsection[{Parse\+Options(int argc, char $\ast$$\ast$argv)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Application\+Mode} Parse\+Options (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{main_8cc_aba227fab3b52f0ce7c5b89d75b88dcdc}
+
+\begin{DoxyCode}
+108                                                       \{
+109   \textcolor{keyword}{namespace }po = boost::program\_options;
+110 
+111   po::options\_description desc(\textcolor{stringliteral}{"Allowed options"});
+112   desc.add\_options()
+113      (\textcolor{stringliteral}{"help"}, \textcolor{stringliteral}{"print this help message"})
+114      (\textcolor{stringliteral}{"translate"}, \textcolor{stringliteral}{"Show translation example (default)"})
+115      (\textcolor{stringliteral}{"rotate"}, \textcolor{stringliteral}{"Show rotation example"})
+116      (\textcolor{stringliteral}{"scale"}, \textcolor{stringliteral}{"Show scale example"})
+117   ;
+118 
+119   po::variables\_map vm;
+120   po::store(po::parse\_command\_line(argc, argv, desc), vm);
+121   po::notify(vm);
+122 
+123   \textcolor{keywordflow}{if}(vm.count(\textcolor{stringliteral}{"help"})) \{
+124     std::cout << desc << std::endl;
+125     exit(0);
+126   \}
+127 
+128   \textcolor{keywordflow}{if}(vm.count(\textcolor{stringliteral}{"rotate"})) \{
+129     \textcolor{keywordflow}{return} \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a3dcfe0046eb5876e287dbf0914819b16}{ROTATE};
+130   \}
+131 
+132   \textcolor{keywordflow}{if}(vm.count(\textcolor{stringliteral}{"scale"})) \{
+133     \textcolor{keywordflow}{return} \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a593be05a10070b4e7e0856e20590eaaf}{SCALE};
+134   \}
+135 
+136   \textcolor{comment}{// The default}
+137   \textcolor{keywordflow}{return} \hyperlink{common_8h_add86e7c88dd109abea3f708b422f31f0a25f73324dc93d9024c0c75b4e6815335}{TRANSFORM};
+138 \}
+\end{DoxyCode}
+\hypertarget{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}{}\index{main.\+cc@{main.\+cc}!tick@{tick}}
+\index{tick@{tick}!main.\+cc@{main.\+cc}}
+\subsubsection[{tick(\+Uint32 interval, void $\ast$param)}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 tick (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{interval, }
+\item[{void $\ast$}]{param}
+\end{DoxyParamCaption}
+)}\label{main_8cc_a70eaa727262f633037c3f4b7d3ff24c2}
+
+\begin{DoxyCode}
+21                                           \{
+22   SDL\_Event event;
+23   \textcolor{keyword}{event}.type = SDL\_USEREVENT;
+24   \textcolor{keyword}{event}.user.code = \hyperlink{main_8cc_a6ff0ea1b288e03115f981ba31f96fade}{RUN\_GRAPHICS\_DISPLAY};
+25   \textcolor{keyword}{event}.user.data1 = 0;
+26   \textcolor{keyword}{event}.user.data2 = 0;
+27   SDL\_PushEvent(&event);
+28   \textcolor{keywordflow}{return} interval;
+29 \}
+\end{DoxyCode}
