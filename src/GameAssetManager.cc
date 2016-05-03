@@ -107,7 +107,6 @@ void GameAssetManager::Draw()
 
         camera->CheckCollision(bounding_box1_max, bounding_box1_min);
 
-
         for(auto ga2: draw_list)
         {
             bounding_box2_max = ga2->GetMaxAndMin(1);
