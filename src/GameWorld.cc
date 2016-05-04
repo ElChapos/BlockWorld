@@ -55,6 +55,6 @@ void GameWorld::BlockAction(bool type)
 	}
 	else
 	{
-		asset_manager->DeleteAsset(block_position + glm::vec3(0.5,0.5,0.5));
+		asset_manager->DeleteAsset(block_position);
 	}
 }

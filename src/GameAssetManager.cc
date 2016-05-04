@@ -102,12 +102,22 @@ void GameAssetManager::DeleteAsset(glm::vec3 position)
 {
     bool del = false;
     int i = 0;
+
+    glm::vec3 position_bounds_max, position_bounds_min, asset_bounds_max, asset_bounds_min;
     // Check each asset
     for(auto item: draw_list)
     {
         std::cout << "Compare ITEM: [" << glm::to_string(item->GetVec3()) << "] with POS: [" << glm::to_string(position) << "]" << std::endl;
         // if the asset exists
-        if(glm::to_string(item->GetVec3()) == glm::to_string(position))
+
+        position_bounds_max = position += glm::vec3(0.75,0.75,0.75);
+        position_bounds_min = position += glm::vec3(-0.75,-0.75,-0.75);
+        asset_bounds_max = item->GetMaxAndMin(1);
+        asset_bounds_min = item->GetMaxAndMin(2);
+
+        if (asset_bounds_max.x > position_bounds_min.x && asset_bounds_min.x < position_bounds_max.x &&
+            asset_bounds_max.y > position_bounds_min.y && asset_bounds_min.y < position_bounds_max.y &&
+            asset_bounds_max.z > position_bounds_min.z && asset_bounds_min.z < position_bounds_max.z)
         {
             // Change create to false so we do not make one
             std::cout << "Found block, flagging for delete" << std::endl;
