@@ -71,7 +71,7 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
         camera_position -= glm::vec3(0.0f, camera_movement_speed, 0);
         last_direction = "CTRL";
     }
-
+ std::cout << "camera direction [" << camera_direction.x << "," << camera_direction.y << "," << camera_direction.z << "]" << std::endl;
     // return the view matrix
     return glm::lookAt(camera_position, camera_position + camera_direction, camera_up);
  }
@@ -115,4 +115,13 @@ void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_m
 glm::vec3 Camera::GetCameraPosition()
 {
     return camera_position;
+}
+
+/**
+ * Fetches and returns the camera direction plus an offset
+ */
+glm::vec3 Camera::GetCameraDirection()
+{
+    glm::vec3 camera_offset = camera_direction * glm::vec3(5.0,5.0,5.0);
+    return camera_offset;
 }

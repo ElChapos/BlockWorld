@@ -32,8 +32,9 @@ class GameAssetManager
     void AddAsset(std::shared_ptr<GameAsset>);
     void Draw();
     void UpdateCameraPosition(Input, int, int);
-    
+
     glm::vec3 GetCameraPosition();
+    glm::vec3 GetCameraDirection();
 
   private:
     GLuint CreateGLProgram(std::string &, std::string &);

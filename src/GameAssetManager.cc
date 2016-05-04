@@ -50,6 +50,15 @@ glm::vec3 GameAssetManager::GetCameraPosition()
 }
 
 /**
+ * Fetches and returns the camera direction
+ */
+glm::vec3 GameAssetManager::GetCameraDirection()
+{
+    return camera->GetCameraDirection();
+}
+
+
+/**
  * Deletes a GameAssetManager, in particular it will clean up any modifications
  * to the OpenGL state.
  */
@@ -65,7 +74,7 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset)
 {
     // Assume we create the block
     bool create = true;
-    
+
     // Check each asset`
     for(auto item: draw_list)
     {
@@ -78,7 +87,7 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset)
             break;
         }
     }
-    
+
     // Check if we can create a block
     if(create)
     {
