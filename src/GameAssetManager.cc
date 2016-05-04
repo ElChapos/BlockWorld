@@ -96,6 +96,40 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset)
 }
 
 /**
+ * Deletes an asset from our draw_list
+ */
+void GameAssetManager::DeleteAsset(glm::vec3 position)
+{
+    bool del = false;
+    int i = 0;
+    // Check each asset
+    for(auto item: draw_list)
+    {
+        std::cout << "Compare ITEM: [" << glm::to_string(item->GetVec3()) << "] with POS: [" << glm::to_string(position) << "]" << std::endl;
+        // if the asset exists
+        if(glm::to_string(item->GetVec3()) == glm::to_string(position))
+        {
+            // Change create to false so we do not make one
+            std::cout << "Found block, flagging for delete" << std::endl;
+            del = true;
+            break;
+        }
+        i++;
+    }
+
+    // Check if we can create a block
+    if(del)
+    {
+        draw_list.erase(draw_list.begin()+i);
+    }
+    else
+    {
+        std::cout << "No cube was found." << std::endl;
+    }
+}
+
+
+/**
  * Draws each GameAsset in the scene graph.
  */
 void GameAssetManager::Draw()

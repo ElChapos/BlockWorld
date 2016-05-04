@@ -30,6 +30,7 @@ class GameAssetManager
     GameAssetManager(GameAssetManager const&&); // move constructor
     void operator=(GameAssetManager const&); // assignment
     void AddAsset(std::shared_ptr<GameAsset>);
+    void DeleteAsset(glm::vec3);
     void Draw();
     void UpdateCameraPosition(Input, int, int);
 

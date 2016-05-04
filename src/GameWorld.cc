@@ -5,7 +5,7 @@ GameWorld::GameWorld (ApplicationMode mode)
 	asset_manager = std::make_shared<GameAssetManager>(mode);
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
-	// Position, Type, Scale, Rotation, Speed
+	/* Position, Type, Scale, Rotation, Speed
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
@@ -23,6 +23,7 @@ GameWorld::GameWorld (ApplicationMode mode)
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, -5.0, 0.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
+	*/
 }
 
 /**
@@ -46,18 +47,14 @@ void GameWorld::UpdateCameraPosition(Input input_direction, int mouse_x, int mou
  */
 void GameWorld::BlockAction(bool type)
 {
+	glm::vec3 camera_position = asset_manager->GetCameraPosition() += asset_manager->GetCameraDirection();
+	glm::vec3 block_position = glm::vec3(round(camera_position.x), round(camera_position.y), round(camera_position.z));
 	if(type)
 	{
-		// Quickly calculate a new position
-		glm::vec3 _temp_cam_pos = asset_manager->GetCameraPosition() += asset_manager->GetCameraDirection();
-		glm::vec3 _new_pos = glm::vec3(round(_temp_cam_pos.x), round(_temp_cam_pos.y), round(_temp_cam_pos.z));
-
-		// Place new block at camera position
-		asset_manager->AddAsset(std::make_shared<CubeAsset>(_new_pos, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+		asset_manager->AddAsset(std::make_shared<CubeAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 	}
 	else
 	{
-		// TODO: Delete block at point
-		std::cout << "TODO: Delete block at point" << std::endl;
+		asset_manager->DeleteAsset(block_position + glm::vec3(0.5,0.5,0.5));
 	}
 }

@@ -71,7 +71,7 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
         camera_position -= glm::vec3(0.0f, camera_movement_speed, 0);
         last_direction = "CTRL";
     }
- std::cout << "camera direction [" << camera_direction.x << "," << camera_direction.y << "," << camera_direction.z << "]" << std::endl;
+
     // return the view matrix
     return glm::lookAt(camera_position, camera_position + camera_direction, camera_up);
  }
