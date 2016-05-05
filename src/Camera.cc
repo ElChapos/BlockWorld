@@ -94,17 +94,25 @@ void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_m
         {
             camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle),0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
         }
-        else if(last_direction == "DOWN")
+        if(last_direction == "DOWN")
         {
             camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
         }
-        else if(last_direction == "LEFT")
+        if(last_direction == "LEFT")
         {
             camera_position += camera_right * camera_movement_speed;
         }
-        else if(last_direction == "RIGHT")
+        if(last_direction == "RIGHT")
         {
             camera_position -= camera_right * camera_movement_speed;
+        }
+        if(last_direction == "SPACE")
+        {
+            camera_position -= glm::vec3(0.0f, camera_movement_speed, 0);
+        }
+        if(last_direction == "CTRL")
+        {
+            camera_position += glm::vec3(0.0f, camera_movement_speed, 0.0f);
         }
     }
 }
