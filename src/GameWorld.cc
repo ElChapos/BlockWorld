@@ -6,14 +6,14 @@ GameWorld::GameWorld ()
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
 	// Position, Type, Scale, Rotation, Speed
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(6.0, 10.0, 3.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(9.0, 0.0, 10.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(6.0, 10.0, 3.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(9.0, 0.0, 10.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 3.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-3.0, 3.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 6.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -3.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
@@ -43,18 +43,61 @@ void GameWorld::UpdateCameraPosition(Input input_direction, int mouse_x, int mou
 }
 
 /**
- *
+ * Add and remove cubes from the game world
  */
-void GameWorld::BlockAction(bool type)
+void GameWorld::BlockAction(bool mode)
 {
 	glm::vec3 camera_position = asset_manager->GetCameraPosition() += asset_manager->GetCameraDirection();
 	glm::vec3 block_position = glm::vec3(round(camera_position.x), round(camera_position.y), round(camera_position.z));
-	if(type)
+	
+	if(mode)
 	{
-		asset_manager->AddAsset(std::make_shared<CubeAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+		if(placement_type == BW_CUBE)
+		{
+			asset_manager->AddAsset(std::make_shared<CubeAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+		}
+		else if(placement_type == BW_STAR)
+		{
+			std::cout << "TODO: Fix StarAsset.cc" << std::endl;
+		}
+		else if(placement_type == BW_DIAMOND)
+		{
+			asset_manager->AddAsset(std::make_shared<DiamondAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+		}
+		else
+		{
+			std::cout << "Unknown asset type" << std::endl;
+		}
 	}
 	else
 	{
 		asset_manager->DeleteAsset(block_position);
 	}
+}
+
+/**
+ * Change the type of asset to make
+ */
+void GameWorld::BlockType(AssetType type)
+{
+	std::cout << "Switched type to:";
+	
+	switch(type)
+	{
+		case BW_CUBE:
+			std::cout << "BW_CUBE" << std::endl;
+			break;
+		case BW_STAR:
+			std::cout << "BW_STAR" << std::endl;
+			break;
+		case BW_DIAMOND:
+			std::cout << "BW_DIAMOND" << std::endl;
+			break;
+		default:
+			type = BW_UNKNOWN;
+			std::cout << "BW_UNKNOWN" << std::endl;
+			break;
+	}
+	
+	placement_type = type; 
 }

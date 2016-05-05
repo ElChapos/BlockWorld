@@ -6,6 +6,7 @@
 
 #include "common.h"
 #include "CubeAsset.h"
+#include "DiamondAsset.h"
 #include "ColourManager.h"
 #include "GameAssetManager.h"
 
@@ -29,10 +30,13 @@ class GameWorld {
         void Draw();
         void UpdateCameraPosition(Input, int, int);
         void BlockAction(bool);
+        void BlockType(AssetType);
 
     private:
         ColourManager colour_manager;
         std::shared_ptr<GameAssetManager> asset_manager;
-
+        AssetType placement_type;
+        
 };
+
 #endif // GAMEWORLD_H

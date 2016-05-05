@@ -135,8 +135,8 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libBlockWorld_la_LIBADD =
 am_libBlockWorld_la_OBJECTS = GameWorld.lo GameAssetManager.lo \
-	CubeAsset.lo Camera.lo BoundingBox.lo GameAsset.lo \
-	ColourManager.lo PythonBindings.lo
+	DiamondAsset.lo CubeAsset.lo Camera.lo BoundingBox.lo \
+	GameAsset.lo ColourManager.lo PythonBindings.lo
 libBlockWorld_la_OBJECTS = $(am_libBlockWorld_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -259,6 +259,7 @@ LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
+LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
@@ -344,11 +345,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h DiamondAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h
 shaderexample_SOURCES = main.cc 
 shaderexample_LDADD = libBlockWorld.la
 lib_LTLIBRARIES = libBlockWorld.la
-libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc
+libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc DiamondAsset.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	-I/usr/include/python2.7 $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -487,6 +488,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Camera.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ColourManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CubeAsset.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DiamondAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAssetManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameWorld.Plo@am__quote@

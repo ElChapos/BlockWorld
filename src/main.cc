@@ -81,7 +81,7 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     {
         game_world->UpdateCameraPosition(CTRL, mouse_x, mouse_y);
     }
-
+    
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
     {
         game_world->BlockAction(true);
@@ -94,6 +94,19 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     if(keyboard_state[SDL_SCANCODE_ESCAPE])
     {
         SDL_Quit();
+    }
+    
+    if(keyboard_state[SDL_SCANCODE_1])
+    {
+        game_world->BlockType(BW_CUBE);
+    }
+    if(keyboard_state[SDL_SCANCODE_2])
+    {
+        game_world->BlockType(BW_STAR);
+    }
+    if(keyboard_state[SDL_SCANCODE_3])
+    {
+        game_world->BlockType(BW_DIAMOND);
     }
 }
 

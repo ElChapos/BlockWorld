@@ -13,6 +13,7 @@
 #include "common.h"
 #include "GameAsset.h"
 #include "CubeAsset.h"
+#include "DiamondAsset.h"
 #include "Camera.h"
 
 /**

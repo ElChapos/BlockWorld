@@ -1,8 +1,10 @@
-#include "StarAsset.h"
+/*#include "StarAsset.h"
 
-// based on tutorials found here http://www.opengl-tutorial.org/beginners-tutorials/tutorial-4-a-colored-cube/
+//  TODO: CLEAN/FIX ME
 
-StarAsset::StarAsset(GLfloat positionX,GLfloat positionY,GLfloat positionZ ) {
+StarAsset::StarAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 rotation, glm::vec3 speed) : GameAsset(p , type, scale, rotation, speed)
+{
+  
   // model coordinates, origin at centre.
   GLfloat vertex_buffer_data [] {
 		
@@ -150,3 +152,4 @@ void StarAsset::Draw(GLuint program_token) {
 
   glDisableVertexAttribArray(position_attrib);
 }
+*/

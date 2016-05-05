@@ -1,5 +1,4 @@
 #include "CubeAsset.h"
-#include "GameAsset.h"
 
 CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 rotation, glm::vec3 speed) : GameAsset(p , type, scale, rotation, speed)
 {

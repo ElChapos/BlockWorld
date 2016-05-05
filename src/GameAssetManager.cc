@@ -44,7 +44,6 @@ glm::vec3 GameAssetManager::GetCameraDirection()
     return camera->GetCameraDirection();
 }
 
-
 /**
  * Deletes a GameAssetManager, in particular it will clean up any modifications
  * to the OpenGL state.
@@ -124,7 +123,6 @@ void GameAssetManager::DeleteAsset(glm::vec3 position)
         std::cout << "No cube was found." << std::endl;
     }
 }
-
 
 /**
  * Draws each GameAsset in the scene graph.

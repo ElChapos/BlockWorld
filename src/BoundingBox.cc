@@ -63,6 +63,7 @@ void BoundingBox::Translate(glm::vec3 translate_speed)
 void BoundingBox::Scale(float scale_speed)
 {
     float new_scale;
+    
     if(this->scale > 5.0f)
     {
         new_scale = 1.0f;
@@ -124,7 +125,6 @@ void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding
         bounding_box1_max.y > bounding_box2_min.y && bounding_box1_min.y < bounding_box2_max.y &&
         bounding_box1_max.z > bounding_box2_min.z && bounding_box1_min.z < bounding_box2_max.z)
     {
-        //std::cout << "Collision detected [" << glm::to_string(bounding_box1_max) << ","<< glm::to_string(bounding_box1_min) << "," << glm::to_string(bounding_box2_max) << "," << glm::to_string(bounding_box2_min) << "]" << std::endl;
         glm::vec3 reverse_speed = this->speed;
         reverse_speed = reverse_speed + reverse_speed;
         this->speed -= reverse_speed;

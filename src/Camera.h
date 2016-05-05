@@ -1,7 +1,9 @@
-#include <glm/ext.hpp>
-#include "common.h"
 #include <iostream>
 #include <string>
+
+#include <glm/ext.hpp>
+
+#include "common.h"
 
 #ifndef SRC_CAMERA_H_
 #define SRC_CAMERA_H_
