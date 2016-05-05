@@ -10,7 +10,8 @@ PythonBindings::PythonBindings(){
 
 BOOST_PYTHON_MODULE(libBlockWorld){
 
-	//class_<GameAssetManager>("GameAssetManager")
-	//		.def("DeleteAsset", &GameAssetManager::DeleteAsset)
-	//;
+	class_<GameAssetManager>("GameAssetManager")
+			.def("DeleteAsset", &GameAssetManager::DeleteAsset)
+	;
+
 }

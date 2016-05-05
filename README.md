@@ -9,10 +9,11 @@
 * [GLEW](http://glew.sourceforge.net/)
 * [SDL2](https://www.libsdl.org/)
 * [GLM](http://glm.g-truc.net/)
+* Python Dev Tools
 
 On Fedora 20 or later you can install these using a single command (as root):
 
-> $ yum install boost-* glew-devel SDL2_* glm-devel
+> $ yum install boost-* glew-devel SDL2_* glm-devel python-devel
 
 # Building #
 

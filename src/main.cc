@@ -45,16 +45,16 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     int mouse_y;
     const Uint8 * keyboard_state;
     Input input_direction = NILL;
-    
+
     // For camera pitch/yaw
     SDL_GetRelativeMouseState(&mouse_x, &mouse_y);
-    
+
     // Slow down the mouse_x and mouse_y
     mouse_x = mouse_x*0.2;
     mouse_y = mouse_y*0.2;
-    
+
     game_world->UpdateCameraPosition(input_direction, mouse_x, mouse_y);
-    
+
     // For keyboard presses
     keyboard_state = SDL_GetKeyboardState(NULL);
     if(keyboard_state[SDL_SCANCODE_W])
@@ -81,7 +81,7 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     {
         game_world->UpdateCameraPosition(CTRL, mouse_x, mouse_y);
     }
-    
+
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
     {
         game_world->BlockAction(true);
@@ -90,7 +90,7 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     {
         game_world->BlockAction(false);
     }
-        
+
     if(keyboard_state[SDL_SCANCODE_ESCAPE])
     {
         SDL_Quit();
@@ -145,7 +145,7 @@ std::shared_ptr<SDL_Window> InitWorld()
         height,
         SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
     );
-    
+
     if (!_window)
     {
         std::cout << "Failed to create SDL window: " << SDL_GetError() << std::endl;
@@ -178,47 +178,12 @@ std::shared_ptr<SDL_Window> InitWorld()
     return window;
 }
 
-ApplicationMode ParseOptions (int argc, char ** argv)
-{
-    namespace po = boost::program_options;
-
-    po::options_description desc("Allowed options");
-    desc.add_options()
-        ("help", "print this help message")
-        ("translate", "Show translation example (default)")
-        ("rotate", "Show rotation example")
-        ("scale", "Show scale example");
-
-    po::variables_map vm;
-    po::store(po::parse_command_line(argc, argv, desc), vm);
-    po::notify(vm);
-
-    if(vm.count("help"))
-    {
-        std::cout << desc << std::endl;
-        exit(0);
-    }
-
-    if(vm.count("rotate"))
-    {
-        return ROTATE;
-    }
-    if(vm.count("scale"))
-    {
-        return SCALE;
-    }
-
-    // The default
-    return TRANSFORM;
-}
-
 int main(int argc, char ** argv)
 {
     Uint32 delay = 1000/60; // in milliseconds
 
-    auto mode = ParseOptions(argc, argv);
     auto window = InitWorld();
-    auto game_world = std::make_shared<GameWorld>(mode);
+    auto game_world = std::make_shared<GameWorld>();
 
     if(!window)
     {
@@ -228,8 +193,8 @@ int main(int argc, char ** argv)
     // Call the function "tick" every delay milliseconds
     SDL_AddTimer(delay, tick, NULL);
     SDL_SetRelativeMouseMode(SDL_TRUE);
-    
-    
+
+
     // Add the main event loop
     SDL_Event event;
     while (SDL_WaitEvent(&event))

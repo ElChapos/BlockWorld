@@ -21,7 +21,7 @@ class GameWorld {
         * in from the user.  Threading the state through the various function calls
         * is preferable (in this case) to having some kind of global state.
         */
-        GameWorld(ApplicationMode);
+        GameWorld();
 
         /**
         * Calling Draw() will draw the entire world.

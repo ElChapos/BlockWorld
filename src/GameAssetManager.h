@@ -10,7 +10,6 @@
 
 #include <GL/gl.h>
 #include <glm/ext.hpp>
-
 #include "common.h"
 #include "GameAsset.h"
 #include "CubeAsset.h"
@@ -24,7 +23,7 @@
 class GameAssetManager
 {
   public:
-    explicit GameAssetManager(ApplicationMode); // constructor
+    GameAssetManager(); // constructor
     virtual ~GameAssetManager();
     GameAssetManager(GameAssetManager const&); // copy constructor
     GameAssetManager(GameAssetManager const&&); // move constructor

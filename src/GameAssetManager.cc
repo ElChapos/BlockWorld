@@ -4,23 +4,10 @@
  * Creates a GameAssetManager to load the correct shaders based on the
  * ApplicationMode.
  */
-GameAssetManager::GameAssetManager(ApplicationMode mode)
+GameAssetManager::GameAssetManager()
 {
     std::string vertex_shader("shaders/translate.vs");
     std::string fragment_shader("shaders/fragment.fs");
-
-    switch(mode)
-    {
-        case ROTATE:
-            vertex_shader = "shaders/rotate.vs";
-            break;
-        case SCALE:
-            vertex_shader = "shaders/scale.vs";
-            break;
-        case TRANSFORM:
-            default:
-        break;
-    };
 
     program_token = CreateGLProgram(vertex_shader, fragment_shader);
 
