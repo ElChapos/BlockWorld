@@ -114,14 +114,20 @@ void BoundingBox::FollowPath()
 {
         int i = 0;
 
-        if(this->position != path_list.at(i))
+        glm::vec3 position_max = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
+        glm::vec3 position_min = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
+        glm::vec3 coordiante = path_list.at(i);
+
+        if( position_max.x > coordiante.x && position_min.x < coordiante.x &&
+        position_max.y > coordiante.y && position_min.y < coordiante.y &&
+        position_max.z > coordiante.z && position_min.z < coordiante.z)
         {
-             direction = glm::normalize(path_list.at(i));
-             this->position += direction * 0.02f ;
-        }
-        else{
             std::cout << "Position Reached" << std::endl;
             i ++;
+        }
+        else {
+             direction = glm::normalize(path_list.at(i));
+             this->position += direction * 0.02f ;
         }
 }
 

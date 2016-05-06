@@ -1,6 +1,6 @@
 #define GLEW_STATIC // Easier debugging
 #define RUN_GRAPHICS_DISPLAY 0x00;
-
+#include <GL/glew.h>
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -8,7 +8,6 @@
 #include <GL/gl.h>
 #endif
 
-#include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <memory>
