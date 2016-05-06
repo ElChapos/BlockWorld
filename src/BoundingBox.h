@@ -29,10 +29,14 @@ class BoundingBox {
         glm::vec3 rotation;
         glm::vec3 speed;
         glm::vec3 direction;
+        float distance;
+
         float scale;
         int type;
         glm::mat4 translate_matrix;
         glm::mat4 scale_matrix;
         glm::mat4 model_matrix;
+        int path_counter = 0 ;
+        bool destination_reached = true;
 
 };

@@ -7,7 +7,8 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
     this->scale = scale;
     this->rotation = rotation;
     this->speed = speed;
-
+    this->path_counter = 0;
+    this->destination_reached = true;
     //std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
@@ -112,23 +113,40 @@ void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
 */
 void BoundingBox::FollowPath()
 {
-        int i = 0;
 
         glm::vec3 position_max = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
         glm::vec3 position_min = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
-        glm::vec3 coordiante = path_list.at(i);
+        glm::vec3 coordinate = this->path_list.at(this->path_counter);
 
-        if( position_max.x > coordiante.x && position_min.x < coordiante.x &&
-        position_max.y > coordiante.y && position_min.y < coordiante.y &&
-        position_max.z > coordiante.z && position_min.z < coordiante.z)
+
+        if(this->destination_reached == true)
         {
-            std::cout << "Position Reached" << std::endl;
-            i ++;
+             this->direction = glm::normalize(path_list.at(this->path_counter) - position -= glm::vec3(0.5f,0.5f,0.5f));
+             this->position += this->direction * 0.02f * 0.01f;
+             std::cout << "moving towards " << this->path_counter <<  std::endl;
+
+            if(this->path_counter == this->path_list.size()-1)
+            {
+                this->path_counter = 0;
+            }
+
+            this->destination_reached = false;
         }
-        else {
-             direction = glm::normalize(path_list.at(i));
-             this->position += direction * 0.02f ;
+        else
+        {
+            this->position += this->direction * 0.02f ;
+
+            if(position_max.x > coordinate.x && position_min.x < coordinate.x &&
+                position_max.y > coordinate.y && position_min.y < coordinate.y &&
+                position_max.z > coordinate.z && position_min.z < coordinate.z)
+            {
+                std::cout << "Position Reached " << this->path_counter <<  std::endl;
+                this->destination_reached = true;
+                this->path_counter ++;
+            }
         }
+
+
 }
 
 /**
