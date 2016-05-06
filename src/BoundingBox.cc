@@ -113,18 +113,18 @@ void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
 */
 void BoundingBox::FollowPath()
 {
-        glm::vec3 position_max = this->position += glm::vec3( 1.5f * this-> scale ,1.5f* this-> scale,1.5f* this-> scale);
-        glm::vec3 position_min = this->position += glm::vec3(-1.5f* this-> scale,-1.5* this-> scale,-1.5f* this-> scale);
+        glm::vec3 position_max = this->position += glm::vec3( 1.0f * this-> scale ,1.0f* this-> scale,1.0f* this-> scale);
+        glm::vec3 position_min = this->position += glm::vec3(-1.0f* this-> scale,-1.0* this-> scale,-1.0f* this-> scale);
         glm::vec3 coordinate = this->path_list.at(this->path_counter);
 
         if(this->destination_reached == true)
         {
              std::cout << "moving towards " << this->path_counter <<  std::endl;
+            this->path_counter ++;
             if(this->path_counter == this->path_list.size()-1)
             {
                 this->path_counter = 0;
             }
-            this->path_counter ++;
             this->destination_reached = false;
         }
         else
