@@ -152,12 +152,12 @@ glm::vec3 BoundingBox::GetMaxAndMin(int type)
     if (type == 1)
     {
         // return max bounds
-        bounds = this->position += glm::vec3(1.0f * this-> scale ,1.0f* this-> scale,1.0f* this-> scale);
+        bounds = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
     }
     else if (type == 2)
     {
         // return minimum bounds
-        bounds = this->position += glm::vec3(-1.0f* this-> scale,-1.0f* this-> scale,-1.0f* this-> scale);
+        bounds = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
     }
     return bounds;
 }
