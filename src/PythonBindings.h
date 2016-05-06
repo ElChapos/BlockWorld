@@ -8,15 +8,16 @@
 #include "common.h"
 #include "CubeAsset.h"
 #include "GameAssetManager.h"
+#include "GameWorld.h"
 
 class PythonBindings
 {
 	public:
 		PythonBindings();
-		
+
 	private:
-		// 
-			
+		//
+
 };
 
 #endif // SRC_PYTHONBINDINGS_H_

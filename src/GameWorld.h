@@ -2,7 +2,13 @@
 #define GAMEWORLD_H
 
 #include <memory>
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
+
 
 #include "common.h"
 #include "CubeAsset.h"
@@ -36,7 +42,7 @@ class GameWorld {
         ColourManager colour_manager;
         std::shared_ptr<GameAssetManager> asset_manager;
         AssetType placement_type;
-        
+
 };
 
 #endif // GAMEWORLD_H

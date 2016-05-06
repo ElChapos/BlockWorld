@@ -18,13 +18,12 @@ GameWorld::GameWorld ()
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, -5.0, 0.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
-	
-	
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(20.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(26.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(29.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-20.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
@@ -32,6 +31,19 @@ GameWorld::GameWorld ()
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
+
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(20.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(26.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, -3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, -6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(26.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
 }
 
@@ -58,7 +70,7 @@ void GameWorld::BlockAction(bool mode)
 {
 	glm::vec3 camera_position = asset_manager->GetCameraPosition() += asset_manager->GetCameraDirection();
 	glm::vec3 block_position = glm::vec3(round(camera_position.x), round(camera_position.y), round(camera_position.z));
-	
+
 	if(mode)
 	{
 		if(placement_type == BW_CUBE)
@@ -67,7 +79,7 @@ void GameWorld::BlockAction(bool mode)
 		}
 		else if(placement_type == BW_STAR)
 		{
-			std::cout << "TODO: Fix StarAsset.cc" << std::endl;
+			asset_manager->AddAsset(std::make_shared<StarAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 		}
 		else if(placement_type == BW_DIAMOND)
 		{
@@ -90,7 +102,7 @@ void GameWorld::BlockAction(bool mode)
 void GameWorld::BlockType(AssetType type)
 {
 	std::cout << "Switched type to:";
-	
+
 	switch(type)
 	{
 		case BW_CUBE:
@@ -107,6 +119,6 @@ void GameWorld::BlockType(AssetType type)
 			std::cout << "BW_UNKNOWN" << std::endl;
 			break;
 	}
-	
-	placement_type = type; 
+
+	placement_type = type;
 }

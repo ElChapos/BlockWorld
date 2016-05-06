@@ -8,12 +8,18 @@
 #include <fstream>
 #include <iostream>
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
+
 #include <glm/ext.hpp>
 #include "common.h"
 #include "GameAsset.h"
 #include "CubeAsset.h"
 #include "DiamondAsset.h"
+#include "StarAsset.h"
 #include "Camera.h"
 
 /**

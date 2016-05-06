@@ -136,7 +136,7 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 libBlockWorld_la_LIBADD =
 am_libBlockWorld_la_OBJECTS = GameWorld.lo GameAssetManager.lo \
 	Camera.lo BoundingBox.lo GameAsset.lo ColourManager.lo \
-	PythonBindings.lo DiamondAsset.lo CubeAsset.lo
+	PythonBindings.lo DiamondAsset.lo CubeAsset.lo StarAsset.lo
 libBlockWorld_la_OBJECTS = $(am_libBlockWorld_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -310,8 +310,6 @@ datarootdir = @datarootdir@
 docdir = @docdir@
 dvidir = @dvidir@
 exec_prefix = @exec_prefix@
-gl_CFLAGS = @gl_CFLAGS@
-gl_LIBS = @gl_LIBS@
 glew_CFLAGS = @glew_CFLAGS@
 glew_LIBS = @glew_LIBS@
 host = @host@
@@ -344,11 +342,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libBlockWorld.la
 lib_LTLIBRARIES = libBlockWorld.la
-libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc
+libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	-I/usr/include/python2.7 $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -492,6 +490,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAssetManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameWorld.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PythonBindings.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/StarAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 
 .cc.o:

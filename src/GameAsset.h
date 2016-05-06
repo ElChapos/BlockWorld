@@ -8,6 +8,12 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
+#include <GL/gl.h>
+#endif
+
 #include "BoundingBox.h"
 
 class GameAsset{

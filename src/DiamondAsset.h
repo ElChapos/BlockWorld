@@ -2,8 +2,12 @@
 #define DIAMONDASSET_H
 
 #include <vector>
-
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
+
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
