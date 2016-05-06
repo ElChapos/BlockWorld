@@ -1,11 +1,11 @@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h DiamondAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h
 
 bin_PROGRAMS = shaderexample
-shaderexample_SOURCES = main.cc 
+shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libBlockWorld.la
 
 lib_LTLIBRARIES = libBlockWorld.la
-libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc DiamondAsset.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc
+libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11 -I/usr/include/python2.7
