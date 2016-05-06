@@ -121,7 +121,7 @@ void BoundingBox::FollowPath()
         {
              std::cout << "moving towards " << this->path_counter <<  std::endl;
             this->path_counter ++;
-            if(this->path_counter == this->path_list.size()-1)
+            if(this->path_counter == this->path_list.size())
             {
                 this->path_counter = 0;
             }
