@@ -15,7 +15,6 @@ class DiamondAsset : public GameAsset {
         ~DiamondAsset();
 
     private:
-        glm::vec3 position;
 };
 
 #endif // DIAMONDASSET_H

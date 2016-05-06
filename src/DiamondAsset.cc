@@ -2,9 +2,6 @@
 
 DiamondAsset::DiamondAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 rotation, glm::vec3 speed) : GameAsset(p , type, scale, rotation, speed)
 {
-	// Position of the cube
-	position = p;
-
 	if(glm::to_string(c) == glm::to_string(glm::vec3(-0.1, -0.1, -0.1)))
 	{
 		c = glm::vec3(rf(),rf(),rf());
@@ -16,16 +13,16 @@ DiamondAsset::DiamondAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::
 
 	// model coordinates, origin at centre.
 	GLfloat vertex_buffer [] {
-		-0.5f + position.x,  0.0f + position.y,  0.5f + position.z, //0
-		 0.0f + position.x, -0.5f + position.y,  0.0f + position.z, //1
-		 0.5f + position.x,  0.0f + position.y,  0.5f + position.z, //2
-		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z, //3
-		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z, //4
-		 0.5f + position.x,  0.0f + position.y, -0.5f + position.z, //5
-		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z, //6
-		-0.5f + position.x,  0.0f + position.y, -0.5f + position.z, //7
-		 0.5f + position.x,  0.0f + position.y, -0.5f + position.z, //8
-		 0.0f + position.x,  0.5f + position.y,  0.0f + position.z //9
+		-0.5f,  0.0f,  0.5f, //0
+		 0.0f, -0.5f,  0.0f, //1
+		 0.5f,  0.0f,  0.5f, //2
+		 0.0f,  0.5f,  0.0f, //3
+		 0.0f,  0.5f,  0.0f, //4
+		 0.5f,  0.0f, -0.5f, //5
+		 0.0f,  0.5f,  0.0f, //6
+		-0.5f,  0.0f, -0.5f, //7
+		 0.5f,  0.0f, -0.5f, //8
+		 0.0f,  0.5f,  0.0f //9
 	};
 	vertex_buffer_length = sizeof(vertex_buffer);
 

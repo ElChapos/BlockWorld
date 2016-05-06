@@ -131,12 +131,12 @@ void GameAssetManager::Draw()
 {
     for(auto ga: draw_list)
     {
-        // Get the translate matrix from our game asset
-        translate_matrix= ga->GetModelTransformation();
 
         // before drawing an asset , update the matrix values in the translate shader
         glUniformMatrix4fv(projection_matrix_link, 1, GL_FALSE, &projection_matrix[0][0]);
         glUniformMatrix4fv(view_matrix_link, 1, GL_FALSE, &view_matrix[0][0]);
+                        // Get the translate matrix from our game asset
+        translate_matrix= ga->GetModelTransformation();
         glUniformMatrix4fv(translate_matrix_link, 1, GL_FALSE, &translate_matrix[0][0]);
 
         bounding_box1_max = ga->GetMaxAndMin(1);

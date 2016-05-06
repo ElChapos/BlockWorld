@@ -14,8 +14,6 @@ class CubeAsset : public GameAsset {
         CubeAsset(glm::vec3,glm::vec3, int, float, glm::vec3, glm::vec3);
         ~CubeAsset();
     private:
-        glm::vec3 position;
-
 };
 
 #endif // CUBEASSET_H

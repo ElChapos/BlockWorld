@@ -13,14 +13,14 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 r
 
     // model coordinates, origin at centre.
     GLfloat vertex_buffer_data [] {
-        -0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
-        -0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
-        0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
-        0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
-        0.5f + position.x, -0.5f + position.y,  0.5f + position.z,
-        0.5f + position.x,  0.5f + position.y,  0.5f + position.z,
-        -0.5f + position.x, -0.5f + position.y,  0.5f + position.z,
-        -0.5f + position.x,  0.5f + position.y,  0.5f + position.z
+        -0.5f, -0.5f, -0.5f,
+        -0.5f,  0.5f, -0.5f,
+         0.5f, -0.5f, -0.5f,
+         0.5f,  0.5f, -0.5f,
+         0.5f, -0.5f,  0.5f,
+         0.5f,  0.5f,  0.5f,
+        -0.5f, -0.5f,  0.5f,
+        -0.5f,  0.5f,  0.5f
     };
     GLfloat vertex_buffer_length = sizeof(vertex_buffer_data);
 

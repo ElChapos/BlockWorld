@@ -47,6 +47,14 @@ glm::vec3 GameAsset::GetVec3()
     return bounding_box->GetVec3();
 }
 
+/**
+ * Generate a random float value between 0 and 1
+ */
+float GameAsset::rf()
+{
+    float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    return r;
+}
 
 #ifdef DEBUG
     #define checkGLError() checkError(__FILE__, __LINE__)
@@ -65,15 +73,6 @@ void checkError(std::string file, int line)
         std::cerr << "GL error in " << file << " at line " << line << " error: " << gl_error << std::endl;
         exit(-1);
     }
-}
-
-/**
- * Generate a random float value between 0 and 1
- */
-float GameAsset::rf()
-{
-    float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    return r;
 }
 
 /**
@@ -111,6 +110,8 @@ void GameAsset::Draw(GLuint program_token) {
 	//Link to the 'position' variable inside the shader program.
 	GLuint position_attrib = glGetAttribLocation(program_token, "position");
 	checkGLError();
+    GLuint colour_attrib = glGetAttribLocation(program_token, "colour");
+	checkGLError();
 
 	//Tell openGL that we are using this shader program.
 	glUseProgram(program_token);
@@ -134,15 +135,16 @@ void GameAsset::Draw(GLuint program_token) {
 
 	glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
 	glVertexAttribPointer(
-		1,				/* attribute */
+		colour_attrib,				/* attribute */
 		3,				/* size */
 		GL_FLOAT,		/* type */
 		GL_FALSE,		/* normalized? */
 		0,				/* stride */
 		(void*)0		/* array buffer offset */
 	);
-    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(colour_attrib);
 	checkGLError();
+
 
 	//Draw the triangles stored in the element buffer on screen.
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
