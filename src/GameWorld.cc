@@ -71,7 +71,7 @@ GameWorld::GameWorld ()
 	asset_manager->SetPath(glm::vec3(0.0,-3.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(0.0,0.0,0.0), true);
     asset_manager->SetPath(glm::vec3(3.0,0.0,0.0), true);
-	asset_manager->SetPath(glm::vec3(-3.0,0.0,0.0), true);
+	asset_manager->SetPath(glm::vec3(0.0,0.0,0.0), true);
     asset_manager->SetPath(glm::vec3(0.0,0.0,0.0), false);
 
 

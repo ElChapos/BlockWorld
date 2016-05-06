@@ -8,7 +8,7 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
     this->rotation = rotation;
     this->speed = speed;
     this->path_counter = 0;
-    this->destination_reached = true;
+    this->destination_reached = false;
     //std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
@@ -113,28 +113,24 @@ void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
 */
 void BoundingBox::FollowPath()
 {
-
-        glm::vec3 position_max = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
-        glm::vec3 position_min = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
+        glm::vec3 position_max = this->position += glm::vec3( 1.5f * this-> scale ,1.5f* this-> scale,1.5f* this-> scale);
+        glm::vec3 position_min = this->position += glm::vec3(-1.5f* this-> scale,-1.5* this-> scale,-1.5f* this-> scale);
         glm::vec3 coordinate = this->path_list.at(this->path_counter);
-
 
         if(this->destination_reached == true)
         {
-             this->direction = glm::normalize(path_list.at(this->path_counter) - position -= glm::vec3(0.5f,0.5f,0.5f));
-             this->position += this->direction * 0.02f * 0.01f;
              std::cout << "moving towards " << this->path_counter <<  std::endl;
-
             if(this->path_counter == this->path_list.size()-1)
             {
                 this->path_counter = 0;
             }
-
+            this->path_counter ++;
             this->destination_reached = false;
         }
         else
         {
-            this->position += this->direction * 0.02f ;
+        this->direction = glm::normalize(path_list.at(this->path_counter)  - (this->position + glm::vec3(0.5f,0.5f,0.5f)));
+            this->position += this->direction * 2.0f * 0.01f;
 
             if(position_max.x > coordinate.x && position_min.x < coordinate.x &&
                 position_max.y > coordinate.y && position_min.y < coordinate.y &&
@@ -142,11 +138,8 @@ void BoundingBox::FollowPath()
             {
                 std::cout << "Position Reached " << this->path_counter <<  std::endl;
                 this->destination_reached = true;
-                this->path_counter ++;
             }
         }
-
-
 }
 
 /**
@@ -159,12 +152,12 @@ glm::vec3 BoundingBox::GetMaxAndMin(int type)
     if (type == 1)
     {
         // return max bounds
-        bounds = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
+        bounds = this->position += glm::vec3(1.0f * this-> scale ,1.0f* this-> scale,1.0f* this-> scale);
     }
     else if (type == 2)
     {
         // return minimum bounds
-        bounds = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
+        bounds = this->position += glm::vec3(-1.0f* this-> scale,-1.0f* this-> scale,-1.0f* this-> scale);
     }
     return bounds;
 }
