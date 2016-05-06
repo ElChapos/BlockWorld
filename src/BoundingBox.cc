@@ -32,8 +32,11 @@ glm::mat4 BoundingBox::GetModelTransformation()
     {
         this->Translate(glm::vec3(this->speed.x,this->speed.y,this->speed.z));
     }
+    else if(this->type == 5)
+    {
+        FollowPath();
+    }
 
-    //FollowPath();
 
     //Scale rotate and translate a bounding box and return the updated matrix.
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
@@ -106,21 +109,19 @@ void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
 
 /**
 * Follow Path coordiantes
-*
+*/
 void BoundingBox::FollowPath()
 {
     int i;
-    glm::vec3 direction = glm::normalize(path_list.at(i) - position);
+    direction = glm::normalize(path_list.at(i) - position);
 
-    if (position != path_list.at(i))
-    {
-        this->position = this->position += direction * 0.1f * 0.1f;
-    }
-    else
+    if (position == path_list.at(i))
     {
         i++;
     }
-}*/
+        this->position = this->position += direction * 0.4f ;
+
+}
 
 /**
  * Return the max and minimum bounds

@@ -21,13 +21,14 @@ class BoundingBox {
         void Rotate(glm::vec3);
         void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
         void SetPath(std::vector<glm::vec3>);
-        //void FollowPath();
+        void FollowPath();
+        std::vector<glm::vec3> path_list;
 
     private:
         glm::vec3 position;
         glm::vec3 rotation;
         glm::vec3 speed;
-        std::vector<glm::vec3> path_list;
+        glm::vec3 direction;
         float scale;
         int type;
         glm::mat4 translate_matrix;
