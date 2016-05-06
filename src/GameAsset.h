@@ -1,7 +1,6 @@
 #ifndef GAMEASSET_H
 #define GAMEASSET_H
 
-#include <GL/gl.h>
 #include <iostream>
 #include <memory>
 #include <vector>

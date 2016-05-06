@@ -21,7 +21,7 @@ class BoundingBox {
         void Rotate(glm::vec3);
         void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
         void SetPath(std::vector<glm::vec3>);
-        void FollowPath();
+        //void FollowPath();
 
     private:
         glm::vec3 position;
