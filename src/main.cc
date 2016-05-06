@@ -1,8 +1,14 @@
 #define GLEW_STATIC // Easier debugging
 #define RUN_GRAPHICS_DISPLAY 0x00;
 
-#include <GL/glew.h>
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
+
+#include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <memory>
@@ -81,7 +87,7 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     {
         game_world->UpdateCameraPosition(CTRL, mouse_x, mouse_y);
     }
-    
+
 	if(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
     {
         game_world->BlockAction(true);
@@ -95,7 +101,7 @@ void HandleInput(const std::shared_ptr<GameWorld> &game_world)
     {
         SDL_Quit();
     }
-    
+
     if(keyboard_state[SDL_SCANCODE_1])
     {
         game_world->BlockType(BW_CUBE);

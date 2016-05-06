@@ -112,15 +112,17 @@ void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
 */
 void BoundingBox::FollowPath()
 {
-    int i;
-    direction = glm::normalize(path_list.at(i) - position);
+        int i = 0;
 
-    if (position == path_list.at(i))
-    {
-        i++;
-    }
-        this->position = this->position += direction * 0.4f ;
-
+        if(this->position != path_list.at(i))
+        {
+             direction = glm::normalize(path_list.at(i));
+             this->position += direction * 0.02f ;
+        }
+        else{
+            std::cout << "Position Reached" << std::endl;
+            i ++;
+        }
 }
 
 /**
