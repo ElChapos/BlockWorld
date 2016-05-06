@@ -6,23 +6,32 @@ GameWorld::GameWorld ()
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
 	// Position, Type, Scale, Rotation, Speed
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(6.0, 10.0, 3.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(9.0, 0.0, 10.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-3.0, 3.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(6.0, 10.0, 3.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(9.0, 0.0, 10.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 3.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 6.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -3.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -6.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 0.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 0.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, -5.0, 0.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
+	
+	
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(20.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(26.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(29.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
 }
 
