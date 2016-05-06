@@ -44,6 +44,25 @@ glm::vec3 GameAssetManager::GetCameraDirection()
     return camera->GetCameraDirection();
 }
 
+
+/**
+*  Gives a gameAsset some path Coordinates
+*/
+void GameAssetManager::SetPath(glm::vec3 path, bool active)
+{
+            if(active == true)
+            {
+                path_list.push_back(path);
+
+            }
+            else if (active == false)
+            {
+                draw_list.back()->SetPath(path_list);
+                path_list.clear();
+            }
+
+}
+
 /**
  * Deletes a GameAssetManager, in particular it will clean up any modifications
  * to the OpenGL state.

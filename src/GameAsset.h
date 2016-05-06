@@ -23,6 +23,7 @@ class GameAsset{
 		void Draw(GLuint);
 		glm::mat4 GetModelTransformation();
 		glm::vec3 GetMaxAndMin(int);
+        void SetPath(std::vector<glm::vec3>);
 		void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
 		glm::vec3 GetVec3();
 		float rf();

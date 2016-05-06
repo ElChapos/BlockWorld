@@ -33,6 +33,7 @@ glm::mat4 BoundingBox::GetModelTransformation()
         this->Translate(glm::vec3(this->speed.x,this->speed.y,this->speed.z));
     }
 
+    FollowPath();
 
     //Scale rotate and translate a bounding box and return the updated matrix.
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
@@ -63,7 +64,7 @@ void BoundingBox::Translate(glm::vec3 translate_speed)
 void BoundingBox::Scale(float scale_speed)
 {
     float new_scale;
-    
+
     if(this->scale > 5.0f)
     {
         new_scale = 1.0f;
@@ -93,6 +94,28 @@ void BoundingBox::Rotate(glm::vec3 rotate_speed)
 glm::vec3 BoundingBox::GetVec3()
 {
     return position;
+}
+
+/**
+*   Set some Path Coordinates
+*/
+void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
+{
+    this->path_list = path_list;
+}
+
+/**
+* Follow Path coordiantes
+*/
+void BoundingBox::FollowPath()
+{
+
+    glm::vec3 direction = glm::normalize(path_list.at(1) - position);
+
+    glm::vec3 new_position;
+    new_position = this->position += direction * 0.06f *0.1f;
+
+    this->position = new_position;
 }
 
 /**

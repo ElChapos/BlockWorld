@@ -17,6 +17,15 @@ glm::mat4 GameAsset::GetModelTransformation()
 }
 
 /**
+*  Gives a gameAsset some path Coordinates
+*/
+void GameAsset::SetPath(std::vector<glm::vec3> path_list)
+{
+    bounding_box->SetPath(path_list);
+}
+
+
+/**
 *  Get the Max and Minimum bounds of a bounding box
 */
 glm::vec3 GameAsset::GetMaxAndMin(int type){

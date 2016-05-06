@@ -37,11 +37,14 @@ class GameAssetManager
     void operator=(GameAssetManager const&); // assignment
     void AddAsset(std::shared_ptr<GameAsset>);
     void DeleteAsset(glm::vec3);
+    void SetPath(glm::vec3, bool);
     void Draw();
     void UpdateCameraPosition(Input, int, int);
 
     glm::vec3 GetCameraPosition();
     glm::vec3 GetCameraDirection();
+
+    std::vector<glm::vec3> path_list;
 
   private:
     GLuint CreateGLProgram(std::string &, std::string &);

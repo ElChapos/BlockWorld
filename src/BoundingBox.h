@@ -6,6 +6,8 @@
 #include <utility>
 #include <ostream>
 
+#include <vector>
+
 class BoundingBox {
     public:
         BoundingBox(glm::vec3, int, float, glm::vec3, glm::vec3);
@@ -18,11 +20,14 @@ class BoundingBox {
         void Scale(float);
         void Rotate(glm::vec3);
         void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
+        void SetPath(std::vector<glm::vec3>);
+        void FollowPath();
 
     private:
         glm::vec3 position;
         glm::vec3 rotation;
         glm::vec3 speed;
+        std::vector<glm::vec3> path_list;
         float scale;
         int type;
         glm::mat4 translate_matrix;
