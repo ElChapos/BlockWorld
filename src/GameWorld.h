@@ -41,7 +41,7 @@ class GameWorld {
     private:
         ColourManager colour_manager;
         std::shared_ptr<GameAssetManager> asset_manager;
-        AssetType placement_type;
+        AssetType placement_type = BW_CUBE;
 
 };
 

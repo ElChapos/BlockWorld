@@ -45,9 +45,6 @@ GameWorld::GameWorld ()
 	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
-
-
-
 	// test animation path
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 5, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->SetPath(glm::vec3(6.0,0.0,0.0), true);
