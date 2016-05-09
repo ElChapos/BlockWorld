@@ -134,7 +134,7 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libblockengine_la_LIBADD =
-am_libblockengine_la_OBJECTS = GameWorld.lo GameAssetManager.lo \
+am_libblockengine_la_OBJECTS = GameWorld.lo GameAssetManager.lo App.lo \
 	Camera.lo BoundingBox.lo GameAsset.lo ColourManager.lo \
 	PythonBindings.lo DiamondAsset.lo CubeAsset.lo StarAsset.lo
 libblockengine_la_OBJECTS = $(am_libblockengine_la_OBJECTS)
@@ -342,11 +342,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h App.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
 BlockWorld_SOURCES = main.cc
 BlockWorld_LDADD = libblockengine.la
 lib_LTLIBRARIES = libblockengine.la
-libblockengine_la_SOURCES = GameWorld.cc GameAssetManager.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
+libblockengine_la_SOURCES = GameWorld.cc GameAssetManager.cc App.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	-I/usr/include/python2.7 $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -481,6 +481,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/App.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/BoundingBox.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Camera.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ColourManager.Plo@am__quote@
