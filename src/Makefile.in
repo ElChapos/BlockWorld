@@ -89,7 +89,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = shaderexample$(EXEEXT)
+bin_PROGRAMS = BlockWorld$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/boost.m4 \
@@ -133,19 +133,19 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libBlockWorld_la_LIBADD =
-am_libBlockWorld_la_OBJECTS = GameWorld.lo GameAssetManager.lo \
+libblockengine_la_LIBADD =
+am_libblockengine_la_OBJECTS = GameWorld.lo GameAssetManager.lo \
 	Camera.lo BoundingBox.lo GameAsset.lo ColourManager.lo \
 	PythonBindings.lo DiamondAsset.lo CubeAsset.lo StarAsset.lo
-libBlockWorld_la_OBJECTS = $(am_libBlockWorld_la_OBJECTS)
+libblockengine_la_OBJECTS = $(am_libblockengine_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
 PROGRAMS = $(bin_PROGRAMS)
-am_shaderexample_OBJECTS = main.$(OBJEXT)
-shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
-shaderexample_DEPENDENCIES = libBlockWorld.la
+am_BlockWorld_OBJECTS = main.$(OBJEXT)
+BlockWorld_OBJECTS = $(am_BlockWorld_OBJECTS)
+BlockWorld_DEPENDENCIES = libblockengine.la
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -180,8 +180,8 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(libBlockWorld_la_SOURCES) $(shaderexample_SOURCES)
-DIST_SOURCES = $(libBlockWorld_la_SOURCES) $(shaderexample_SOURCES)
+SOURCES = $(libblockengine_la_SOURCES) $(BlockWorld_SOURCES)
+DIST_SOURCES = $(libblockengine_la_SOURCES) $(BlockWorld_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -343,10 +343,10 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
-shaderexample_SOURCES = main.cc
-shaderexample_LDADD = libBlockWorld.la
-lib_LTLIBRARIES = libBlockWorld.la
-libBlockWorld_la_SOURCES = GameWorld.cc GameAssetManager.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
+BlockWorld_SOURCES = main.cc
+BlockWorld_LDADD = libblockengine.la
+lib_LTLIBRARIES = libblockengine.la
+libblockengine_la_SOURCES = GameWorld.cc GameAssetManager.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	-I/usr/include/python2.7 $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -419,8 +419,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libBlockWorld.la: $(libBlockWorld_la_OBJECTS) $(libBlockWorld_la_DEPENDENCIES) $(EXTRA_libBlockWorld_la_DEPENDENCIES) 
-	$(AM_V_CXXLD)$(CXXLINK) -rpath $(libdir) $(libBlockWorld_la_OBJECTS) $(libBlockWorld_la_LIBADD) $(LIBS)
+libblockengine.la: $(libblockengine_la_OBJECTS) $(libblockengine_la_DEPENDENCIES) $(EXTRA_libblockengine_la_DEPENDENCIES) 
+	$(AM_V_CXXLD)$(CXXLINK) -rpath $(libdir) $(libblockengine_la_OBJECTS) $(libblockengine_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -471,9 +471,9 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-shaderexample$(EXEEXT): $(shaderexample_OBJECTS) $(shaderexample_DEPENDENCIES) $(EXTRA_shaderexample_DEPENDENCIES) 
-	@rm -f shaderexample$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(shaderexample_OBJECTS) $(shaderexample_LDADD) $(LIBS)
+BlockWorld$(EXEEXT): $(BlockWorld_OBJECTS) $(BlockWorld_DEPENDENCIES) $(EXTRA_BlockWorld_DEPENDENCIES) 
+	@rm -f BlockWorld$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(BlockWorld_OBJECTS) $(BlockWorld_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

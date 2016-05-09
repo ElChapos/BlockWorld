@@ -2,10 +2,10 @@
 clear
 
 echo ---------- REMOVING 	PREVIOUS 	BUILD ----------
-rm ./src/shaderexample
+rm ./src/BlockWorld
 
 echo ---------- MAKING 	NEW 		BUILD ----------
 make
 
 echo ---------- RUNNING 	NEW 		BUILD ----------
-./src/shaderexample
+./src/BlockWorld
