@@ -2,7 +2,7 @@
 
 PythonBindings::PythonBindings(){}
 
-BOOST_PYTHON_MODULE(libBlockWorld)
+BOOST_PYTHON_MODULE(libblockengine)
 {
 	boost::python::class_<GameAssetManager>("GameAssetManager")
                             .def("DeleteAsset", &GameAssetManager::DeleteAsset)
