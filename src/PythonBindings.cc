@@ -2,15 +2,16 @@
 
 PythonBindings::PythonBindings(){}
 
+char const* greet()
+{
+   return "hello, world";
+}
+
 BOOST_PYTHON_MODULE(libblockengine)
 {
-	boost::python::class_<GameAssetManager>("GameAssetManager")
-                            .def("DeleteAsset", &GameAssetManager::DeleteAsset)
-                            .def("AddAsset", &GameAssetManager::AddAsset)
-                            .def("UpdateCameraPosition", &GameAssetManager::UpdateCameraPosition)
-    ;
+    boost::python::def("greet", greet);
 
     boost::python::class_<GameWorld>("GameWorld")
-                            .def("BlockType", &GameWorld::BlockType)
-    ;
+    	.def("Test", &GameWorld::Test)
+    	.def("Draw", &GameWorld::Draw);
 }

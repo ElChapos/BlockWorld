@@ -1,0 +1,1 @@
+g++ -fPIC -shared *.cc *.h -o PythonBindings.so -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 -I/usr/include/python2.7 -lSDL2 -lboost_system -lboost_python -lpython2.7 -Wl,-rpath,'$$ORIGIN/.libs'

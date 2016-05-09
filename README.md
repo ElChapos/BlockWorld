@@ -30,6 +30,14 @@ Alternatively, if you'd like to build the project in debug mode use:
 
 > $ make CXXFLAGS=-DDEBUG
 
+# Python Bindings #
+
+``` bash
+	cd src/
+	export PYTHONPATH=`pwd`/.libs/
+	cd ../ && make
+```
+
 # Running #
 
 The build process should create a binary that can be executed as follows:

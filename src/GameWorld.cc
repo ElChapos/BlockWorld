@@ -142,3 +142,8 @@ void GameWorld::BlockType(AssetType type)
 
 	placement_type = type;
 }
+
+void GameWorld::Test(int message)
+{
+	std::cout << message << std::endl;
+}
