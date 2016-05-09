@@ -1,0 +1,120 @@
+\hypertarget{classBoundingBox}{}\section{Bounding\+Box Class Reference}
+\label{classBoundingBox}\index{Bounding\+Box@{Bounding\+Box}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoundingBox_a85b1b2999c0810fbfcffe0f82f5ef581}{Bounding\+Box} (glm\+::vec3, int, float, glm\+::vec3, glm\+::vec3)
+\item 
+glm\+::vec3 \hyperlink{classBoundingBox_ae030e99b894d0326307268ec80a046a9}{Get\+Vec3} ()
+\item 
+glm\+::mat4 \hyperlink{classBoundingBox_ac8214cfca4958127d0bacd263c6008d4}{Get\+Model\+Transformation} ()
+\item 
+glm\+::vec3 \hyperlink{classBoundingBox_a968169f93442add1db9b5b4ca9e7d358}{Get\+Max\+And\+Min} (int)
+\item 
+void \hyperlink{classBoundingBox_afb77ba3c0b8ad8862e92f18adba8258e}{Translate} (glm\+::vec3)
+\item 
+void \hyperlink{classBoundingBox_a47aa793b888dc49037021c707b83d3fb}{Scale} (float)
+\item 
+void \hyperlink{classBoundingBox_ad94b5e157e468a21ce7a7ade20a74c09}{Rotate} (glm\+::vec3)
+\item 
+void \hyperlink{classBoundingBox_aed8d9c54c463e21f4bcdd8340e141cfb}{Check\+Collision} (glm\+::vec3, glm\+::vec3, glm\+::vec3, glm\+::vec3)
+\item 
+void \hyperlink{classBoundingBox_a91f44328bdf42b85a02538e93f50081c}{Set\+Path} (std\+::vector$<$ glm\+::vec3 $>$)
+\item 
+void \hyperlink{classBoundingBox_a4bda88b17a66734dea30916f048679c6}{Follow\+Path} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBoundingBox_a06fd05f65178892ca298446e7c111f3c}{}std\+::vector$<$ glm\+::vec3 $>$ {\bfseries path\+\_\+list}\label{classBoundingBox_a06fd05f65178892ca298446e7c111f3c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBoundingBox_a85b1b2999c0810fbfcffe0f82f5ef581}{}\index{Bounding\+Box@{Bounding\+Box}!Bounding\+Box@{Bounding\+Box}}
+\index{Bounding\+Box@{Bounding\+Box}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Bounding\+Box(glm\+::vec3, int, float, glm\+::vec3, glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}Bounding\+Box\+::\+Bounding\+Box (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{position, }
+\item[{int}]{type, }
+\item[{float}]{scale, }
+\item[{glm\+::vec3}]{rotation, }
+\item[{glm\+::vec3}]{speed}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_a85b1b2999c0810fbfcffe0f82f5ef581}
+\hyperlink{classBoundingBox}{Bounding\+Box} initialisation 
+
+\subsection{Member Function Documentation}
+\hypertarget{classBoundingBox_aed8d9c54c463e21f4bcdd8340e141cfb}{}\index{Bounding\+Box@{Bounding\+Box}!Check\+Collision@{Check\+Collision}}
+\index{Check\+Collision@{Check\+Collision}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Check\+Collision(glm\+::vec3, glm\+::vec3, glm\+::vec3, glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Check\+Collision (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{bounding\+\_\+box1\+\_\+max, }
+\item[{glm\+::vec3}]{bounding\+\_\+box1\+\_\+min, }
+\item[{glm\+::vec3}]{bounding\+\_\+box2\+\_\+max, }
+\item[{glm\+::vec3}]{bounding\+\_\+box2\+\_\+min}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_aed8d9c54c463e21f4bcdd8340e141cfb}
+Check if a bounding box has collided with another \hypertarget{classBoundingBox_a4bda88b17a66734dea30916f048679c6}{}\index{Bounding\+Box@{Bounding\+Box}!Follow\+Path@{Follow\+Path}}
+\index{Follow\+Path@{Follow\+Path}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Follow\+Path()}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Follow\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_a4bda88b17a66734dea30916f048679c6}
+Follow Path coordiantes \hypertarget{classBoundingBox_a968169f93442add1db9b5b4ca9e7d358}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Max\+And\+Min@{Get\+Max\+And\+Min}}
+\index{Get\+Max\+And\+Min@{Get\+Max\+And\+Min}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Get\+Max\+And\+Min(int)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Bounding\+Box\+::\+Get\+Max\+And\+Min (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_a968169f93442add1db9b5b4ca9e7d358}
+Return the max and minimum bounds \hypertarget{classBoundingBox_ac8214cfca4958127d0bacd263c6008d4}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Model\+Transformation@{Get\+Model\+Transformation}}
+\index{Get\+Model\+Transformation@{Get\+Model\+Transformation}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Get\+Model\+Transformation()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Bounding\+Box\+::\+Get\+Model\+Transformation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_ac8214cfca4958127d0bacd263c6008d4}
+Get the model translformation based on asset type \hypertarget{classBoundingBox_ae030e99b894d0326307268ec80a046a9}{}\index{Bounding\+Box@{Bounding\+Box}!Get\+Vec3@{Get\+Vec3}}
+\index{Get\+Vec3@{Get\+Vec3}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Get\+Vec3()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Bounding\+Box\+::\+Get\+Vec3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_ae030e99b894d0326307268ec80a046a9}
+Get vec3 for bbox \hypertarget{classBoundingBox_ad94b5e157e468a21ce7a7ade20a74c09}{}\index{Bounding\+Box@{Bounding\+Box}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Rotate(glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Rotate (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{rotate\+\_\+speed}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_ad94b5e157e468a21ce7a7ade20a74c09}
+Used to rotate by a certain speed \hypertarget{classBoundingBox_a47aa793b888dc49037021c707b83d3fb}{}\index{Bounding\+Box@{Bounding\+Box}!Scale@{Scale}}
+\index{Scale@{Scale}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Scale(float)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Scale (
+\begin{DoxyParamCaption}
+\item[{float}]{scale\+\_\+speed}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_a47aa793b888dc49037021c707b83d3fb}
+Used to scale by a certain speed \hypertarget{classBoundingBox_a91f44328bdf42b85a02538e93f50081c}{}\index{Bounding\+Box@{Bounding\+Box}!Set\+Path@{Set\+Path}}
+\index{Set\+Path@{Set\+Path}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Set\+Path(std\+::vector$<$ glm\+::vec3 $>$)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Set\+Path (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ glm\+::vec3 $>$}]{path\+\_\+list}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_a91f44328bdf42b85a02538e93f50081c}
+Set some Path Coordinates \hypertarget{classBoundingBox_afb77ba3c0b8ad8862e92f18adba8258e}{}\index{Bounding\+Box@{Bounding\+Box}!Translate@{Translate}}
+\index{Translate@{Translate}!Bounding\+Box@{Bounding\+Box}}
+\subsubsection[{Translate(glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}void Bounding\+Box\+::\+Translate (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{translate\+\_\+speed}
+\end{DoxyParamCaption}
+)}\label{classBoundingBox_afb77ba3c0b8ad8862e92f18adba8258e}
+Used to translate by a certain speed 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Bounding\+Box.\+h\item 
+Bounding\+Box.\+cc\end{DoxyCompactItemize}

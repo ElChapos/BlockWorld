@@ -16,9 +16,6 @@ class PythonBindings
 	public:
 		PythonBindings();
 
-	private:
-		//
-
 };
 
 #endif // SRC_PYTHONBINDINGS_H_

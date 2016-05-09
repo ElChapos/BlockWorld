@@ -1,0 +1,126 @@
+\hypertarget{classGameAsset}{}\section{Game\+Asset Class Reference}
+\label{classGameAsset}\index{Game\+Asset@{Game\+Asset}}
+Inheritance diagram for Game\+Asset\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameAsset}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameAsset_af9ed34597a36fb804d2dc94c45ace9e4}{Game\+Asset} (glm\+::vec3, int, float, glm\+::vec3, glm\+::vec3)
+\item 
+void \hyperlink{classGameAsset_a0fa1c4bf4ae5883ff3e4a1c45930142a}{Draw} (G\+Luint)
+\item 
+glm\+::mat4 \hyperlink{classGameAsset_a9cca0cbeff2eac427a8432080b4cf0e1}{Get\+Model\+Transformation} ()
+\item 
+glm\+::vec3 \hyperlink{classGameAsset_aae7fdb56570d231fb1043905c642f788}{Get\+Max\+And\+Min} (int)
+\item 
+void \hyperlink{classGameAsset_a9878afd59b6865a5efce633c4b00f22b}{Set\+Path} (std\+::vector$<$ glm\+::vec3 $>$)
+\item 
+void \hyperlink{classGameAsset_aab3657266027478ee2d9f5b1810e85d3}{Check\+Collision} (glm\+::vec3, glm\+::vec3, glm\+::vec3, glm\+::vec3)
+\item 
+glm\+::vec3 \hyperlink{classGameAsset_a93faa30868a56e605fbc10bb6e72d971}{Get\+Vec3} ()
+\item 
+float \hyperlink{classGameAsset_a3f6eafb236f1f605c7c7dfe7720c87d9}{rf} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGameAsset_a3cb33b48d2d1c096b53e6d3e102ec211}{}G\+Luint {\bfseries element\+\_\+buffer\+\_\+length}\label{classGameAsset_a3cb33b48d2d1c096b53e6d3e102ec211}
+
+\item 
+\hypertarget{classGameAsset_a5e8cb8663b9fae3dc30ba57e0ac4801b}{}G\+Luint {\bfseries vertex\+\_\+buffer\+\_\+length}\label{classGameAsset_a5e8cb8663b9fae3dc30ba57e0ac4801b}
+
+\item 
+\hypertarget{classGameAsset_aa69b81faf889d3e2d5065926d17095b9}{}G\+Luint {\bfseries colour\+\_\+buffer\+\_\+length}\label{classGameAsset_aa69b81faf889d3e2d5065926d17095b9}
+
+\item 
+\hypertarget{classGameAsset_a158cf01ef67ae3c0e5c2a8013a364e6d}{}G\+Luint {\bfseries vertex\+\_\+buffer\+\_\+token}\label{classGameAsset_a158cf01ef67ae3c0e5c2a8013a364e6d}
+
+\item 
+\hypertarget{classGameAsset_aabbe381c31750767c97d920098118f9b}{}G\+Luint {\bfseries element\+\_\+buffer\+\_\+token}\label{classGameAsset_aabbe381c31750767c97d920098118f9b}
+
+\item 
+\hypertarget{classGameAsset_ad62ea82130df02e713181dd3060c36b3}{}G\+Luint {\bfseries colour\+\_\+buffer\+\_\+token}\label{classGameAsset_ad62ea82130df02e713181dd3060c36b3}
+
+\item 
+\hypertarget{classGameAsset_a2789834c44a451a857c3c6573604b41f}{}std\+::shared\+\_\+ptr$<$ \hyperlink{classBoundingBox}{Bounding\+Box} $>$ {\bfseries bounding\+\_\+box}\label{classGameAsset_a2789834c44a451a857c3c6573604b41f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGameAsset_af9ed34597a36fb804d2dc94c45ace9e4}{}\index{Game\+Asset@{Game\+Asset}!Game\+Asset@{Game\+Asset}}
+\index{Game\+Asset@{Game\+Asset}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Game\+Asset(glm\+::vec3, int, float, glm\+::vec3, glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+::\+Game\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{position, }
+\item[{int}]{type, }
+\item[{float}]{scale, }
+\item[{glm\+::vec3}]{rotation, }
+\item[{glm\+::vec3}]{speed}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_af9ed34597a36fb804d2dc94c45ace9e4}
+Initalise a \hyperlink{classBoundingBox}{Bounding\+Box} with the \hyperlink{classGameAsset}{Game\+Asset} 
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameAsset_aab3657266027478ee2d9f5b1810e85d3}{}\index{Game\+Asset@{Game\+Asset}!Check\+Collision@{Check\+Collision}}
+\index{Check\+Collision@{Check\+Collision}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Check\+Collision(glm\+::vec3, glm\+::vec3, glm\+::vec3, glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+::\+Check\+Collision (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{bounding\+\_\+box1\+\_\+max, }
+\item[{glm\+::vec3}]{bounding\+\_\+box1\+\_\+min, }
+\item[{glm\+::vec3}]{bounding\+\_\+box2\+\_\+max, }
+\item[{glm\+::vec3}]{bounding\+\_\+box2\+\_\+min}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_aab3657266027478ee2d9f5b1810e85d3}
+Check the bounds of two bounding boxes for a collision \hypertarget{classGameAsset_a0fa1c4bf4ae5883ff3e4a1c45930142a}{}\index{Game\+Asset@{Game\+Asset}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Draw(\+G\+Luint)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{G\+Luint}]{program\+\_\+token}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_a0fa1c4bf4ae5883ff3e4a1c45930142a}
+Main drawing method for the \hyperlink{classGameAsset}{Game\+Asset} \hypertarget{classGameAsset_aae7fdb56570d231fb1043905c642f788}{}\index{Game\+Asset@{Game\+Asset}!Get\+Max\+And\+Min@{Get\+Max\+And\+Min}}
+\index{Get\+Max\+And\+Min@{Get\+Max\+And\+Min}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Max\+And\+Min(int)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+::\+Get\+Max\+And\+Min (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_aae7fdb56570d231fb1043905c642f788}
+Get the Max and Minimum bounds of a \hyperlink{classBoundingBox}{Bounding\+Box} \hypertarget{classGameAsset_a9cca0cbeff2eac427a8432080b4cf0e1}{}\index{Game\+Asset@{Game\+Asset}!Get\+Model\+Transformation@{Get\+Model\+Transformation}}
+\index{Get\+Model\+Transformation@{Get\+Model\+Transformation}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Model\+Transformation()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Game\+Asset\+::\+Get\+Model\+Transformation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_a9cca0cbeff2eac427a8432080b4cf0e1}
+Update a \hyperlink{classGameAsset}{Game\+Asset} position to the position of the \hyperlink{classBoundingBox}{Bounding\+Box} \hypertarget{classGameAsset_a93faa30868a56e605fbc10bb6e72d971}{}\index{Game\+Asset@{Game\+Asset}!Get\+Vec3@{Get\+Vec3}}
+\index{Get\+Vec3@{Get\+Vec3}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Get\+Vec3()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+::\+Get\+Vec3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_a93faa30868a56e605fbc10bb6e72d971}
+Return the position of a \hyperlink{classBoundingBox}{Bounding\+Box} \hypertarget{classGameAsset_a3f6eafb236f1f605c7c7dfe7720c87d9}{}\index{Game\+Asset@{Game\+Asset}!rf@{rf}}
+\index{rf@{rf}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{rf()}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Asset\+::rf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_a3f6eafb236f1f605c7c7dfe7720c87d9}
+Generate a random float value between 0 and 1 \hypertarget{classGameAsset_a9878afd59b6865a5efce633c4b00f22b}{}\index{Game\+Asset@{Game\+Asset}!Set\+Path@{Set\+Path}}
+\index{Set\+Path@{Set\+Path}!Game\+Asset@{Game\+Asset}}
+\subsubsection[{Set\+Path(std\+::vector$<$ glm\+::vec3 $>$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+::\+Set\+Path (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ glm\+::vec3 $>$}]{path\+\_\+list}
+\end{DoxyParamCaption}
+)}\label{classGameAsset_a9878afd59b6865a5efce633c4b00f22b}
+Gives a \hyperlink{classGameAsset}{Game\+Asset} path coordinates 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Asset.\+h\item 
+Game\+Asset.\+cc\end{DoxyCompactItemize}

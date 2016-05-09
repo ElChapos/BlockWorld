@@ -21,7 +21,7 @@ GameAssetManager::GameAssetManager()
 }
 
 /**
- * Communicates with camera class
+ * Communicates with Camera class
  */
 void GameAssetManager::UpdateCameraPosition(Input input_direction,  int mouse_x, int mouse_y)
 {
@@ -44,21 +44,20 @@ glm::vec3 GameAssetManager::GetCameraDirection()
     return camera->GetCameraDirection();
 }
 
-
 /**
 *  Gives a gameAsset some path Coordinates
 */
 void GameAssetManager::SetPath(glm::vec3 path, bool active)
 {
-            if(active == true)
-            {
-                path_list.push_back(path);
-            }
-            else if (active == false)
-            {
-                draw_list.back()->SetPath(path_list);
-                path_list.clear();
-            }
+    if(active == true)
+    {
+        path_list.push_back(path);
+    }
+    else if (active == false)
+    {
+        draw_list.back()->SetPath(path_list);
+        path_list.clear();
+    }
 }
 
 /**
@@ -99,7 +98,7 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset)
 }
 
 /**
- * Deletes an asset from our draw_list
+ * Deletes an asset from the draw_list
  */
 void GameAssetManager::DeleteAsset(glm::vec3 position)
 {
@@ -107,11 +106,9 @@ void GameAssetManager::DeleteAsset(glm::vec3 position)
     int i = 0;
 
     glm::vec3 position_bounds_max, position_bounds_min, asset_bounds_max, asset_bounds_min;
-    // Check each asset
     for(auto item: draw_list)
     {
         std::cout << "Compare ITEM: [" << glm::to_string(item->GetVec3()) << "] with POS: [" << glm::to_string(position) << "]" << std::endl;
-        // if the asset exists
 
         position_bounds_max = position += glm::vec3(0.75,0.75,0.75);
         position_bounds_min = position += glm::vec3(-0.75,-0.75,-0.75);
@@ -122,7 +119,6 @@ void GameAssetManager::DeleteAsset(glm::vec3 position)
             asset_bounds_max.y > position_bounds_min.y && asset_bounds_min.y < position_bounds_max.y &&
             asset_bounds_max.z > position_bounds_min.z && asset_bounds_min.z < position_bounds_max.z)
         {
-            // Change create to false so we do not make one
             std::cout << "Found block, flagging for delete" << std::endl;
             del = true;
             break;
@@ -130,7 +126,6 @@ void GameAssetManager::DeleteAsset(glm::vec3 position)
         i++;
     }
 
-    // Check if we can create a block
     if(del)
     {
         draw_list.erase(draw_list.begin()+i);
@@ -152,7 +147,8 @@ void GameAssetManager::Draw()
         // before drawing an asset , update the matrix values in the translate shader
         glUniformMatrix4fv(projection_matrix_link, 1, GL_FALSE, &projection_matrix[0][0]);
         glUniformMatrix4fv(view_matrix_link, 1, GL_FALSE, &view_matrix[0][0]);
-                        // Get the translate matrix from our game asset
+        
+        // Get the translate matrix from our game asset
         translate_matrix= ga->GetModelTransformation();
         glUniformMatrix4fv(translate_matrix_link, 1, GL_FALSE, &translate_matrix[0][0]);
 

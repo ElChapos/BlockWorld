@@ -1,7 +1,7 @@
 #include "GameAsset.h"
 
 /**
-*  Initalise a bounding box with the gameasset
+*  Initalise a BoundingBox with the GameAsset
 */
 GameAsset::GameAsset(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
@@ -9,7 +9,7 @@ GameAsset::GameAsset(glm::vec3 position, int type, float scale , glm::vec3 rotat
 }
 
 /**
-*  Update a gameAssets position to the position of the bounding box
+*  Update a GameAsset position to the position of the BoundingBox
 */
 glm::mat4 GameAsset::GetModelTransformation()
 {
@@ -17,7 +17,7 @@ glm::mat4 GameAsset::GetModelTransformation()
 }
 
 /**
-*  Gives a gameAsset some path Coordinates
+*  Gives a GameAsset path coordinates
 */
 void GameAsset::SetPath(std::vector<glm::vec3> path_list)
 {
@@ -26,9 +26,10 @@ void GameAsset::SetPath(std::vector<glm::vec3> path_list)
 
 
 /**
-*  Get the Max and Minimum bounds of a bounding box
+*  Get the Max and Minimum bounds of a BoundingBox
 */
-glm::vec3 GameAsset::GetMaxAndMin(int type){
+glm::vec3 GameAsset::GetMaxAndMin(int type)
+{
 
     if(type == 1)
     {
@@ -49,7 +50,7 @@ void GameAsset::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_b
 }
 
 /**
-*  Return the position of a boundingbox
+*  Return the position of a BoundingBox
 */
 glm::vec3 GameAsset::GetVec3()
 {
@@ -85,10 +86,10 @@ void checkError(std::string file, int line)
 }
 
 /**
- *
+ * Main drawing method for the GameAsset
  */
-void GameAsset::Draw(GLuint program_token) {
-
+void GameAsset::Draw(GLuint program_token)
+{
 	//Check that the program token points to a valid shader program.
 	if(!glIsProgram(program_token)) {
 		std::cerr << "Drawing asset with invalid program" << std::endl;
@@ -138,8 +139,6 @@ void GameAsset::Draw(GLuint program_token) {
 			(void*)0                       /* array buffer offset */
 	);
 	glEnableVertexAttribArray(position_attrib);
-
-	//Check for problems.
 	checkGLError();
 
 	glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
@@ -163,8 +162,6 @@ void GameAsset::Draw(GLuint program_token) {
 			GL_UNSIGNED_INT,
 			(GLvoid*) 0
 	);
-
 	checkGLError();
-
 	glDisableVertexAttribArray(position_attrib);
-	}
+}

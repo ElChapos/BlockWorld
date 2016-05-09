@@ -1,0 +1,141 @@
+\hypertarget{classGameAssetManager}{}\section{Game\+Asset\+Manager Class Reference}
+\label{classGameAssetManager}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+
+
+{\ttfamily \#include $<$Game\+Asset\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameAssetManager_a84d0445928649e0d1e0f8e31ee137b17}{Game\+Asset\+Manager} ()
+\item 
+virtual \hyperlink{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}{$\sim$\+Game\+Asset\+Manager} ()
+\item 
+\hyperlink{classGameAssetManager_a2c9adcb72faa154c87eadc9bafe5269d}{Game\+Asset\+Manager} (\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} const \&)
+\item 
+\hyperlink{classGameAssetManager_a44f6e2fd6b8ff1dd64e5697f1be7386d}{Game\+Asset\+Manager} (\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} const \&\&)
+\item 
+void \hyperlink{classGameAssetManager_ac72678a4ad5378c685aa6bae84a4e712}{operator=} (\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} const \&)
+\item 
+void \hyperlink{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}{Add\+Asset} (std\+::shared\+\_\+ptr$<$ \hyperlink{classGameAsset}{Game\+Asset} $>$)
+\item 
+void \hyperlink{classGameAssetManager_a0627c08b5696fac9ebf3076b5766599b}{Delete\+Asset} (glm\+::vec3)
+\item 
+void \hyperlink{classGameAssetManager_a7898abe62096f7de7d04e1e4c22f0f87}{Set\+Path} (glm\+::vec3, bool)
+\item 
+void \hyperlink{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}{Draw} ()
+\item 
+void \hyperlink{classGameAssetManager_aeb9a8c013f49f2ab06a51b5033576061}{Update\+Camera\+Position} (Input, int, int)
+\item 
+glm\+::vec3 \hyperlink{classGameAssetManager_a1d9f1f5cc6630a10a0bf358dc2bcddef}{Get\+Camera\+Position} ()
+\item 
+glm\+::vec3 \hyperlink{classGameAssetManager_a236ee25b1346115f0ee68f1497b02e85}{Get\+Camera\+Direction} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGameAssetManager_a01330dececa65c4a5da1be683c14969c}{}std\+::vector$<$ glm\+::vec3 $>$ {\bfseries path\+\_\+list}\label{classGameAssetManager_a01330dececa65c4a5da1be683c14969c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGameAssetManager}{Game\+Asset\+Manager} is a container for Game\+Assets. It also provides utility functions to to create a simple Open\+G\+L program that can be used to draw a simple \hyperlink{classGameAsset}{Game\+Asset}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGameAssetManager_a84d0445928649e0d1e0f8e31ee137b17}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Game\+Asset\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::\+Game\+Asset\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a84d0445928649e0d1e0f8e31ee137b17}
+Creates a \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} to load the correct shaders based on the Application\+Mode. \hypertarget{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!````~Game\+Asset\+Manager@{$\sim$\+Game\+Asset\+Manager}}
+\index{````~Game\+Asset\+Manager@{$\sim$\+Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{$\sim$\+Game\+Asset\+Manager()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::$\sim$\+Game\+Asset\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classGameAssetManager_a1270bd61ecbcca563f079803e40c9b77}
+Deletes a \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}, in particular it will clean up any modifications to the Open\+G\+L state. \hypertarget{classGameAssetManager_a2c9adcb72faa154c87eadc9bafe5269d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Game\+Asset\+Manager(\+Game\+Asset\+Manager const \&)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::\+Game\+Asset\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Asset\+Manager} const \&}]{the\+\_\+manager}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a2c9adcb72faa154c87eadc9bafe5269d}
+Unimplemented copy constructor -- this means that the \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} may not work as you\textquotesingle{}d expect when being copied. \hypertarget{classGameAssetManager_a44f6e2fd6b8ff1dd64e5697f1be7386d}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Game\+Asset\+Manager(\+Game\+Asset\+Manager const \&\&)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Asset\+Manager\+::\+Game\+Asset\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Asset\+Manager} const \&\&}]{the\+\_\+manager}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a44f6e2fd6b8ff1dd64e5697f1be7386d}
+Unimplemented move constructor -- this unimplemented method violates the C++11 move semantics for \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Add\+Asset@{Add\+Asset}}
+\index{Add\+Asset@{Add\+Asset}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Add\+Asset(std\+::shared\+\_\+ptr$<$ Game\+Asset $>$)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Add\+Asset (
+\begin{DoxyParamCaption}
+\item[{std\+::shared\+\_\+ptr$<$ {\bf Game\+Asset} $>$}]{the\+\_\+asset}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_ad3de8ff00d55ba04728b1de8213b2349}
+Adds a \hyperlink{classGameAsset}{Game\+Asset} to the scene graph. \hypertarget{classGameAssetManager_a0627c08b5696fac9ebf3076b5766599b}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Delete\+Asset@{Delete\+Asset}}
+\index{Delete\+Asset@{Delete\+Asset}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Delete\+Asset(glm\+::vec3)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Delete\+Asset (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{position}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a0627c08b5696fac9ebf3076b5766599b}
+Deletes an asset from the draw\+\_\+list \hypertarget{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Draw()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a32837132bd70a9a9ed537323c2d3d886}
+Draws each \hyperlink{classGameAsset}{Game\+Asset} in the scene graph. \hypertarget{classGameAssetManager_a236ee25b1346115f0ee68f1497b02e85}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Get\+Camera\+Direction@{Get\+Camera\+Direction}}
+\index{Get\+Camera\+Direction@{Get\+Camera\+Direction}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Get\+Camera\+Direction()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+Manager\+::\+Get\+Camera\+Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a236ee25b1346115f0ee68f1497b02e85}
+Fetches and returns the camera direction \hypertarget{classGameAssetManager_a1d9f1f5cc6630a10a0bf358dc2bcddef}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Get\+Camera\+Position@{Get\+Camera\+Position}}
+\index{Get\+Camera\+Position@{Get\+Camera\+Position}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Get\+Camera\+Position()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Game\+Asset\+Manager\+::\+Get\+Camera\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a1d9f1f5cc6630a10a0bf358dc2bcddef}
+Fetches and returns the camera position \hypertarget{classGameAssetManager_ac72678a4ad5378c685aa6bae84a4e712}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!operator=@{operator=}}
+\index{operator=@{operator=}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{operator=(\+Game\+Asset\+Manager const \&)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Asset\+Manager} const \&}]{the\+\_\+manager}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_ac72678a4ad5378c685aa6bae84a4e712}
+Unimplemented assisgnment operator -- violates the expected semantics for assignment in C++11. \hypertarget{classGameAssetManager_a7898abe62096f7de7d04e1e4c22f0f87}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Set\+Path@{Set\+Path}}
+\index{Set\+Path@{Set\+Path}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Set\+Path(glm\+::vec3, bool)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Set\+Path (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{path, }
+\item[{bool}]{active}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_a7898abe62096f7de7d04e1e4c22f0f87}
+Gives a game\+Asset some path Coordinates \hypertarget{classGameAssetManager_aeb9a8c013f49f2ab06a51b5033576061}{}\index{Game\+Asset\+Manager@{Game\+Asset\+Manager}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Game\+Asset\+Manager@{Game\+Asset\+Manager}}
+\subsubsection[{Update\+Camera\+Position(\+Input, int, int)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Asset\+Manager\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{Input}]{input\+\_\+direction, }
+\item[{int}]{mouse\+\_\+x, }
+\item[{int}]{mouse\+\_\+y}
+\end{DoxyParamCaption}
+)}\label{classGameAssetManager_aeb9a8c013f49f2ab06a51b5033576061}
+Communicates with \hyperlink{classCamera}{Camera} class 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Asset\+Manager.\+h\item 
+Game\+Asset\+Manager.\+cc\end{DoxyCompactItemize}

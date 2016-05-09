@@ -1,0 +1,51 @@
+\hypertarget{classApp}{}\section{App Class Reference}
+\label{classApp}\index{App@{App}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \hyperlink{classApp_ab4c0c84fff9897a7d8bc689de35a33d8}{Init\+World} ()
+\item 
+void \hyperlink{classApp_aeafb49d25856793f0f7367d8b8a8b6c4}{Draw} (const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ \hyperlink{classGameWorld}{Game\+World} $>$ \&game\+\_\+world)
+\item 
+void \hyperlink{classApp_a78d24016da98422fabb55b10dbfe3d72}{Run} ()
+\item 
+void \hyperlink{classApp_acf46a5740892f0d89ee5b47da2bf99ff}{Handle\+Input} (const std\+::shared\+\_\+ptr$<$ \hyperlink{classGameWorld}{Game\+World} $>$ \&game\+\_\+world)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classApp_aeafb49d25856793f0f7367d8b8a8b6c4}{}\index{App@{App}!Draw@{Draw}}
+\index{Draw@{Draw}!App@{App}}
+\subsubsection[{Draw(const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&window, const std\+::shared\+\_\+ptr$<$ Game\+World $>$ \&game\+\_\+world)}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::\+Draw (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ \&}]{window, }
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Game\+World} $>$ \&}]{game\+\_\+world}
+\end{DoxyParamCaption}
+)}\label{classApp_aeafb49d25856793f0f7367d8b8a8b6c4}
+Draws the colour and calls to \hyperlink{classGameWorld}{Game\+World} for Drawing \hypertarget{classApp_acf46a5740892f0d89ee5b47da2bf99ff}{}\index{App@{App}!Handle\+Input@{Handle\+Input}}
+\index{Handle\+Input@{Handle\+Input}!App@{App}}
+\subsubsection[{Handle\+Input(const std\+::shared\+\_\+ptr$<$ Game\+World $>$ \&game\+\_\+world)}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::\+Handle\+Input (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Game\+World} $>$ \&}]{game\+\_\+world}
+\end{DoxyParamCaption}
+)}\label{classApp_acf46a5740892f0d89ee5b47da2bf99ff}
+Handles global input from mouse and keyboard \hypertarget{classApp_ab4c0c84fff9897a7d8bc689de35a33d8}{}\index{App@{App}!Init\+World@{Init\+World}}
+\index{Init\+World@{Init\+World}!App@{App}}
+\subsubsection[{Init\+World()}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Window $>$ App\+::\+Init\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classApp_ab4c0c84fff9897a7d8bc689de35a33d8}
+Initialises the S\+D\+L\+\_\+\+Window and Open\+G\+L 3.\+0 \hypertarget{classApp_a78d24016da98422fabb55b10dbfe3d72}{}\index{App@{App}!Run@{Run}}
+\index{Run@{Run}!App@{App}}
+\subsubsection[{Run()}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::\+Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classApp_a78d24016da98422fabb55b10dbfe3d72}
+Starts our game loop, called via Python or Main 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App.\+h\item 
+App.\+cc\end{DoxyCompactItemize}

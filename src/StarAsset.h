@@ -19,7 +19,6 @@ class StarAsset : public GameAsset {
         StarAsset(glm::vec3,glm::vec3, int, float, glm::vec3, glm::vec3);
         ~StarAsset();
 
-    private:
 };
 
 #endif // STARASSET_H

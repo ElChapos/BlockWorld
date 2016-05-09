@@ -38,8 +38,6 @@ class GameWorld {
         void BlockAction(bool);
         void BlockType(AssetType);
 
-        void Test(int);
-
     private:
         ColourManager colour_manager;
         std::shared_ptr<GameAssetManager> asset_manager;

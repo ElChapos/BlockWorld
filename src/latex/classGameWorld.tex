@@ -1,0 +1,77 @@
+\hypertarget{classGameWorld}{}\section{Game\+World Class Reference}
+\label{classGameWorld}\index{Game\+World@{Game\+World}}
+
+
+{\ttfamily \#include $<$Game\+World.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameWorld_a681994123c12833d43c957d6cfb33765}{Game\+World} ()
+\item 
+void \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw} ()
+\item 
+void \hyperlink{classGameWorld_a9b394b1c980a7735476eb80171642108}{Update\+Camera\+Position} (Input, int, int)
+\item 
+void \hyperlink{classGameWorld_ac4ad43a43be6e6eb7ee311173783873c}{Block\+Action} (bool)
+\item 
+void \hyperlink{classGameWorld_a92aa1f5e8a65a688f1d030f22d867ccc}{Block\+Type} (Asset\+Type)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGameWorld}{Game\+World} allows us to separate the management of the game world from the nuts and bolts of game loop initialisation. The \hyperlink{classGameWorld}{Game\+World} currently has a very simplified scene graph consisiting of a single \hyperlink{classGameAssetManager}{Game\+Asset\+Manager}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGameWorld_a681994123c12833d43c957d6cfb33765}{}\index{Game\+World@{Game\+World}!Game\+World@{Game\+World}}
+\index{Game\+World@{Game\+World}!Game\+World@{Game\+World}}
+\subsubsection[{Game\+World()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+World\+::\+Game\+World (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameWorld_a681994123c12833d43c957d6cfb33765}
+We thread the Application\+Mode through the \hyperlink{classGameWorld}{Game\+World} ss we want to read it in from the user. Threading the state through the various function calls is preferable (in this case) to having some kind of global state.
+
+Initialises the \hyperlink{classGameWorld}{Game\+World} Places some blocks within the \hyperlink{classGameWorld}{Game\+World} to demonstrate all of the available animation and key-\/frame features Assets that are sitting on the spot, but performing an action (Such as Translate, Rotate and Scale)
+
+Assets that are using \char`\"{}path\char`\"{}/\char`\"{}key-\/frames\char`\"{}
+
+\subsection{Member Function Documentation}
+\hypertarget{classGameWorld_ac4ad43a43be6e6eb7ee311173783873c}{}\index{Game\+World@{Game\+World}!Block\+Action@{Block\+Action}}
+\index{Block\+Action@{Block\+Action}!Game\+World@{Game\+World}}
+\subsubsection[{Block\+Action(bool)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+World\+::\+Block\+Action (
+\begin{DoxyParamCaption}
+\item[{bool}]{mode}
+\end{DoxyParamCaption}
+)}\label{classGameWorld_ac4ad43a43be6e6eb7ee311173783873c}
+Add and remove cubes from the game world \hypertarget{classGameWorld_a92aa1f5e8a65a688f1d030f22d867ccc}{}\index{Game\+World@{Game\+World}!Block\+Type@{Block\+Type}}
+\index{Block\+Type@{Block\+Type}!Game\+World@{Game\+World}}
+\subsubsection[{Block\+Type(\+Asset\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+World\+::\+Block\+Type (
+\begin{DoxyParamCaption}
+\item[{Asset\+Type}]{type}
+\end{DoxyParamCaption}
+)}\label{classGameWorld_a92aa1f5e8a65a688f1d030f22d867ccc}
+Changes the type of asset to make based on user input \hypertarget{classGameWorld_a275418607d8286979b276f165ad5876b}{}\index{Game\+World@{Game\+World}!Draw@{Draw}}
+\index{Draw@{Draw}!Game\+World@{Game\+World}}
+\subsubsection[{Draw()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+World\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classGameWorld_a275418607d8286979b276f165ad5876b}
+Calling \hyperlink{classGameWorld_a275418607d8286979b276f165ad5876b}{Draw()} will draw the entire world.
+
+Calls \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} Drawing method \hypertarget{classGameWorld_a9b394b1c980a7735476eb80171642108}{}\index{Game\+World@{Game\+World}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Game\+World@{Game\+World}}
+\subsubsection[{Update\+Camera\+Position(\+Input, int, int)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+World\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{Input}]{input\+\_\+direction, }
+\item[{int}]{mouse\+\_\+x, }
+\item[{int}]{mouse\+\_\+y}
+\end{DoxyParamCaption}
+)}\label{classGameWorld_a9b394b1c980a7735476eb80171642108}
+Calls the Update\+Camera\+Position method in \hyperlink{classGameAssetManager}{Game\+Asset\+Manager} passing the user input and mouse coordnates. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+World.\+h\item 
+Game\+World.\+cc\end{DoxyCompactItemize}

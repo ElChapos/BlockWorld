@@ -1,5 +1,14 @@
 #include "DiamondAsset.h"
 
+/**
+ * Heavily modified from the original. Initialisation for the asset
+ * @param glm::vec3 p: The asset initial position
+ * @param glm::vec3 c: The asset colour
+ * @param int type: What action to perform, check BoundingBox.cc for the types
+ * @param float scale: Initialisation scale/size of the asset. (1 will create it at normal size, lower = smaller, higher = larger)
+ * @param glm::vec3 rotation: Initialises the asset rotated if the vec3 is more than (0.0f,0.0f,0.0f)
+ * @param glm::vev3 speed: Initialises the asset translating towards a point.
+ */
 DiamondAsset::DiamondAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 rotation, glm::vec3 speed) : GameAsset(p , type, scale, rotation, speed)
 {
 	if(glm::to_string(c) == glm::to_string(glm::vec3(-0.1, -0.1, -0.1)))
@@ -76,5 +85,7 @@ DiamondAsset::DiamondAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::
 
 }
 
-DiamondAsset::~DiamondAsset() {
-}
+/**
+ * Class destructor method
+ */
+DiamondAsset::~DiamondAsset() {}

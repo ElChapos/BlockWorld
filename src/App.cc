@@ -1,23 +1,22 @@
 #define GLEW_STATIC // Easier debugging
 #define RUN_GRAPHICS_DISPLAY 0x00;
-#include <GL/glew.h>
 
+#include <GL/glew.h>
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
 #endif
-
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <memory>
 #include <boost/program_options.hpp>
+
 #include "common.h"
 #include "App.h"
 #include "GameWorld.h"
 
-
-/*
+/**
  * SDL timers run in separate threads.  In the timer thread
  * push an event onto the event queue.  This event signifies
  * to call display() from the thread in which the OpenGL
@@ -34,6 +33,9 @@ Uint32 tick(Uint32 interval, void *param)
     return interval;
 }
 
+/**
+ * Destroys the game SDL_Window
+ */
 struct SDLWindowDeleter
 {
     inline void operator()(SDL_Window* window)
@@ -42,8 +44,8 @@ struct SDLWindowDeleter
     }
 };
 
-/*
- * Handles input
+/**
+ * Handles global input from mouse and keyboard
  */
 void App::HandleInput(const std::shared_ptr<GameWorld> &game_world)
 {
@@ -116,6 +118,9 @@ void App::HandleInput(const std::shared_ptr<GameWorld> &game_world)
     }
 }
 
+/**
+ * Draws the colour and calls to GameWorld for Drawing
+ */
 void App::Draw(const std::shared_ptr<SDL_Window> &window, const std::shared_ptr<GameWorld> &game_world)
 {
     // Background
@@ -128,9 +133,9 @@ void App::Draw(const std::shared_ptr<SDL_Window> &window, const std::shared_ptr<
     SDL_GL_SwapWindow(window.get());
 }
 
-
-
-
+/**
+ * Initialises the SDL_Window and OpenGL 3.0
+ */
 std::shared_ptr<SDL_Window> App::InitWorld()
 {
     Uint32 width = 1027;
@@ -200,7 +205,10 @@ std::shared_ptr<SDL_Window> App::InitWorld()
     return window;
 }
 
- void App::Run()
+/**
+ * Starts our game loop, called via Python or Main
+ */
+void App::Run()
 {
     Uint32 delay = 1000/60; // in milliseconds
 
@@ -215,7 +223,6 @@ std::shared_ptr<SDL_Window> App::InitWorld()
     // Call the function "tick" every delay milliseconds
     SDL_AddTimer(delay, tick, NULL);
     SDL_SetRelativeMouseMode(SDL_TRUE);
-
 
     // Add the main event loop
     SDL_Event event;
@@ -239,4 +246,3 @@ std::shared_ptr<SDL_Window> App::InitWorld()
         }
     }
 }
-

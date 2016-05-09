@@ -1,5 +1,8 @@
 #include "BoundingBox.h"
 
+/**
+ * BoundingBox initialisation
+ */
 BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
     this->position = position -= glm::vec3(0.5f,0.5f,0.5f);
@@ -9,19 +12,18 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
     this->speed = speed;
     this->path_counter = 0;
     this->destination_reached = false;
-    //std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
 /**
- * Get the model translformation based on type
+ * Get the model translformation based on asset type
  */
 glm::mat4 BoundingBox::GetModelTransformation()
 {
-    if (this->type == 1)
+    if(this->type == 1)
     {
         this->Translate(glm::vec3(0.01f, 0.0f, 0.0f));
     }
-    else if (this->type == 2)
+    else if(this->type == 2)
     {
         this->Rotate(glm::vec3(0.01f, 0.01f, 0.01f));
     }
@@ -37,7 +39,6 @@ glm::mat4 BoundingBox::GetModelTransformation()
     {
         FollowPath();
     }
-
 
     //Scale rotate and translate a bounding box and return the updated matrix.
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
@@ -101,16 +102,16 @@ glm::vec3 BoundingBox::GetVec3()
 }
 
 /**
-*   Set some Path Coordinates
-*/
+ *   Set some Path Coordinates
+ */
 void BoundingBox::SetPath(std::vector<glm::vec3> path_list)
 {
     this->path_list = path_list;
 }
 
 /**
-* Follow Path coordiantes
-*/
+ * Follow Path coordiantes
+ */
 void BoundingBox::FollowPath()
 {
         glm::vec3 position_max = this->position += glm::vec3( 1.0f * this-> scale ,1.0f* this-> scale,1.0f* this-> scale);
@@ -119,17 +120,19 @@ void BoundingBox::FollowPath()
 
         if(this->destination_reached == true)
         {
-             std::cout << "moving towards " << this->path_counter <<  std::endl;
+            std::cout << "moving towards " << this->path_counter <<  std::endl;
             this->path_counter ++;
+            
             if(this->path_counter == this->path_list.size())
             {
                 this->path_counter = 0;
             }
+            
             this->destination_reached = false;
         }
         else
         {
-        this->direction = glm::normalize(path_list.at(this->path_counter)  - (this->position + glm::vec3(0.5f,0.5f,0.5f)));
+            this->direction = glm::normalize(path_list.at(this->path_counter)  - (this->position + glm::vec3(0.5f,0.5f,0.5f)));
             this->position += this->direction * 2.0f * 0.01f;
 
             if(position_max.x > coordinate.x && position_min.x < coordinate.x &&
@@ -163,8 +166,8 @@ glm::vec3 BoundingBox::GetMaxAndMin(int type)
 }
 
 /**
-* Check if a bounding box has collided with another
-*/
+ * Check if a bounding box has collided with another
+ */
 void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
 {
     //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max

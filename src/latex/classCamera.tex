@@ -1,0 +1,65 @@
+\hypertarget{classCamera}{}\section{Camera Class Reference}
+\label{classCamera}\index{Camera@{Camera}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCamera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\item 
+void \hyperlink{classCamera_a11b85fe13adc0c6b5fdb3cebfc9a75ff}{Check\+Collision} (glm\+::vec3 bounding\+\_\+box\+\_\+max, glm\+::vec3 bounding\+\_\+box\+\_\+min)
+\item 
+glm\+::mat4 \hyperlink{classCamera_afb0ed354bbab94961936c4f61320fa69}{Update\+Camera\+Position} (Input input\+\_\+direction, int mouse\+\_\+x, int mouse\+\_\+y)
+\item 
+glm\+::vec3 \hyperlink{classCamera_a948a60a6eb780a313ed59690bbaef811}{Get\+Camera\+Position} ()
+\item 
+glm\+::vec3 \hyperlink{classCamera_a988589852d490dd0f4824127372464ed}{Get\+Camera\+Direction} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCamera_a01f94c3543f56ede7af49dc778f19331}{}\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{Camera()}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCamera_a01f94c3543f56ede7af49dc778f19331}
+Initialise camera class 
+
+\subsection{Member Function Documentation}
+\hypertarget{classCamera_a11b85fe13adc0c6b5fdb3cebfc9a75ff}{}\index{Camera@{Camera}!Check\+Collision@{Check\+Collision}}
+\index{Check\+Collision@{Check\+Collision}!Camera@{Camera}}
+\subsubsection[{Check\+Collision(glm\+::vec3 bounding\+\_\+box\+\_\+max, glm\+::vec3 bounding\+\_\+box\+\_\+min)}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Check\+Collision (
+\begin{DoxyParamCaption}
+\item[{glm\+::vec3}]{bounding\+\_\+box\+\_\+max, }
+\item[{glm\+::vec3}]{bounding\+\_\+box\+\_\+min}
+\end{DoxyParamCaption}
+)}\label{classCamera_a11b85fe13adc0c6b5fdb3cebfc9a75ff}
+Detects a collision \hypertarget{classCamera_a988589852d490dd0f4824127372464ed}{}\index{Camera@{Camera}!Get\+Camera\+Direction@{Get\+Camera\+Direction}}
+\index{Get\+Camera\+Direction@{Get\+Camera\+Direction}!Camera@{Camera}}
+\subsubsection[{Get\+Camera\+Direction()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Camera\+::\+Get\+Camera\+Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCamera_a988589852d490dd0f4824127372464ed}
+Fetches and returns the camera direction plus an offset \hypertarget{classCamera_a948a60a6eb780a313ed59690bbaef811}{}\index{Camera@{Camera}!Get\+Camera\+Position@{Get\+Camera\+Position}}
+\index{Get\+Camera\+Position@{Get\+Camera\+Position}!Camera@{Camera}}
+\subsubsection[{Get\+Camera\+Position()}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Camera\+::\+Get\+Camera\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classCamera_a948a60a6eb780a313ed59690bbaef811}
+Fetches and returns the camera position \hypertarget{classCamera_afb0ed354bbab94961936c4f61320fa69}{}\index{Camera@{Camera}!Update\+Camera\+Position@{Update\+Camera\+Position}}
+\index{Update\+Camera\+Position@{Update\+Camera\+Position}!Camera@{Camera}}
+\subsubsection[{Update\+Camera\+Position(\+Input input\+\_\+direction, int mouse\+\_\+x, int mouse\+\_\+y)}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Camera\+::\+Update\+Camera\+Position (
+\begin{DoxyParamCaption}
+\item[{Input}]{input\+\_\+direction, }
+\item[{int}]{mouse\+\_\+x, }
+\item[{int}]{mouse\+\_\+y}
+\end{DoxyParamCaption}
+)}\label{classCamera_afb0ed354bbab94961936c4f61320fa69}
+Updates the camera position based on user input, if a change is detected the view matrix is updated and returned to be used by the translate shader 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Camera.\+h\item 
+Camera.\+cc\end{DoxyCompactItemize}

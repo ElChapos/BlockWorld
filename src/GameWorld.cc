@@ -1,11 +1,18 @@
 #include "GameWorld.h"
 
+/**
+ * Initialises the GameWorld
+ * Places some blocks within the GameWorld to demonstrate all of the available animation and key-frame features
+ */
 GameWorld::GameWorld ()
 {
 	asset_manager = std::make_shared<GameAssetManager>();
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
-	// Position, Type, Scale, Rotation, Speed
+	/**
+	 * Assets that are sitting on the spot, but performing an action
+	 * (Such as Translate, Rotate and Scale)
+	 */
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
@@ -45,7 +52,9 @@ GameWorld::GameWorld ()
 	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
-	// test animation path
+	/**
+	 * Assets that are using "path"/"key-frames"
+	 */
 	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 5, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->SetPath(glm::vec3(6.0,0.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(6.0,3.0,0.0), true);
@@ -68,7 +77,7 @@ GameWorld::GameWorld ()
 }
 
 /**
- * calls the draw method in GameAssetManager.cc
+ * Calls GameAssetManager Drawing method
  */
 void GameWorld::Draw()
 {
@@ -76,7 +85,7 @@ void GameWorld::Draw()
 }
 
 /**
- * calls the updatecamera method in GameAssetManager passing the user input and mouse coordnates.
+ * Calls the UpdateCameraPosition method in GameAssetManager passing the user input and mouse coordnates.
  */
 void GameWorld::UpdateCameraPosition(Input input_direction, int mouse_x, int mouse_y)
 {
@@ -117,7 +126,7 @@ void GameWorld::BlockAction(bool mode)
 }
 
 /**
- * Change the type of asset to make
+ * Changes the type of asset to make based on user input
  */
 void GameWorld::BlockType(AssetType type)
 {
@@ -141,9 +150,4 @@ void GameWorld::BlockType(AssetType type)
 	}
 
 	placement_type = type;
-}
-
-void GameWorld::Test(int message)
-{
-	std::cout << message << std::endl;
 }

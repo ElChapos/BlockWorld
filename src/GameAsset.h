@@ -15,7 +15,7 @@
 
 #include "BoundingBox.h"
 
-class GameAsset{
+class GameAsset {
 	public:
 		GameAsset(glm::vec3, int, float, glm::vec3, glm::vec3);
 
@@ -30,8 +30,6 @@ class GameAsset{
         GLuint element_buffer_length, vertex_buffer_length, colour_buffer_length;
         GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;
         std::shared_ptr<BoundingBox> bounding_box;
-
-	private:
 
 };
 
