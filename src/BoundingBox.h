@@ -29,7 +29,6 @@ class BoundingBox {
         glm::vec3 rotation;
         glm::vec3 speed;
         glm::vec3 direction;
-        float distance;
 
         float scale;
         int type;
