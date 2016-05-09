@@ -11,7 +11,6 @@ BOOST_PYTHON_MODULE(libblockengine)
 {
     boost::python::def("greet", greet);
 
-    boost::python::class_<GameWorld>("GameWorld")
-    	.def("Test", &GameWorld::Test)
-    	.def("Draw", &GameWorld::Draw);
+    boost::python::class_<App>("App")
+    	.def("Run", &App::Run);
 }

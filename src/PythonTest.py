@@ -1,9 +1,8 @@
 import libblockengine
 print libblockengine.greet()
 
-gw = libblockengine.GameWorld();
+app = libblockengine.App();
 
-gw.Test(1)
-gw.Draw()
+app.Run()
 
 print("Hello World")

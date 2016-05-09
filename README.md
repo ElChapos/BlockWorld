@@ -31,11 +31,13 @@ Alternatively, if you'd like to build the project in debug mode use:
 > $ make CXXFLAGS=-DDEBUG
 
 # Python Bindings #
+If you would like to run the project via python use:
 
 ``` bash
 	cd src/
 	export PYTHONPATH=`pwd`/.libs/
-	cd ../ && make
+	cd ..
+	python2.7 src/PythonTest.py
 ```
 
 # Running #
