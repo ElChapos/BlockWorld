@@ -33,9 +33,11 @@ script:
 os:
  - linux
  - osx
+ - windows
 
 matrix:
   allow_failures:
     - os: osx
+    - os: windows
 
 sudo: true
