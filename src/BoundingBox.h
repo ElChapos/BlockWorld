@@ -11,6 +11,7 @@
 class BoundingBox {
     public:
         BoundingBox(glm::vec3, int, float, glm::vec3, glm::vec3);
+        ~BoundingBox();
 
         glm::vec3 GetVec3();
         glm::mat4 GetModelTransformation();
