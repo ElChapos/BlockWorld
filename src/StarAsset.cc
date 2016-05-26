@@ -9,7 +9,7 @@
 * @param glm::vec3 rotation: Initialises the asset rotated if the vec3 is more than (0.0f,0.0f,0.0f)
 * @param glm::vev3 speed: Initialises the asset translating towards a point.
 */
-StarAsset::StarAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 rotation, glm::vec3 speed) : GameAsset(p , type, scale, rotation, speed)
+StarAsset::StarAsset(glm::vec3 p, glm::vec3 c,BBoxType type, float scale, glm::vec3 rotation, glm::vec3 speed) : GameAsset(p , type, scale, rotation, speed)
 {
     if(glm::to_string(c) == glm::to_string(glm::vec3(-0.1, -0.1, -0.1)))
     {

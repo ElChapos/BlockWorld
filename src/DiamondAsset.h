@@ -15,7 +15,7 @@
 
 class DiamondAsset : public GameAsset {
     public:
-        DiamondAsset(glm::vec3,glm::vec3, int, float, glm::vec3, glm::vec3);
+        DiamondAsset(glm::vec3,glm::vec3, BBoxType, float, glm::vec3, glm::vec3);
         ~DiamondAsset();
 
 };

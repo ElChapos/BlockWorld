@@ -3,7 +3,7 @@
 /**
  * BoundingBox initialisation
  */
-BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
+BoundingBox::BoundingBox(glm::vec3 position, BBoxType type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
     this->position = position -= glm::vec3(0.5f,0.5f,0.5f);
     this->type = type;
@@ -19,23 +19,23 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
  */
 glm::mat4 BoundingBox::GetModelTransformation()
 {
-    if(this->type == 1)
+    if(this->type == TRANSLATE)
     {
         this->Translate(glm::vec3(0.01f, 0.0f, 0.0f));
     }
-    else if(this->type == 2)
+    else if(this->type == ROTATE)
     {
         this->Rotate(glm::vec3(0.01f, 0.01f, 0.01f));
     }
-    else if(this->type == 3)
+    else if(this->type == SCALE)
     {
         this->Scale(0.01f);
     }
-    else if(this->type == 4)
+    else if(this->type == SPECIAL)
     {
         this->Translate(glm::vec3(this->speed.x,this->speed.y,this->speed.z));
     }
-    else if(this->type == 5)
+    else if(this->type == FOLLOWPATH)
     {
         FollowPath();
     }

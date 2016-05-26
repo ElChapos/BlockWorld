@@ -13,61 +13,61 @@ GameWorld::GameWorld ()
 	 * Assets that are sitting on the spot, but performing an action
 	 * (Such as Translate, Rotate and Scale)
 	 */
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(6.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(9.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(6.0, 10.0, 23.0),colour_manager.GetColour("random"), ROTATE, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(9.0, 0.0, 30.0), colour_manager.GetColour("random"), SCALE, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 3.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 6.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -3.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, -6.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-6.0, 0.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-9.0, -5.0, 20.0),colour_manager.GetColour("random"), NONE, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-20.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-20.0, 0.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 10.0, 23.0),colour_manager.GetColour("random"), ROTATE, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 30.0), colour_manager.GetColour("random"), SCALE, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 3.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, 6.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -3.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-23.0, -6.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-26.0, 0.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<DiamondAsset>(glm::vec3(-29.0, -5.0, 20.0),colour_manager.GetColour("random"), NONE, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(20.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(26.0, 10.0, 23.0),colour_manager.GetColour("random"), 2, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 30.0), colour_manager.GetColour("random"),3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, -3.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, -6.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(26.0, 0.0, 20.0),colour_manager.GetColour("random"), 4, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 20.0),colour_manager.GetColour("random"), 2, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, -5.0, 20.0),colour_manager.GetColour("random"), 0, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(20.0, 0.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.01,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(26.0, 10.0, 23.0),colour_manager.GetColour("random"), ROTATE, 10, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 30.0), colour_manager.GetColour("random"), SCALE, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 3.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.03,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, 6.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, -3.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,-0.02,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(23.0, -6.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(26.0, 0.0, 20.0),colour_manager.GetColour("random"), SPECIAL, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(-0.04,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, 0.0, 20.0),colour_manager.GetColour("random"), ROTATE, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<StarAsset>(glm::vec3(29.0, -5.0, 20.0),colour_manager.GetColour("random"), NONE, 1, glm::vec3(2.0,2.0,2.0), glm::vec3(0.0,0.0,0.0)));
 
 	/**
 	 * Assets that are using "path"/"key-frames"
 	 */
-	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), 5, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+	asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(3.0, 0.0, 0.0),colour_manager.GetColour("random"), FOLLOWPATH, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->SetPath(glm::vec3(6.0,0.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(6.0,3.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(6.0,3.0,3.0), true);
 	asset_manager->SetPath(glm::vec3(0.0,0.0,0.0), false);
 
-    asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), 5, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+    asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(-3.0, 0.0, 0.0),colour_manager.GetColour("random"), FOLLOWPATH, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->SetPath(glm::vec3(-6.0,0.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(-6.0,-3.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(-6.0,-3.0,-3.0), true);
 	asset_manager->SetPath(glm::vec3(0.0,0.0,0.0), false);
 
-    asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), 5, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+    asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), FOLLOWPATH, 1, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 	asset_manager->SetPath(glm::vec3(0.0,3.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(0.0,-3.0,0.0), true);
 	asset_manager->SetPath(glm::vec3(0.0,0.0,0.0), true);
@@ -104,15 +104,15 @@ void GameWorld::BlockAction(bool mode)
 	{
 		if(placement_type == BW_CUBE)
 		{
-			asset_manager->AddAsset(std::make_shared<CubeAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+			asset_manager->AddAsset(std::make_shared<CubeAsset>(block_position, colour_manager.GetColour("random"), NONE, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 		}
 		else if(placement_type == BW_STAR)
 		{
-			asset_manager->AddAsset(std::make_shared<StarAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+			asset_manager->AddAsset(std::make_shared<StarAsset>(block_position, colour_manager.GetColour("random"), NONE, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 		}
 		else if(placement_type == BW_DIAMOND)
 		{
-			asset_manager->AddAsset(std::make_shared<DiamondAsset>(block_position, colour_manager.GetColour("random"), 0, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
+			asset_manager->AddAsset(std::make_shared<DiamondAsset>(block_position, colour_manager.GetColour("random"), NONE, 1, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f)));
 		}
 		else
 		{

@@ -17,7 +17,7 @@
 
 class GameAsset {
 	public:
-		GameAsset(glm::vec3, int, float, glm::vec3, glm::vec3);
+		GameAsset(glm::vec3, BBoxType, float, glm::vec3, glm::vec3);
 
 		void Draw(GLuint);
 		glm::mat4 GetModelTransformation();

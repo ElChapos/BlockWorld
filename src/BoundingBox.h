@@ -10,7 +10,7 @@
 
 class BoundingBox {
     public:
-        BoundingBox(glm::vec3, int, float, glm::vec3, glm::vec3);
+        BoundingBox(glm::vec3, BBoxType, float, glm::vec3, glm::vec3);
         ~BoundingBox();
 
         glm::vec3 GetVec3();
@@ -32,7 +32,7 @@ class BoundingBox {
         glm::vec3 direction;
 
         float scale;
-        int type;
+        BBoxType type = NONE;
         glm::mat4 translate_matrix;
         glm::mat4 scale_matrix;
         glm::mat4 model_matrix;

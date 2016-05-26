@@ -3,7 +3,7 @@
 /**
 *  Initalise a BoundingBox with the GameAsset
 */
-GameAsset::GameAsset(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
+GameAsset::GameAsset(glm::vec3 position, BBoxType type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
     bounding_box = std::make_shared<BoundingBox>(position, type, scale, rotation, speed);
 }
