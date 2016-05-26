@@ -41,25 +41,25 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
     camera_up = glm::cross(camera_right, camera_direction);
 
     // update the position of the camera/player  based on user input
-    if(input_direction == W)
+    if(input_direction == UP)
     {
         camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0, cos(camera_vertical_angle) * cos(camera_horizontal_angle)) * camera_movement_speed;
-        last_direction = "W";
+        last_direction = "UP";
     }
-    if(input_direction == S)
+    if(input_direction == DOWN)
     {
         camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0, cos(camera_vertical_angle) * cos(camera_horizontal_angle)) * camera_movement_speed;
-        last_direction = "S";
+        last_direction = "DOWN";
     }
-    if(input_direction == A)
+    if(input_direction == LEFT)
     {
         camera_position -= camera_right * camera_movement_speed;
-        last_direction = "A";
+        last_direction = "LEFT";
     }
-    if(input_direction == D)
+    if(input_direction == RIGHT)
     {
         camera_position += camera_right * camera_movement_speed;
-        last_direction = "D";
+        last_direction = "RIGHT";
     }
     if(input_direction == SPACE)
     {
@@ -90,19 +90,19 @@ void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_m
         bounding_box_max.z > camera_bounding_box_min.z && bounding_box_min.z < camera_bounding_box_max.z)
     {
         std::cout << "Collision detected with camera" << std::endl;
-        if(last_direction == "W")
+        if(last_direction == "UP")
         {
             camera_position -= glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle),0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
         }
-        if(last_direction == "S")
+        if(last_direction == "DOWN")
         {
             camera_position += glm::vec3(cos(camera_vertical_angle) * sin(camera_horizontal_angle), 0,cos(camera_vertical_angle) * cos(camera_horizontal_angle))* camera_movement_speed;
         }
-        if(last_direction == "A")
+        if(last_direction == "LEFT")
         {
             camera_position += camera_right * camera_movement_speed;
         }
-        if(last_direction == "D")
+        if(last_direction == "RIGHT")
         {
             camera_position -= camera_right * camera_movement_speed;
         }

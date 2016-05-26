@@ -15,7 +15,7 @@
 
 class CubeAsset : public GameAsset {
     public:
-        CubeAsset(glm::vec3,glm::vec3, BBoxType, float, glm::vec3, glm::vec3);
+        CubeAsset(glm::vec3, glm::vec3, BBoxType, float, glm::vec3, glm::vec3);
         ~CubeAsset();
 
 };

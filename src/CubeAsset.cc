@@ -4,7 +4,7 @@
  * Heavily modified from the original. Initialisation for the asset
  * @param glm::vec3 p: The asset initial position
  * @param glm::vec3 c: The asset colour
- * @param int type: What action to perform, check BoundingBox.cc for the types
+ * @param ENUM BBoxType type: What action to perform, check BoundingBox.cc for the types
  * @param float scale: Initialisation scale/size of the asset. (1 will create it at normal size, lower = smaller, higher = larger)
  * @param glm::vec3 rotation: Initialises the asset rotated if the vec3 is more than (0.0f,0.0f,0.0f)
  * @param glm::vev3 speed: Initialises the asset translating towards a point.

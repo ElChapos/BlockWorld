@@ -67,19 +67,19 @@ void App::HandleInput(const std::shared_ptr<GameWorld> &game_world)
     keyboard_state = SDL_GetKeyboardState(NULL);
     if(keyboard_state[SDL_SCANCODE_W])
     {
-        game_world->UpdateCameraPosition(W, mouse_x, mouse_y);
+        game_world->UpdateCameraPosition(UP, mouse_x, mouse_y);
     }
     if(keyboard_state[SDL_SCANCODE_A])
     {
-        game_world->UpdateCameraPosition(A, mouse_x, mouse_y);
+        game_world->UpdateCameraPosition(LEFT, mouse_x, mouse_y);
     }
     if(keyboard_state[SDL_SCANCODE_S])
     {
-        game_world->UpdateCameraPosition(S, mouse_x, mouse_y);
+        game_world->UpdateCameraPosition(DOWN, mouse_x, mouse_y);
     }
     if(keyboard_state[SDL_SCANCODE_D])
     {
-        game_world->UpdateCameraPosition(D, mouse_x, mouse_y);
+        game_world->UpdateCameraPosition(RIGHT, mouse_x, mouse_y);
     }
 	if(keyboard_state[SDL_SCANCODE_SPACE])
     {

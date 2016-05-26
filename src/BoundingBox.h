@@ -5,6 +5,7 @@
 #include <memory>
 #include <utility>
 #include <ostream>
+#include "common.h"
 
 #include <vector>
 
@@ -24,6 +25,7 @@ class BoundingBox {
         void SetPath(std::vector<glm::vec3>);
         void FollowPath();
         std::vector<glm::vec3> path_list;
+        BBoxType type = NONE;
 
     private:
         glm::vec3 position;
@@ -32,7 +34,6 @@ class BoundingBox {
         glm::vec3 direction;
 
         float scale;
-        BBoxType type = NONE;
         glm::mat4 translate_matrix;
         glm::mat4 scale_matrix;
         glm::mat4 model_matrix;
