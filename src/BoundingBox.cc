@@ -15,9 +15,14 @@ BoundingBox::BoundingBox(glm::vec3 position, BBoxType type, float scale , glm::v
 }
 
 /**
+ * Class destructor method
+ */
+BoundingBox::~BoundingBox() {}
+
+/**
  * Get the model translformation based on asset type
  */
-glm::mat4 BoundingBox::GetModelTransformation()
+glm::mat4 BoundingBox::GetModelTransformation(glm::vec3 player_position, glm::vec3 camera_direction)
 {
     if(this->type == TRANSLATE)
     {
@@ -40,8 +45,15 @@ glm::mat4 BoundingBox::GetModelTransformation()
         FollowPath();
     }
 
+    if(this->type == PLAYER)
+    {
+        this->position = player_position + camera_direction;
+    }
+
     //Scale rotate and translate a bounding box and return the updated matrix.
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
+
+
     glm::mat4 translate_matrix = glm::translate(glm::mat4(), glm::vec3(this->position.x, this->position.y, this->position.z));
 
     model_matrix = translate_matrix * scale_matrix;
@@ -181,7 +193,8 @@ void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding
     }
 }
 
-/**
- * Class destructor method
- */
-BoundingBox::~BoundingBox() {}
+BBoxType BoundingBox::GetType()
+{
+    return this->type;
+}
+

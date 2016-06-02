@@ -20,12 +20,13 @@ class GameAsset {
 		GameAsset(glm::vec3, BBoxType, float, glm::vec3, glm::vec3);
 
 		void Draw(GLuint);
-		glm::mat4 GetModelTransformation();
+		glm::mat4 GetModelTransformation(glm::vec3, glm::vec3);
 		glm::vec3 GetMaxAndMin(int);
         void SetPath(std::vector<glm::vec3>);
 		void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
 		glm::vec3 GetVec3();
 		float rf();
+		BBoxType GetType();
 
         GLuint element_buffer_length, vertex_buffer_length, colour_buffer_length;
         GLuint vertex_buffer_token, element_buffer_token, colour_buffer_token;

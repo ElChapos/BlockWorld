@@ -147,9 +147,11 @@ void GameAssetManager::Draw()
         // before drawing an asset , update the matrix values in the translate shader
         glUniformMatrix4fv(projection_matrix_link, 1, GL_FALSE, &projection_matrix[0][0]);
         glUniformMatrix4fv(view_matrix_link, 1, GL_FALSE, &view_matrix[0][0]);
-        
+
+
         // Get the translate matrix from our game asset
-        translate_matrix= ga->GetModelTransformation();
+        translate_matrix= ga->GetModelTransformation(camera->GetCameraPosition() ,camera->GetCameraDirection());
+
         glUniformMatrix4fv(translate_matrix_link, 1, GL_FALSE, &translate_matrix[0][0]);
 
         bounding_box1_max = ga->GetMaxAndMin(1);
@@ -157,6 +159,7 @@ void GameAssetManager::Draw()
         bounding_box1_position = ga->GetVec3();
 
         camera->CheckCollision(bounding_box1_max, bounding_box1_min);
+
 
         for(auto ga2: draw_list)
         {

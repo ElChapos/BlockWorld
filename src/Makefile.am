@@ -1,11 +1,11 @@
-EXTRA_DIST = GameWorld.h GameAssetManager.h App.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
+EXTRA_DIST = PlayerAsset.h GameWorld.h GameAssetManager.h App.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
 
 bin_PROGRAMS = BlockWorld
 BlockWorld_SOURCES = main.cc
 BlockWorld_LDADD = libblockengine.la
 
 lib_LTLIBRARIES = libblockengine.la
-libblockengine_la_SOURCES = GameWorld.cc GameAssetManager.cc App.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
+libblockengine_la_SOURCES = PlayerAsset.cc GameWorld.cc GameAssetManager.cc App.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES
 AM_CPPFLAGS += -std=c++11 -I/usr/include/python2.7

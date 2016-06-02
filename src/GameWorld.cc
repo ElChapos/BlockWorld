@@ -10,6 +10,12 @@ GameWorld::GameWorld ()
 	colour_manager.AddColour("random", glm::vec3(-0.1, -0.1, -0.1));
 
 	/**
+	*   Create the PlayerAsset Model
+	*/
+
+    asset_manager->AddAsset(std::make_shared<PlayerAsset>(glm::vec3(0.0, 0.0, 0.0),colour_manager.GetColour("random"), PLAYER, 0.5f, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
+
+	/**
 	 * Assets that are sitting on the spot, but performing an action
 	 * (Such as Translate, Rotate and Scale)
 	 */

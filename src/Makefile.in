@@ -134,9 +134,10 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libblockengine_la_LIBADD =
-am_libblockengine_la_OBJECTS = GameWorld.lo GameAssetManager.lo App.lo \
-	Camera.lo BoundingBox.lo GameAsset.lo ColourManager.lo \
-	PythonBindings.lo DiamondAsset.lo CubeAsset.lo StarAsset.lo
+am_libblockengine_la_OBJECTS = PlayerAsset.lo GameWorld.lo \
+	GameAssetManager.lo App.lo Camera.lo BoundingBox.lo \
+	GameAsset.lo ColourManager.lo PythonBindings.lo \
+	DiamondAsset.lo CubeAsset.lo StarAsset.lo
 libblockengine_la_OBJECTS = $(am_libblockengine_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -342,11 +343,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = GameWorld.h GameAssetManager.h App.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
+EXTRA_DIST = PlayerAsset.h GameWorld.h GameAssetManager.h App.h GameAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h DiamondAsset.h CubeAsset.h StarAsset.h
 BlockWorld_SOURCES = main.cc
 BlockWorld_LDADD = libblockengine.la
 lib_LTLIBRARIES = libblockengine.la
-libblockengine_la_SOURCES = GameWorld.cc GameAssetManager.cc App.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
+libblockengine_la_SOURCES = PlayerAsset.cc GameWorld.cc GameAssetManager.cc App.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.cc DiamondAsset.cc CubeAsset.cc StarAsset.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	-I/usr/include/python2.7 $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
@@ -490,6 +491,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameAssetManager.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GameWorld.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PlayerAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PythonBindings.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/StarAsset.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@

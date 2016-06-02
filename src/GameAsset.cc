@@ -11,9 +11,9 @@ GameAsset::GameAsset(glm::vec3 position, BBoxType type, float scale , glm::vec3 
 /**
 *  Update a GameAsset position to the position of the BoundingBox
 */
-glm::mat4 GameAsset::GetModelTransformation()
+glm::mat4 GameAsset::GetModelTransformation(glm::vec3 player_position, glm::vec3 camera_direction)
 {
-    return bounding_box->GetModelTransformation();
+    return bounding_box->GetModelTransformation(player_position, camera_direction);
 }
 
 /**
@@ -47,6 +47,14 @@ glm::vec3 GameAsset::GetMaxAndMin(int type)
 void GameAsset::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
 {
     bounding_box->CheckCollision(bounding_box1_max, bounding_box1_min, bounding_box2_max, bounding_box2_min);
+}
+
+/**
+*  Return the Bounding Box type
+*/
+BBoxType GameAsset::GetType()
+{
+    return bounding_box->GetType();
 }
 
 /**

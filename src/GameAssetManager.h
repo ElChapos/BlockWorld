@@ -21,6 +21,7 @@
 #include "DiamondAsset.h"
 #include "StarAsset.h"
 #include "Camera.h"
+#include "PlayerAsset.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
