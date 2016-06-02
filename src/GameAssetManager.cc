@@ -160,17 +160,19 @@ void GameAssetManager::Draw()
 
         camera->CheckCollision(bounding_box1_max, bounding_box1_min);
 
-
-        for(auto ga2: draw_list)
+        if ( ga->GetType() == FOLLOWPATH || ga->GetType() == TRANSLATE || ga->GetType() == SPECIAL)
         {
-            bounding_box2_max = ga2->GetMaxAndMin(1);
-            bounding_box2_min = ga2->GetMaxAndMin(2);
-            bounding_box2_position = ga2->GetVec3();
-
-            //If the two bounding boxes are not in the same position (not the same bounding box), then check for a collision.
-            if( bounding_box1_position != bounding_box2_position)
+            for(auto ga2: draw_list)
             {
-                ga -> CheckCollision(bounding_box1_max, bounding_box1_min, bounding_box2_max, bounding_box2_min);
+                bounding_box2_max = ga2->GetMaxAndMin(1);
+                bounding_box2_min = ga2->GetMaxAndMin(2);
+                bounding_box2_position = ga2->GetVec3();
+
+                //If the two bounding boxes are not in the same position (not the same bounding box), then check for a collision.
+                if( bounding_box1_position != bounding_box2_position)
+                {
+                    ga -> CheckCollision(bounding_box1_max, bounding_box1_min, bounding_box2_max, bounding_box2_min);
+                }
             }
         }
 
