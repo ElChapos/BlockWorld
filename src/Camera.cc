@@ -81,8 +81,8 @@ glm::mat4 Camera::UpdateCameraPosition(Input input_direction, int mouse_x, int m
  */
 void Camera::CheckCollision(glm::vec3 bounding_box_max, glm::vec3 bounding_box_min)
 {
-    glm::vec3 camera_bounding_box_max = camera_position += glm::vec3(1.0,1.0,1.0);
-    glm::vec3 camera_bounding_box_min = camera_position += glm::vec3(-1.0,-1.0,-1.0);
+    glm::vec3 camera_bounding_box_max = camera_position += glm::vec3(0.75, 0.75, 0.75);
+    glm::vec3 camera_bounding_box_min = camera_position += glm::vec3(-0.75, -0.75, -0.75);
 
     //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max
     if (bounding_box_max.x > camera_bounding_box_min.x && bounding_box_min.x < camera_bounding_box_max.x &&
